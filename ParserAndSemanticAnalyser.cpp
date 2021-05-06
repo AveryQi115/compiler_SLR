@@ -78,6 +78,8 @@ Factor::Factor(const Symbol& sym) : Symbol(sym) {}
 
 ArgumentList::ArgumentList(const Symbol& sym) : Symbol(sym) {}
 
+// å·¥å…·å‡½æ•°
+// å¦‚æœsæ˜¯ç»ˆç»“ç¬¦ï¼Œè¿”å›true
 bool isVT(string s) {
 	if (s == "int" || s == "void" || s == "if" || s == "while" || s == "else" || s == "return") {
 		return true;
@@ -91,6 +93,13 @@ bool isVT(string s) {
 	return false;
 }
 
+
+/******************************* Class ParserAndSemanticAnalyser è¯­æ³•åŠ è¯­ä¹‰åˆ†æç±» ********************************************************************************/
+
+/*********************** SLRè¯­æ³•æ ¹æ®è¯­æ³•è§„åˆ™ç”Ÿæˆç›¸åº”ç§»è¿›è§„çº¦è¡¨ *******************************************************/
+
+// fileName: å­˜æ”¾è¯­æ³•è§„åˆ™çš„æ–‡ä»¶
+// æ„é€ å‡½æ•°æ ¹æ®è¾“å…¥çš„è¯­æ³•è§„åˆ™ç”Ÿæˆç§»è¿›è§„çº¦è¡¨
 ParserAndSemanticAnalyser::ParserAndSemanticAnalyser(const char*fileName) {
 	readProductions(fileName);
 	getFirst();
@@ -102,34 +111,34 @@ ParserAndSemanticAnalyser::ParserAndSemanticAnalyser(const char*fileName) {
 void ParserAndSemanticAnalyser::getFirst() {
 	bool changeFlag = true;
 	while (changeFlag) {
-		changeFlag = false;//first¼¯¸Ä±ä±êÖ¾
-		//±éÀúÃ¿Ò»¸ö²úÉúÊ½
+		changeFlag = false;//firsté›†æ”¹å˜æ ‡å¿—
+		//éå†æ¯ä¸€ä¸ªäº§ç”Ÿå¼
 		for (vector<Production>::iterator iter = productions.begin(); iter != productions.end(); iter++) {
 			vector<Symbol>::iterator symIter;
-			//ÒÀ´Î±éÀú²úÉúÊ½ÓÒ²¿µÄËùÓĞ·ûºÅ
+			//ä¾æ¬¡éå†äº§ç”Ÿå¼å³éƒ¨çš„æ‰€æœ‰ç¬¦å·
 			for (symIter = iter->right.begin(); symIter != iter->right.end(); symIter++) {
-				//Õâ¸öÓÒ²¿·ûºÅÊÇÖÕ½á·û
+				//è¿™ä¸ªå³éƒ¨ç¬¦å·æ˜¯ç»ˆç»“ç¬¦
 				if (symIter->isVt) {
 					if (first.count(iter->left) == 0) {
 						first[iter->left] = set<Symbol>();
 					}
-					//×ó²¿·ûºÅµÄfirst¼¯²»°üº¬¸ÃÓÒ²¿·ûºÅ
+					//å·¦éƒ¨ç¬¦å·çš„firsté›†ä¸åŒ…å«è¯¥å³éƒ¨ç¬¦å·
 					if (first[iter->left].insert(*symIter).second == true) {
 						changeFlag = true;
 					}
 					break;
 				}
-				//µ±Ç°ÓÒ²¿·ûºÅÊÇ·ÇÖÕ½á·û
+				//å½“å‰å³éƒ¨ç¬¦å·æ˜¯éç»ˆç»“ç¬¦
 				else {
-					bool continueFlag = false;//ÊÇ·ñ¼ÌĞø¶ÁÈ¡ÏÂÒ»¸öÓÒ²¿·ûºÅµÄfirst¼¯
+					bool continueFlag = false;//æ˜¯å¦ç»§ç»­è¯»å–ä¸‹ä¸€ä¸ªå³éƒ¨ç¬¦å·çš„firsté›†
 					set<Symbol>::iterator firstIter;
-					//±éÀú¸ÃÓÒ²¿·ûºÅµÄfirst¼¯
+					//éå†è¯¥å³éƒ¨ç¬¦å·çš„firsté›†
 					for (firstIter = first[*symIter].begin(); firstIter != first[*symIter].end(); firstIter++) {
-						//ÓÒ²¿·ûºÅµÄfirst¼¯ÖĞµÄÔªËØ°üº¬EMPTY
+						//å³éƒ¨ç¬¦å·çš„firsté›†ä¸­çš„å…ƒç´ åŒ…å«EMPTY
 						if (firstIter->content == "EMPTY") {
 							continueFlag = true;
 						}
-						//ÓÒ²¿·ûºÅµÄfirst¼¯ÖĞµÄÔªËØ²»ÔÚ×ó²¿·ûºÅfirst¼¯ÖĞ
+						//å³éƒ¨ç¬¦å·çš„firsté›†ä¸­çš„å…ƒç´ ä¸åœ¨å·¦éƒ¨ç¬¦å·firsté›†ä¸­
 						else if (first[iter->left].find(*firstIter) == first[iter->left].end()) {
 							if (first.count(iter->left) == 0) {
 								first[iter->left] = set<Symbol>();
@@ -143,7 +152,7 @@ void ParserAndSemanticAnalyser::getFirst() {
 					}
 				}
 			}
-			//±éÀúÓÒ²¿·ûºÅµ½ÁËÄ©Î²,ÔòEMPTYÔÚÆäfirst¼¯ÖĞ
+			//éå†å³éƒ¨ç¬¦å·åˆ°äº†æœ«å°¾,åˆ™EMPTYåœ¨å…¶firsté›†ä¸­
 			if (symIter == iter->right.end()) {
 				if (first.count(iter->left) == 0) {
 					first[iter->left] = set<Symbol>();
@@ -158,35 +167,35 @@ void ParserAndSemanticAnalyser::getFirst() {
 }
 
 void ParserAndSemanticAnalyser::getFollow() {
-	//½«#·ÅÈëÆğÊ¼·ûºÅµÄFOLLOW¼¯ÖĞ
+	//å°†#æ”¾å…¥èµ·å§‹ç¬¦å·çš„FOLLOWé›†ä¸­
 	follow[productions[0].left] = set<Symbol>();
 	follow[productions[0].left].insert(Symbol{ true,"#" });
 	bool changeFlag = true;
 	while (changeFlag) {
 		changeFlag = false;
-		//±éÀúÃ¿Ò»¸ö²úÉúÊ½
+		//éå†æ¯ä¸€ä¸ªäº§ç”Ÿå¼
 		for (vector<Production>::iterator proIter = productions.begin(); proIter != productions.end(); proIter++) {
-			//±éÀú²úÉúÊ½ÓÒ²¿µÄÃ¿¸ö·ûºÅ
+			//éå†äº§ç”Ÿå¼å³éƒ¨çš„æ¯ä¸ªç¬¦å·
 			for (vector<Symbol>::iterator symIter = proIter->right.begin(); symIter != proIter->right.end(); symIter++) {
-				//±éÀú²úÉúÊ½ÓÒ²¿¸Ã·ûºÅÖ®ºóµÄ·ûºÅ
+				//éå†äº§ç”Ÿå¼å³éƒ¨è¯¥ç¬¦å·ä¹‹åçš„ç¬¦å·
 				vector<Symbol>::iterator nextSymIter;
 				for (nextSymIter = symIter + 1; nextSymIter != proIter->right.end(); nextSymIter++) {
 					Symbol nextSym = *nextSymIter;
 					bool nextFlag = false;
-					//Èç¹ûÖ®ºóµÄ·ûºÅÊÇÖÕ½á·û
+					//å¦‚æœä¹‹åçš„ç¬¦å·æ˜¯ç»ˆç»“ç¬¦
 					if (nextSym.isVt) {
 						if (follow.count(*symIter) == 0) {
 							follow[*symIter] = set<Symbol>();
 						}
-						//Èç¹û³É¹¦²åÈëĞÂÖµ
+						//å¦‚æœæˆåŠŸæ’å…¥æ–°å€¼
 						if (follow[*symIter].insert(nextSym).second == true) {
 							changeFlag = true;
 						}
 					}
 					else {
-						//±éÀúÖ®ºó·ûºÅµÄfirst¼¯
+						//éå†ä¹‹åç¬¦å·çš„firsté›†
 						for (set<Symbol>::iterator fIter = first[nextSym].begin(); fIter != first[nextSym].end(); fIter++) {
-							//Èç¹ûµ±Ç°·ûºÅfirst¼¯ÖĞÓĞ ¿Õ´®
+							//å¦‚æœå½“å‰ç¬¦å·firsté›†ä¸­æœ‰ ç©ºä¸²
 							if (fIter->content == "EMPTY") {
 								nextFlag = true;
 							}
@@ -194,27 +203,27 @@ void ParserAndSemanticAnalyser::getFollow() {
 								if (follow.count(*symIter) == 0) {
 									follow[*symIter] = set<Symbol>();
 								}
-								//Èç¹û³É¹¦²åÈëĞÂÖµ
+								//å¦‚æœæˆåŠŸæ’å…¥æ–°å€¼
 								if (follow[*symIter].insert(*fIter).second == true) {
 									changeFlag = true;
 								}
 							}
 						}
 					}
-					//Èç¹ûµ±Ç°·ûºÅfirst¼¯ÖĞÃ»ÓĞ ¿Õ´®
+					//å¦‚æœå½“å‰ç¬¦å·firsté›†ä¸­æ²¡æœ‰ ç©ºä¸²
 					if (!nextFlag) {
 						break;
 					}
 
 				}
-				//Èç¹û±éÀúµ½ÁË½áÎ²,½«×ó²¿·ûºÅµÄFOLLOW¼¯¼ÓÈëÆäFOLLOW¼¯ÖĞ
+				//å¦‚æœéå†åˆ°äº†ç»“å°¾,å°†å·¦éƒ¨ç¬¦å·çš„FOLLOWé›†åŠ å…¥å…¶FOLLOWé›†ä¸­
 				if (nextSymIter == proIter->right.end()) {
-					//±éÀú×ó²¿·ûºÅµÄFOLLOW¼¯
+					//éå†å·¦éƒ¨ç¬¦å·çš„FOLLOWé›†
 					for (set<Symbol>::iterator followIter = follow[proIter->left].begin(); followIter != follow[proIter->left].end(); followIter++) {
 						if (follow.count(*symIter) == 0) {
 							follow[*symIter] = set<Symbol>();
 						}
-						//Èç¹û¸ÃFOLLOW¼¯ÊÇĞÂÖµ
+						//å¦‚æœè¯¥FOLLOWé›†æ˜¯æ–°å€¼
 						if (follow[*symIter].insert(*followIter).second == true) {
 							changeFlag = true;
 						}
@@ -230,7 +239,7 @@ void ParserAndSemanticAnalyser::outputDFA(ostream& out) {
 	for (list<I>::iterator iter = dfa.stas.begin(); iter != dfa.stas.end(); iter++, nowI++) {
 		out << "I" << nowI << "= [";
 		for (set<Item>::iterator itIter = iter->items.begin(); itIter != iter->items.end(); itIter++) {
-			out << "¡¾";
+			out << "ã€";
 			Production p = productions[itIter->pro];
 			out << p.left.content << " -> ";
 			for (vector<Symbol>::iterator symIter = p.right.begin(); symIter != p.right.end(); symIter++) {
@@ -242,7 +251,7 @@ void ParserAndSemanticAnalyser::outputDFA(ostream& out) {
 			if (p.right.size() == itIter->pointPos) {
 				out << ". ";
 			}
-			out << "¡¿";
+			out << "ã€‘";
 		}
 		out << "]" << endl << endl;
 	}
@@ -256,7 +265,7 @@ void ParserAndSemanticAnalyser::outputDFA(const char* fileName) {
 	ofstream fout;
 	fout.open(fileName);
 	if (!fout.is_open()) {
-		outputError("ÎÄ¼ş" + string(fileName) + "´ò¿ªÊ§°Ü");
+		outputError("æ–‡ä»¶" + string(fileName) + "æ‰“å¼€å¤±è´¥");
 	}
 	outputDFA(fout);
 
@@ -266,28 +275,28 @@ void ParserAndSemanticAnalyser::outputDFA(const char* fileName) {
 void ParserAndSemanticAnalyser::readProductions(const char*fileName) {
 	ifstream fin;
 
-	//ÎÄ¼ş´ò¿ª´¦Àí
+	//æ–‡ä»¶æ‰“å¼€å¤„ç†
 	fin.open(fileName, ios::in);
 	if (!fin.is_open()) {
-		outputError("ÎÄ¼ş" + string(fileName) + "´ò¿ªÊ§°Ü");
+		outputError("æ–‡ä»¶" + string(fileName) + "æ‰“å¼€å¤±è´¥");
 	}
 
 	//
-	int index = 0;//²úÉúÊ½ĞòºÅ
+	int index = 0;//äº§ç”Ÿå¼åºå·
 	char buf[1024];
 	while (fin >> buf) {
 		Production p;
-		//²úÉúÊ½ĞòºÅ¸³Öµ
+		//äº§ç”Ÿå¼åºå·èµ‹å€¼
 		p.id = index++;
 
-		//²úÉúÊ½×ó²¿¸³Öµ
+		//äº§ç”Ÿå¼å·¦éƒ¨èµ‹å€¼
 		p.left = Symbol{ false,string(buf) };
 
-		//ÖĞ¼äÓ¦Îª::=
+		//ä¸­é—´åº”ä¸º::=
 		fin >> buf;
 		assert(strcmp(buf, "::=") == 0);
 
-		//²úÉúÊ½ÓÒ²¿¸³Öµ
+		//äº§ç”Ÿå¼å³éƒ¨èµ‹å€¼
 		fin.getline(buf, 1024);
 		stringstream sstream(buf);
 		string temp;
@@ -295,30 +304,30 @@ void ParserAndSemanticAnalyser::readProductions(const char*fileName) {
 			p.right.push_back(Symbol{ isVT(temp),string(temp) });
 		}
 
-		//²åÈë²úÉúÊ½
+		//æ’å…¥äº§ç”Ÿå¼
 		productions.push_back(p);
 	}
 }
 
 I ParserAndSemanticAnalyser::derive(Item item) {
 	I i;
-	// .ÔÚÏîÄ¿²úÉúÊ½µÄ×îÓÒ±ß£¬¼´ÊÇÒ»¸ö¹æÔ¼ÏîÄ¿
+	// .åœ¨é¡¹ç›®äº§ç”Ÿå¼çš„æœ€å³è¾¹ï¼Œå³æ˜¯ä¸€ä¸ªè§„çº¦é¡¹ç›®
 	if (productions[item.pro].right.size() == item.pointPos) {
 		i.items.insert(item);
 	}
-	// .µÄÓÒ±ßÊÇÖÕ½á·û
+	// .çš„å³è¾¹æ˜¯ç»ˆç»“ç¬¦
 	else if (productions[item.pro].right[item.pointPos].isVt) {
 		i.items.insert(item);
 	}
-	// .µÄÓÒ±ßÊÇ·ÇÖÕ½á·û
+	// .çš„å³è¾¹æ˜¯éç»ˆç»“ç¬¦
 	else {
 		i.items.insert(item);
 		vector<Production>::iterator iter;
 		for (iter = productions.begin(); iter < productions.end(); iter++) {
-			//²úÉúÊ½µÄ×ó²¿ == .ÓÒ±ßµÄ·ÇÖÕ½á·û
+			//äº§ç”Ÿå¼çš„å·¦éƒ¨ == .å³è¾¹çš„éç»ˆç»“ç¬¦
 			if (iter->left == productions[item.pro].right[item.pointPos]) {
-				//½«²úÉúÊ½µÄÅÉÉú¼ÓÈëIÖĞ
-				I temp = derive(Item{ iter - productions.begin(),0 });
+				//å°†äº§ç”Ÿå¼çš„æ´¾ç”ŸåŠ å…¥Iä¸­
+				I temp = derive(Item{ int(iter - productions.begin()),0 });
 
 				set<Item>::iterator siter;
 				for (siter = temp.items.begin(); siter != temp.items.end(); siter++) {
@@ -332,19 +341,19 @@ I ParserAndSemanticAnalyser::derive(Item item) {
 }
 
 void ParserAndSemanticAnalyser::createDFA() {
-	bool newFlag = true;//ÓĞĞÂµÄ×´Ì¬²úÉú±êÖ¾
-	int nowI = 0;//µ±Ç°×´Ì¬µÄ±àºÅ
+	bool newFlag = true;//æœ‰æ–°çš„çŠ¶æ€äº§ç”Ÿæ ‡å¿—
+	int nowI = 0;//å½“å‰çŠ¶æ€çš„ç¼–å·
 	dfa.stas.push_back(derive(Item{ 0,0 }));
-	//±éÀúÃ¿Ò»¸ö×´Ì¬
+	//éå†æ¯ä¸€ä¸ªçŠ¶æ€
 	for (list<I>::iterator iter = dfa.stas.begin(); iter != dfa.stas.end(); iter++, nowI++) {
-		//±éÀú×´Ì¬µÄÃ¿Ò»¸öÏîÄ¿
+		//éå†çŠ¶æ€çš„æ¯ä¸€ä¸ªé¡¹ç›®
 		for (set<Item>::iterator itIter = iter->items.begin(); itIter != iter->items.end(); itIter++) {
-			// .ÔÚÏîÄ¿²úÉúÊ½µÄ×îÓÒ±ß£¬¼´ÊÇÒ»¸ö¹æÔ¼ÏîÄ¿
+			// .åœ¨é¡¹ç›®äº§ç”Ÿå¼çš„æœ€å³è¾¹ï¼Œå³æ˜¯ä¸€ä¸ªè§„çº¦é¡¹ç›®
 			if (productions[itIter->pro].right.size() == itIter->pointPos) {
 				set<Symbol>FOLLOW = follow[productions[itIter->pro].left];
 				for (set<Symbol>::iterator followIter = FOLLOW.begin(); followIter != FOLLOW.end(); followIter++) {
 					if (SLR1_Table.count(GOTO(nowI, *followIter)) == 1) {
-						string err = "ÎÄ·¨²»ÊÇSLR1ÎÄ·¨£¬ÒÆ½ø¹æÔ¼³åÍ»";
+						string err = "æ–‡æ³•ä¸æ˜¯SLR1æ–‡æ³•ï¼Œç§»è¿›è§„çº¦å†²çª";
 						//err += string("GOTO(") + to_string(nowI) + "," + followIter->content + ")=" + to_string(SLR1_Table[GOTO(nowI, *followIter)].nextStat);
 						outputError(err);
 					}
@@ -358,33 +367,33 @@ void ParserAndSemanticAnalyser::createDFA() {
 				}
 				continue;
 			}
-			Symbol nextSymbol = productions[itIter->pro].right[itIter->pointPos];//.Ö®ºóµÄ·ûºÅ
+			Symbol nextSymbol = productions[itIter->pro].right[itIter->pointPos];//.ä¹‹åçš„ç¬¦å·
 
-			//DFAÖĞGOTO(nowI,nextSymbol)ÒÑ¾­´æÔÚ
+			//DFAä¸­GOTO(nowI,nextSymbol)å·²ç»å­˜åœ¨
 			if (dfa.goTo.count(GOTO(nowI, nextSymbol)) == 1) {
 				continue;
 			}
 
-			I newI = derive(Item{ itIter->pro,itIter->pointPos + 1 });//ĞÂ²úÉúµÄ×´Ì¬
+			I newI = derive(Item{ itIter->pro,itIter->pointPos + 1 });//æ–°äº§ç”Ÿçš„çŠ¶æ€
 
-			//²éÕÒµ±Ç°×´Ì¬ÖĞÆäËûGOTO[nowI,nextSymbol]
-			//shiftIterÖ¸Ïòµ±Ç°×´Ì¬ÏîÄ¿µÄÏÂÒ»¸öÏîÄ¿
+			//æŸ¥æ‰¾å½“å‰çŠ¶æ€ä¸­å…¶ä»–GOTO[nowI,nextSymbol]
+			//shiftIteræŒ‡å‘å½“å‰çŠ¶æ€é¡¹ç›®çš„ä¸‹ä¸€ä¸ªé¡¹ç›®
 			set<Item>::iterator shiftIter = itIter;
 			shiftIter++;
 			for (; shiftIter != iter->items.end(); shiftIter++) {
-				//Èç¹ûÊÇ¹æÔ¼ÏîÄ¿
+				//å¦‚æœæ˜¯è§„çº¦é¡¹ç›®
 				if (productions[shiftIter->pro].right.size() == shiftIter->pointPos) {
 					continue;
 				}
-				//Èç¹ûÊÇÒÆ½øÏîÄ¿£¬ÇÒÒÆ½ønextSymbol
+				//å¦‚æœæ˜¯ç§»è¿›é¡¹ç›®ï¼Œä¸”ç§»è¿›nextSymbol
 				else if (productions[shiftIter->pro].right[shiftIter->pointPos] == nextSymbol) {
 					I tempI = derive(Item{ shiftIter->pro,shiftIter->pointPos + 1 });
 					newI.items.insert(tempI.items.begin(), tempI.items.end());
 				}
 			}
-			//²éÕÒÒÑÓĞ×´Ì¬ÖĞÊÇ·ñÒÑ¾­°üº¬¸Ã×´Ì¬
+			//æŸ¥æ‰¾å·²æœ‰çŠ¶æ€ä¸­æ˜¯å¦å·²ç»åŒ…å«è¯¥çŠ¶æ€
 			bool searchFlag = false;
-			int index = 0;//µ±Ç°×´Ì¬µÄ±àºÅ
+			int index = 0;//å½“å‰çŠ¶æ€çš„ç¼–å·
 			for (list<I>::iterator iterHave = dfa.stas.begin(); iterHave != dfa.stas.end(); iterHave++, index++) {
 				if (iterHave->items == newI.items) {
 					dfa.goTo[GOTO(nowI, nextSymbol)] = index;
@@ -397,7 +406,7 @@ void ParserAndSemanticAnalyser::createDFA() {
 				}
 			}
 
-			//Ã»ÓĞÔÚÒÑÓĞ×´Ì¬ÖĞÕÒµ½¸Ã×´Ì¬
+			//æ²¡æœ‰åœ¨å·²æœ‰çŠ¶æ€ä¸­æ‰¾åˆ°è¯¥çŠ¶æ€
 			if (!searchFlag) {
 				dfa.stas.push_back(newI);
 				dfa.goTo[GOTO(nowI, nextSymbol)] = dfa.stas.size() - 1;
@@ -413,6 +422,8 @@ void ParserAndSemanticAnalyser::createDFA() {
 		}
 	}
 }
+
+
 
 Func* ParserAndSemanticAnalyser::lookUpFunc(string ID) {
 	for (vector<Func>::iterator iter = funcTable.begin(); iter != funcTable.end(); iter++) {
@@ -488,7 +499,7 @@ Symbol* ParserAndSemanticAnalyser::popSymbol() {
 void ParserAndSemanticAnalyser::pushSymbol(Symbol* sym) {
 	symStack.push(sym);
 	if (SLR1_Table.count(GOTO(staStack.top(), *sym)) == 0) {
-		outputError(string("Óï·¨´íÎó£ºµÚ") + to_string(lineCount) + "ĞĞ£¬²»ÆÚ´ıµÄ·ûºÅ" + sym->content);
+		outputError(string("è¯­æ³•é”™è¯¯ï¼šç¬¬") + to_string(lineCount) + "è¡Œï¼Œä¸æœŸå¾…çš„ç¬¦å·" + sym->content);
 	}
 	Behavior bh = SLR1_Table[GOTO(staStack.top(), *sym)];
 	staStack.push(bh.nextStat);
@@ -504,7 +515,7 @@ void ParserAndSemanticAnalyser::analyse(list<Token>&words, ostream& out) {
 		LexicalType LT = iter->first;
 		string word = iter->second;
 
-		//ºöÂÔĞĞ×¢ÊÍºÍ¶Î×¢ÊÍ
+		//å¿½ç•¥è¡Œæ³¨é‡Šå’Œæ®µæ³¨é‡Š
 		if (LT == LCOMMENT || LT == PCOMMENT) {
 			continue;
 		}
@@ -523,16 +534,23 @@ void ParserAndSemanticAnalyser::analyse(list<Token>&words, ostream& out) {
 		else {
 			nextSymbol = new Symbol(true, word);
 		}
+
+		// GOTO 		pair <int	, Symbol>
+		// SLR1_Table 	map	 <GOTO	, Behavior>
 		if (SLR1_Table.count(GOTO(staStack.top(), *nextSymbol)) == 0) {
-			outputError(string("Óï·¨´íÎó£ºµÚ")+to_string(lineCount)+"ĞĞ£¬²»ÆÚ´ıµÄ·ûºÅ"+nextSymbol->content);
+			outputError(string("è¯­æ³•é”™è¯¯ï¼šç¬¬")+to_string(lineCount)+"è¡Œï¼Œä¸æœŸå¾…çš„ç¬¦å·"+nextSymbol->content);
 		}
 
 		Behavior bh = SLR1_Table[GOTO(staStack.top(), *nextSymbol)];
+		
+		// ç§»è¿›
 		if (bh.behavior == shift) {
 			symStack.push(nextSymbol);
 			staStack.push(bh.nextStat);
 			iter++;
 		}
+		// è§„çº¦
+		// bh.nextStatä»£è¡¨æŒ‰ç…§ç¬¬å‡ ä¸ªäº§ç”Ÿå¼è¿›è¡Œè§„çº¦
 		else if (bh.behavior == reduct) {
 			Production reductPro = productions[bh.nextStat];
 			int popSymNum = reductPro.right.size();
@@ -961,10 +979,10 @@ void ParserAndSemanticAnalyser::analyse(list<Token>&words, ostream& out) {
 					Factor* factor = new Factor(reductPro.left);
 					Func* f = lookUpFunc(ID->name);
 					if (!f) {
-						outputError(string("Óï·¨´íÎó£ºµÚ") + to_string(lineCount) + "ĞĞ£¬Î´ÉùÃ÷µÄº¯Êı" + ID->name);
+						outputError(string("è¯­æ³•é”™è¯¯ï¼šç¬¬") + to_string(lineCount) + "è¡Œï¼Œæœªå£°æ˜çš„å‡½æ•°" + ID->name);
 					}
 					else if (!march(argument_list->alist, f->paramTypes)) {
-						outputError(string("Óï·¨´íÎó£ºµÚ") + to_string(lineCount) + "ĞĞ£¬º¯Êı" + ID->name + "²ÎÊı²»Æ¥Åä");
+						outputError(string("è¯­æ³•é”™è¯¯ï¼šç¬¬") + to_string(lineCount) + "è¡Œï¼Œå‡½æ•°" + ID->name + "å‚æ•°ä¸åŒ¹é…");
 					}
 					else {
 						for (list<string>::iterator iter = argument_list->alist.begin(); iter != argument_list->alist.end(); iter++) {
@@ -982,7 +1000,7 @@ void ParserAndSemanticAnalyser::analyse(list<Token>&words, ostream& out) {
 				{
 					Id* ID = (Id*)popSymbol();
 					if (lookUpVar(ID->name) == NULL) {
-						outputError(string("Óï·¨´íÎó£ºµÚ") + to_string(lineCount) + "ĞĞ£¬±äÁ¿" + ID->name + "Î´ÉùÃ÷");
+						outputError(string("è¯­æ³•é”™è¯¯ï¼šç¬¬") + to_string(lineCount) + "è¡Œï¼Œå˜é‡" + ID->name + "æœªå£°æ˜");
 					}
 					Factor* factor = new Factor(reductPro.left);
 					factor->name = ID->name;
@@ -1032,7 +1050,7 @@ void ParserAndSemanticAnalyser::analyse(list<Token>&words, ostream& out) {
 		}
 	}
 	if (!acc) {
-		outputError("Óï·¨´íÎó£ºÎ´ÖªµÄ½áÎ²");
+		outputError("è¯­æ³•é”™è¯¯ï¼šæœªçŸ¥çš„ç»“å°¾");
 	}
 }
 
@@ -1040,7 +1058,7 @@ void ParserAndSemanticAnalyser::analyse(list<Token>&words, const char* fileName)
 	ofstream fout;
 	fout.open(fileName);
 	if (!fout.is_open()) {
-		outputError("ÎÄ¼ş" + string(fileName) + "´ò¿ªÊ§°Ü");
+		outputError("æ–‡ä»¶" + string(fileName) + "æ‰“å¼€å¤±è´¥");
 	}
 	analyse(words, fout);
 

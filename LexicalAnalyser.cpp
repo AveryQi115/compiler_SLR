@@ -2,11 +2,35 @@
 
 string token_to_string(Token t) {
 	const char* LexicalTypeStr[] = {
-	"ENDFILE", "ERROR",
-	"IF", "ELSE", "INT", "RETURN", "VOID", "WHILE",
-	"ID", "NUM",
-	"LBRACE", "RBRACE", "GTE", "LTE", "NEQ", "EQ", "ASSIGN", "LT", "GT", "PLUS", "MINUS", "MULT", "DIV", "LPAREN", "RPAREN", "SEMI", "COMMA",
-	"LCOMMENT", "PCOMMENT"
+	"ENDFILE",
+	"ERROR",
+	"IF",		// if
+	"ELSE",		// else
+	"INT",		// int
+	"RETURN", 	// return
+	"VOID", 	// void
+	"WHILE",	// while
+	"ID", 		// identifierï¼Œæ ‡è¯†ç¬¦
+	"NUM",		// å¸¸æ•°
+	"LBRACE", 	// {
+	"RBRACE",	// }
+	"GTE", 		// >=
+	"LTE", 		// <=
+	"NEQ", 		// !=
+	"EQ", 		// ==
+	"ASSIGN", 	// =
+	"LT", 		// <
+	"GT", 		// >
+	"PLUS", 	// +
+	"MINUS", 	// -
+	"MULT", 	// *
+	"DIV", 		// /
+	"LPAREN", 	// (
+	"RPAREN", 	// )
+	"SEMI", 	// ;
+	"COMMA",	// ,
+	"LCOMMENT", // //
+	"PCOMMENT"	// /* */
 	};
 
 	string res;
@@ -34,7 +58,7 @@ void LexicalAnalyser::openFile(const char* path) {
 	}
 }
 
-//»ñÈ¡ÏÂÒ»¸ö×Ö·û£¬ºöÂÔ¿Õ°×·û
+//è·å–ä¸‹ä¸€ä¸ªå­—ç¬¦ï¼Œå¿½ç•¥ç©ºç™½ç¬¦
 char LexicalAnalyser::getNextChar() {
 	char c;
 	while (src >> c) {
@@ -121,17 +145,17 @@ Token LexicalAnalyser::getNextToken() {
 				return Token(NEQ, "!=");
 			}
 			else {
-				return Token(ERROR, string("´Ê·¨·ÖÎöµÚ")+to_string(lineCount)+string("ĞĞ£ºÎ´Ê¶±ğµÄ·ûºÅ!"));
+				return Token(ERROR, string("è¯æ³•åˆ†æç¬¬")+to_string(lineCount)+string("è¡Œï¼šæœªè¯†åˆ«çš„ç¬¦å·!"));
 			}
 			break;
 		case '/':
-			//ĞĞ×¢ÊÍ
+			//è¡Œæ³¨é‡Š
 			if (src.peek() == '/') {
 				char buf[1024];
 				src.getline(buf, 1024);
 				return Token(LCOMMENT, string("/")+buf);
 			}
-			//¶Î×¢ÊÍ
+			//æ®µæ³¨é‡Š
 			else if (src.peek() == '*') {
 				src.get();
 				string buf = "/*";
@@ -146,12 +170,12 @@ Token LexicalAnalyser::getNextToken() {
 						}
 					}
 				}
-				//¶Áµ½×îºó¶¼Ã»ÕÒµ½*/£¬Òò²»Âú×ãwhileÑ­»·Ìõ¼şÍË³ö
+				//è¯»åˆ°æœ€åéƒ½æ²¡æ‰¾åˆ°*/ï¼Œå› ä¸æ»¡è¶³whileå¾ªç¯æ¡ä»¶é€€å‡º
 				if (src.eof()) {
-					return Token(ERROR, string("´Ê·¨·ÖÎöµÚ")+to_string(lineCount)+string("ĞĞ£º¶Î×¢ÊÍÃ»ÓĞÆ¥ÅäµÄ*/"));
+					return Token(ERROR, string("è¯æ³•åˆ†æç¬¬")+to_string(lineCount)+string("è¡Œï¼šæ®µæ³¨é‡Šæ²¡æœ‰åŒ¹é…çš„*/"));
 				}
 			}
-			//³ı·¨
+			//é™¤æ³•
 			else {
 				return Token(DIV, "/");
 			}
@@ -206,12 +230,13 @@ Token LexicalAnalyser::getNextToken() {
 				}
 			}
 			else {
-				return Token(ERROR, string("´Ê·¨·ÖÎöµÚ") + to_string(lineCount) + string("ĞĞ£ºÎ´Ê¶±ğµÄ·ûºÅ") + c);
+				return Token(ERROR, string("è¯æ³•åˆ†æç¬¬") + to_string(lineCount) + string("è¡Œï¼šæœªè¯†åˆ«çš„ç¬¦å·") + c);
 			}
 	}
 	return Token(ERROR, "UNKOWN ERROR");
 }
 
+// LexicalAnalyser::resultå­˜æ”¾è§£æåçš„Tokenåˆ—è¡¨
 void LexicalAnalyser::analyse() {
 	while (1) {
 		Token t = getNextToken();

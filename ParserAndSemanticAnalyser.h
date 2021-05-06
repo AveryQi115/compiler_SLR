@@ -3,11 +3,11 @@
 #include "IntermediateCode.h"
 #ifndef PARSER_H
 #define PARSER_H
-//·ûºÅ
+//ç¬¦å·
 class Symbol {
 public:
-	bool isVt;//ÊÇ·ñÎªÖÕ½á·û
-	string content;//ÄÚÈİ
+	bool isVt;//æ˜¯å¦ä¸ºç»ˆç»“ç¬¦
+	string content;//å†…å®¹
 	friend bool operator ==(const Symbol&one, const Symbol&other);
 	friend bool operator < (const Symbol&one, const Symbol&other);
 	Symbol(const Symbol& sym);
@@ -15,12 +15,12 @@ public:
 	Symbol();
 };
 
-//ÉùÃ÷ÀàĞÍ£¨±äÁ¿ÉùÃ÷/º¯ÊıÉùÃ÷£©
+//å£°æ˜ç±»å‹ï¼ˆå˜é‡å£°æ˜/å‡½æ•°å£°æ˜ï¼‰
 enum DecType {
 	DEC_VAR,DEC_FUN
 };
 
-//Êı¾İÀàĞÍ£¨int/void£©
+//æ•°æ®ç±»å‹ï¼ˆint/voidï¼‰
 enum DType { D_VOID, D_INT };
 
 
@@ -140,6 +140,7 @@ public:
 	ArgumentList(const Symbol& sym);
 };
 
+// å…ˆæŠŠå…³é”®è¯ä¿å­˜äº†
 const Symbol symbol[] = { 
 	{true,"int"},{true,"void"},{true,"if"},{true,"else"},{true,"while"},{true,"return"},
 	{true,"+"},{true,"-"},{true,"*"},{true,"/"},{true,"="},
@@ -148,22 +149,22 @@ const Symbol symbol[] = {
 	{false,"ID"}
 };
 
-//²úÉúÊ½
+//äº§ç”Ÿå¼
 struct Production {
-	int id;//²úÉúÊ½µÄ±êÊ¶id£¬·½±ã±È½Ï
+	int id;//äº§ç”Ÿå¼çš„æ ‡è¯†idï¼Œæ–¹ä¾¿æ¯”è¾ƒ
 	Symbol left;
 	vector<Symbol>right;
 };
 
-//ÏîÄ¿
+//é¡¹ç›®
 struct Item {
-	int pro;//²úÉúÊ½id
-	int pointPos;//.µÄÎ»ÖÃ
+	int pro;//äº§ç”Ÿå¼id
+	int pointPos;//.çš„ä½ç½®
 	friend bool operator ==(const Item&one, const Item& other);
 	friend bool operator <(const Item&one, const Item& other);
 };
 
-//DFA×´Ì¬
+//DFAçŠ¶æ€
 struct I {
 	set<Item> items;
 };
@@ -192,17 +193,17 @@ public:
 class ParserAndSemanticAnalyser {
 private:
 	int lineCount;
-	int nowLevel;//µ±Ç°·ÖÎöĞĞËùÔÚµÄÓï¾ä¿é¼¶´Î
+	int nowLevel;//å½“å‰åˆ†æè¡Œæ‰€åœ¨çš„è¯­å¥å—çº§æ¬¡
 	vector<Production>productions;
 	DFA dfa;
-	map<GOTO,Behavior> SLR1_Table;//ÓÉproduct.txt¹¹Ôì³öµÄSLR1±í
-	map<Symbol,set<Symbol> >first;//ÓÉproduct.txt¹¹Ôì³öµÄfirst¼¯
-	map<Symbol, set<Symbol> >follow;//ÓÉproduct.txt¹¹Ôì³öµÄfollow¼¯
-	stack<Symbol*> symStack;//·ûºÅÕ»
-	stack<int> staStack;//×´Ì¬Õ»
-	vector<Var> varTable;//±äÁ¿±í
-	vector<Func> funcTable;//º¯Êı±í
-	IntermediateCode code;//Éú³ÉµÄËÄÔªÊ½
+	map<GOTO,Behavior> SLR1_Table;//ç”±product.txtæ„é€ å‡ºçš„SLR1è¡¨
+	map<Symbol,set<Symbol> >first;//ç”±product.txtæ„é€ å‡ºçš„firsté›†
+	map<Symbol, set<Symbol> >follow;//ç”±product.txtæ„é€ å‡ºçš„followé›†
+	stack<Symbol*> symStack;//ç¬¦å·æ ˆ
+	stack<int> staStack;//çŠ¶æ€æ ˆ
+	vector<Var> varTable;//å˜é‡è¡¨
+	vector<Func> funcTable;//å‡½æ•°è¡¨
+	IntermediateCode code;//ç”Ÿæˆçš„å››å…ƒå¼
 	NewTemper nt;
 
 	void readProductions(const char*fileName);
