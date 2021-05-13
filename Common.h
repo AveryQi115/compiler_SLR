@@ -18,37 +18,43 @@
 using namespace std;
 
 
-typedef enum //Ã¶¾ÙÀàĞÍ£¬±£´æ´ÊËØÀàĞÍ
+typedef enum //æšä¸¾ç±»å‹ï¼Œä¿å­˜è¯ç´ ç±»å‹
 {
-	/* ½áÊø±êÖ¾ºÍ´íÎó±êÖ¾ */
+	/* ç»“æŸæ ‡å¿—å’Œé”™è¯¯æ ‡å¿— */
 	ENDFILE, ERROR,
-	/* ±£Áô×Ö */
+	/* ä¿ç•™å­— */
 	IF, ELSE, INT, RETURN, VOID, WHILE,
-	/* ±äÁ¿ÃûºÍÊı×Ö */
+	/* å˜é‡åå’Œæ•°å­— */
 	ID, NUM,
-	/* ÌØÊâ×Ö·û */
+	/* ç‰¹æ®Šå­—ç¬¦ */
 	/*  {       }    >=   <=   !=   ==    =    <   >    +      -     *     /     (        )     ;     ,   */
 	LBRACE, RBRACE, GTE, LTE, NEQ, EQ, ASSIGN, LT, GT, PLUS, MINUS, MULT, DIV, LPAREN, RPAREN, SEMI, COMMA,
-	/* ĞĞ×¢ÊÍ  ¶Î×¢ÊÍ */
+	/* è¡Œæ³¨é‡Š  æ®µæ³¨é‡Š */
 	LCOMMENT, PCOMMENT,
-	/*»»ĞĞ·û*/
+	/*æ¢è¡Œç¬¦*/
 	NEXTLINE
 } LexicalType;
 
 typedef pair<LexicalType, string> Token;
 
 struct Quaternary {
-	string op;//²Ù×÷·û
-	string src1;//Ô´²Ù×÷Êı1
-	string src2;//Ô´²Ù×÷Êı2
-	string des;//Ä¿µÄ²Ù×÷Êı
+	string op;//æ“ä½œç¬¦
+	string src1;//æºæ“ä½œæ•°1
+	string src2;//æºæ“ä½œæ•°2
+	string des;//ç›®çš„æ“ä½œæ•°
 };
 
+/*****************************
+ * string name;//åŸºæœ¬å—çš„åç§°
+ * vector<Quaternary> codes;//åŸºæœ¬å—ä¸­çš„å››å…ƒå¼
+ * int next1;//åŸºæœ¬å—çš„ä¸‹ä¸€è¿æ¥å—
+ * int next2;//åŸºæœ¬å—çš„ä¸‹ä¸€è¿æ¥å—
+ * ***************************/
 struct Block {
-	string name;//»ù±¾¿éµÄÃû³Æ
-	vector<Quaternary> codes;//»ù±¾¿éÖĞµÄËÄÔªÊ½
-	int next1;//»ù±¾¿éµÄÏÂÒ»Á¬½Ó¿é
-	int next2;//»ù±¾¿éµÄÏÂÒ»Á¬½Ó¿é
+	string name;//åŸºæœ¬å—çš„åç§°
+	vector<Quaternary> codes;//åŸºæœ¬å—ä¸­çš„å››å…ƒå¼
+	int next1;//åŸºæœ¬å—çš„ä¸‹ä¸€è¿æ¥å—
+	int next2;//åŸºæœ¬å—çš„ä¸‹ä¸€è¿æ¥å—
 };
 
 void outputError(string err);

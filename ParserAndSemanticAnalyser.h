@@ -31,10 +31,10 @@ struct Var {
 };
 
 struct Func {
-	string name;
-	DType returnType;
-	list<DType> paramTypes;
-	int enterPoint;
+	string name;				// 函数名
+	DType returnType;			// 返回类型
+	list<DType> paramTypes;		// 形参列表
+	int enterPoint;				// 中间代码标号（经m回填）
 };
 
 class Id :public Symbol {

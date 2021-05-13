@@ -4,23 +4,29 @@ NewLabeler::NewLabeler() {
 	index = 1;
 }
 
+// ä¸´æ—¶åŸºæœ¬å—åï¼šL_i
 string NewLabeler::newLabel () {
 	return string("Label") + to_string(index++);
 }
 
 void IntermediateCode::divideBlocks(vector<pair<int, string> > funcEnter) {
-	for (vector<pair<int, string> >::iterator iter = funcEnter.begin(); iter != funcEnter.end(); iter++) {//¶ÔÃ¿Ò»¸öº¯Êı¿é
+	//å¯¹æ¯ä¸€ä¸ªå‡½æ•°å—
+	for (vector<pair<int, string> >::iterator iter = funcEnter.begin(); iter != funcEnter.end(); iter++) {
 		vector<Block>blocks;
-		priority_queue<int, vector<int>, greater<int> >block_enter;//¼ÇÂ¼ËùÓĞ»ù±¾¿éµÄÈë¿Úµã
+
+		// ä¼˜å…ˆé˜Ÿåˆ— å…¥å£æ ‡å·å°çš„åœ¨top
+		priority_queue<int, vector<int>, greater<int> >block_enter;//è®°å½•æ‰€æœ‰åŸºæœ¬å—çš„å…¥å£ç‚¹
 		block_enter.push(iter->first);
 
 		int endIndex = iter + 1 == funcEnter.end()? code.size(): (iter + 1)->first;
+
+		// éå†å½“å‰å‡½æ•°å—å†…ä¸­é—´ä»£ç ï¼Œå¦‚æœé‡åˆ°è·³è½¬æŒ‡ä»¤ï¼Œåˆ™å†åˆ’åˆ†åŸºæœ¬å¿«
 		for (int i = iter->first; i != endIndex; i++) {
 			if (code[i].op[0] == 'j') {
-				if (code[i].op == "j") {//Èô²Ù×÷·ûÊÇj
+				if (code[i].op == "j") {//è‹¥æ“ä½œç¬¦æ˜¯j
 					block_enter.push(atoi(code[i].des.c_str()));
 				}
-				else {//Èô¹û²Ù×÷·ûÊÇj=-,,j!=.j>=£¬j>£¬j<=£¬j<
+				else {//è‹¥æœæ“ä½œç¬¦æ˜¯j=-,,j!=.j>=ï¼Œj>ï¼Œj<=ï¼Œj<
 					if (i + 1 < endIndex) {
 						block_enter.push(i + 1);
 					}
@@ -34,16 +40,16 @@ void IntermediateCode::divideBlocks(vector<pair<int, string> > funcEnter) {
 			}
 		}
 
-		//»®·Ö»ù±¾¿é	
+		//åˆ’åˆ†åŸºæœ¬å—	
 		Block block;
-		map<int, string>labelEnter;//Èë¿ÚµãºÍ±êÇ©µÄ¶ÔÓ¦¹ØÏµ
-		map<int, int>enter_block;//½¨Á¢Èë¿ÚµãºÍblockµÄ¶ÔÓ¦¹ØÏµ
-		int firstFlag = true;//º¯Êı¿éµÚÒ»¿é±ê¼Ç£¬¸Ã¿éÃüÃûÎªº¯ÊıÃû
+		map<int, string>labelEnter;//å…¥å£ç‚¹å’Œæ ‡ç­¾çš„å¯¹åº”å…³ç³»
+		map<int, int>enter_block;//å»ºç«‹å…¥å£ç‚¹å’Œblock numçš„å¯¹åº”å…³ç³»
+		int firstFlag = true;//å‡½æ•°å—ç¬¬ä¸€å—æ ‡è®°ï¼Œè¯¥å—å‘½åä¸ºå‡½æ•°å
 		int enter;
 		int lastEnter = block_enter.top();
 		block_enter.pop();
 		while (!block_enter.empty()) {
-			//²åÈëËÄÔªÊ½µ½blockÖĞ
+			//æ’å…¥å››å…ƒå¼åˆ°blockä¸­
 			enter = block_enter.top();
 			block_enter.pop();
 
@@ -51,37 +57,40 @@ void IntermediateCode::divideBlocks(vector<pair<int, string> > funcEnter) {
 				continue;
 			}
 
+			// lastEnteråˆ°enteré—´çš„æ‰€æœ‰ä¸­é—´ä»£ç æ’å…¥block.codes
 			for (int i = lastEnter; i != enter; i++) {
 				block.codes.push_back(code[i]);
 			}
 
-			if (!firstFlag) {//¸Ã»ù±¾¿é²»ÊÇº¯Êı¿éµÄµÚÒ»¿é»ù±¾¿é
-				block.name = nl.newLabel();
+			if (!firstFlag) {//è¯¥åŸºæœ¬å—ä¸æ˜¯å‡½æ•°å—çš„ç¬¬ä¸€å—åŸºæœ¬å—
+				block.name = nl.newLabel();	//ç”Ÿæˆä¸´æ—¶åŸºæœ¬å—åL_i
 				labelEnter[lastEnter] = block.name;
 			}
-			else {//¸Ã»ù±¾¿éÊÇº¯Êı¿éµÄµÚÒ»¿é»ù±¾¿é
-				block.name = iter->second;
+			else {//è¯¥åŸºæœ¬å—æ˜¯å‡½æ•°å—çš„ç¬¬ä¸€å—åŸºæœ¬å—
+				block.name = iter->second;	//å—åä¸ºå‡½æ•°å
 				firstFlag = false;
 			}
-			enter_block[lastEnter] = blocks.size();
+			enter_block[lastEnter] = blocks.size();	//enter_block[å½“å‰å—èµ·å§‹ä¸­é—´ä»£ç æ ‡å·] = å½“å‰å—çš„å·æ•°(ä»0å¼€å§‹)
 			blocks.push_back(block);
 			lastEnter = enter;
 			block.codes.clear();
 		}
-		if (!firstFlag) {//¸Ã»ù±¾¿é²»ÊÇº¯Êı¿éµÄµÚÒ»¿é»ù±¾¿é
+
+		if (!firstFlag) {//è¯¥åŸºæœ¬å—ä¸æ˜¯å‡½æ•°å—çš„ç¬¬ä¸€å—åŸºæœ¬å—
 			block.name = nl.newLabel();
 			labelEnter[lastEnter] = block.name;
 		}
-		else {//¸Ã»ù±¾¿éÊÇº¯Êı¿éµÄµÚÒ»¿é»ù±¾¿é
+		else {//è¯¥åŸºæœ¬å—æ˜¯å‡½æ•°å—çš„ç¬¬ä¸€å—åŸºæœ¬å—
 			block.name = iter->second;
 			firstFlag = false;
 		}
-		if (iter + 1 != funcEnter.end()) {//ÔÚÁ½¸öº¯ÊıµÄÆğµãÖ®¼ä
+
+		if (iter + 1 != funcEnter.end()) {//åœ¨ä¸¤ä¸ªå‡½æ•°çš„èµ·ç‚¹ä¹‹é—´
 			for (int i = lastEnter; i != (iter+1)->first; i++) {
 				block.codes.push_back(code[i]);
 			}
 		}
-		else {//ÔÚ×îºóÒ»¸öº¯ÊıÖÁÖĞ¼ä´úÂëÄ©Î²
+		else {//åœ¨æœ€åä¸€ä¸ªå‡½æ•°è‡³ä¸­é—´ä»£ç æœ«å°¾
 			for (int i = lastEnter; i != code.size(); i++) {
 				block.codes.push_back(code[i]);
 			}
@@ -93,11 +102,11 @@ void IntermediateCode::divideBlocks(vector<pair<int, string> > funcEnter) {
 		for (vector<Block>::iterator bIter = blocks.begin(); bIter != blocks.end(); bIter++, blockIndex++) {
 			vector<Quaternary>::reverse_iterator lastCode = bIter->codes.rbegin();
 			if (lastCode->op[0] == 'j') {
-				if (lastCode->op == "j") {//Èô²Ù×÷·ûÊÇj
+				if (lastCode->op == "j") {//è‹¥æ“ä½œç¬¦æ˜¯j
 					bIter->next1 = enter_block[atoi(lastCode->des.c_str())];
 					bIter->next2 = -1;
 				}
-				else {//Èô¹û²Ù×÷·ûÊÇj=-,,j!=.j>=£¬j>£¬j<=£¬j<
+				else {//å¦‚æœæ“ä½œç¬¦æ˜¯j=-,,j!=.j>=ï¼Œj>ï¼Œj<=ï¼Œj<
 					bIter->next1 = blockIndex + 1;
 					bIter->next2 = enter_block[atoi(lastCode->des.c_str())];
 					bIter->next2 = bIter->next1 == bIter->next2 ? -1 : bIter->next2;
@@ -110,9 +119,7 @@ void IntermediateCode::divideBlocks(vector<pair<int, string> > funcEnter) {
 			else {
 				bIter->next1 = blockIndex + 1;
 				bIter->next2 = -1;
-			}
-			
-			
+			}	
 		}
 
 		funcBlocks[iter->second] = blocks;

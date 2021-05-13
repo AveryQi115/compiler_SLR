@@ -3,8 +3,8 @@
 
 class VarInfomation {
 public:
-	int next;//´ıÓÃĞÅÏ¢
-	bool active;//»îÔ¾ĞÅÏ¢
+	int next;//å¾…ç”¨ä¿¡æ¯
+	bool active;//æ´»è·ƒä¿¡æ¯
 
 	VarInfomation(int next, bool active);
 	VarInfomation(const VarInfomation&other);
@@ -23,6 +23,7 @@ public:
 	void output(ostream& out);
 };
 
+// codesé™„åŠ å¾…ç”¨å’Œæ´»è·ƒä¿¡æ¯çš„block
 struct IBlock {
 	string name;
 	vector<QuaternaryWithInfo> codes;
@@ -30,21 +31,21 @@ struct IBlock {
 	int next2;
 };
 
-//±£´æÁÙÊ±³£Êı t0 t1¼Ä´æÆ÷
-//±£´æº¯ÊıµÄ·µ»ØÖµ v0¼Ä´æÆ÷
+//ä¿å­˜ä¸´æ—¶å¸¸æ•° t0 t1å¯„å­˜å™¨
+//ä¿å­˜å‡½æ•°çš„è¿”å›å€¼ v0å¯„å­˜å™¨
 class ObjectCodeGenerator {
 private:
 	map<string,vector<IBlock> >funcIBlocks;
 	map<string, set<string> >Avalue;
 	map<string, set<string> >Rvalue;
-	map<string, int>varOffset;//¸÷±äÁ¿µÄ´æ´¢Î»ÖÃ
-	int top;//µ±Ç°Õ»¶¥
-	list<string>freeReg;//¿ÕÏĞµÄ¼Ä´æÆ÷±àºÅ
-	map<string, vector<set<string> > >funcOUTL;//¸÷º¯Êı¿éÖĞ»ù±¾¿éµÄ³ö¿Ú»îÔ¾±äÁ¿¼¯
-	map<string, vector<set<string> > >funcINL;//¸÷º¯Êı¿éÖĞ»ù±¾¿éµÄÈë¿Ú»îÔ¾±äÁ¿¼¯
-	string nowFunc;//µ±Ç°·ÖÎöµÄº¯Êı
-	vector<IBlock>::iterator nowIBlock;//µ±Ç°·ÖÎöµÄ»ù±¾¿é
-	vector<QuaternaryWithInfo>::iterator nowQuatenary;//µ±Ç°·ÖÎöµÄËÄÔªÊ½
+	map<string, int>varOffset;//å„å˜é‡çš„å­˜å‚¨ä½ç½®
+	int top;//å½“å‰æ ˆé¡¶
+	list<string>freeReg;//ç©ºé—²çš„å¯„å­˜å™¨ç¼–å·
+	map<string, vector<set<string> > >funcOUTL;//å„å‡½æ•°å—ä¸­åŸºæœ¬å—çš„å‡ºå£æ´»è·ƒå˜é‡é›†
+	map<string, vector<set<string> > >funcINL;//å„å‡½æ•°å—ä¸­åŸºæœ¬å—çš„å…¥å£æ´»è·ƒå˜é‡é›†
+	string nowFunc;//å½“å‰åˆ†æçš„å‡½æ•°
+	vector<IBlock>::iterator nowIBlock;//å½“å‰åˆ†æçš„åŸºæœ¬å—
+	vector<QuaternaryWithInfo>::iterator nowQuatenary;//å½“å‰åˆ†æçš„å››å…ƒå¼
 	vector<string>objectCodes;
 
 	void outputIBlocks(ostream& out);

@@ -63,7 +63,7 @@ ObjectCodeGenerator::ObjectCodeGenerator() {
 }
 
 void ObjectCodeGenerator::storeVar(string reg, string var) {
-	if (varOffset.find(var) != varOffset.end()) {//Èç¹ûÒÑ¾­Îª*iter·ÖÅäºÃÁË´æ´¢¿Õ¼ä
+	if (varOffset.find(var) != varOffset.end()) {//å¦‚æœå·²ç»ä¸º*iteråˆ†é…å¥½äº†å­˜å‚¨ç©ºé—´
 		objectCodes.push_back(string("sw ") + reg + " " + to_string(varOffset[var]) + "($sp)");
 	}
 	else {
@@ -86,9 +86,9 @@ void ObjectCodeGenerator::releaseVar(string var) {
 	Avalue[var].clear();
 }
 
-//ÎªÒıÓÃ±äÁ¿·ÖÅä¼Ä´æÆ÷
+//ä¸ºå¼•ç”¨å˜é‡åˆ†é…å¯„å­˜å™¨
 string ObjectCodeGenerator::allocateReg() {
-	//Èç¹ûÓĞÉĞÎ´·ÖÅäµÄ¼Ä´æÆ÷£¬Ôò´ÓÖĞÑ¡È¡Ò»¸öRiÎªËùĞèÒªµÄ¼Ä´æÆ÷R
+	//å¦‚æœæœ‰å°šæœªåˆ†é…çš„å¯„å­˜å™¨ï¼Œåˆ™ä»ä¸­é€‰å–ä¸€ä¸ªRiä¸ºæ‰€éœ€è¦çš„å¯„å­˜å™¨R
 	string ret;
 	if (freeReg.size()) {
 		ret = freeReg.back();
@@ -97,24 +97,24 @@ string ObjectCodeGenerator::allocateReg() {
 	}
 
 	/*
-	´ÓÒÑ·ÖÅäµÄ¼Ä´æÆ÷ÖĞÑ¡È¡Ò»¸öRiÎªËùĞèÒªµÄ¼Ä´æÆ÷R¡£×îºÃÊ¹µÃRiÂú×ãÒÔÏÂÌõ¼ş£º
-	Õ¼ÓÃRiµÄ±äÁ¿µÄÖµÒ²Í¬Ê±´æ·ÅÔÚ¸Ã±äÁ¿µÄÖü´æµ¥ÔªÖĞ
-	»òÕßÔÚ»ù±¾¿éÖĞÒªÔÚ×îÔ¶µÄ½«À´²Å»áÒıÓÃµ½»ò²»»áÒıÓÃµ½¡£
+	ä»å·²åˆ†é…çš„å¯„å­˜å™¨ä¸­é€‰å–ä¸€ä¸ªRiä¸ºæ‰€éœ€è¦çš„å¯„å­˜å™¨Rã€‚æœ€å¥½ä½¿å¾—Riæ»¡è¶³ä»¥ä¸‹æ¡ä»¶ï¼š
+	å ç”¨Riçš„å˜é‡çš„å€¼ä¹ŸåŒæ—¶å­˜æ”¾åœ¨è¯¥å˜é‡çš„è´®å­˜å•å…ƒä¸­
+	æˆ–è€…åœ¨åŸºæœ¬å—ä¸­è¦åœ¨æœ€è¿œçš„å°†æ¥æ‰ä¼šå¼•ç”¨åˆ°æˆ–ä¸ä¼šå¼•ç”¨åˆ°ã€‚
 	*/
 
 	const int inf = 1000000;
 	int maxNextPos = 0;
-	for (map<string, set<string> >::iterator iter = Rvalue.begin(); iter != Rvalue.end(); iter++) {//±éÀúËùÓĞµÄ¼Ä´æÆ÷
+	for (map<string, set<string> >::iterator iter = Rvalue.begin(); iter != Rvalue.end(); iter++) {//éå†æ‰€æœ‰çš„å¯„å­˜å™¨
 		int nextpos = inf;
-		for (set<string>::iterator viter = iter->second.begin(); viter != iter->second.end(); viter++) {//±éÀú¼Ä´æÆ÷ÖĞ´¢´æµÄ±äÁ¿
-			bool inFlag = false;//±äÁ¿ÒÑÔÚÆäËûµØ·½´æ´¢µÄ±êÖ¾
-			for (set<string>::iterator aiter = Avalue[*viter].begin(); aiter != Avalue[*viter].end(); aiter++) {//±éÀú±äÁ¿µÄ´æ´¢Î»ÖÃ
-				if (*aiter != iter->first) {//Èç¹û±äÁ¿´æ´¢ÔÚÆäËûµØ·½
+		for (set<string>::iterator viter = iter->second.begin(); viter != iter->second.end(); viter++) {//éå†å¯„å­˜å™¨ä¸­å‚¨å­˜çš„å˜é‡
+			bool inFlag = false;//å˜é‡å·²åœ¨å…¶ä»–åœ°æ–¹å­˜å‚¨çš„æ ‡å¿—
+			for (set<string>::iterator aiter = Avalue[*viter].begin(); aiter != Avalue[*viter].end(); aiter++) {//éå†å˜é‡çš„å­˜å‚¨ä½ç½®
+				if (*aiter != iter->first) {//å¦‚æœå˜é‡å­˜å‚¨åœ¨å…¶ä»–åœ°æ–¹
 					inFlag = true;
 					break;
 				}
 			}
-			if (!inFlag) {//Èç¹û±äÁ¿½ö´æ´¢ÔÚ¼Ä´æÆ÷ÖĞ£¬¾Í¿´Î´À´ÔÚºÎ´¦»áÒıÓÃ¸Ã±äÁ¿
+			if (!inFlag) {//å¦‚æœå˜é‡ä»…å­˜å‚¨åœ¨å¯„å­˜å™¨ä¸­ï¼Œå°±çœ‹æœªæ¥åœ¨ä½•å¤„ä¼šå¼•ç”¨è¯¥å˜é‡
 				for (vector<QuaternaryWithInfo>::iterator cIter = nowQuatenary; cIter != nowIBlock->codes.end(); cIter++) {
 					if (*viter == cIter->q.src1 || *viter == cIter->q.src2) {
 						nextpos = cIter - nowQuatenary;
@@ -136,46 +136,46 @@ string ObjectCodeGenerator::allocateReg() {
 	}
 
 	for (set<string>::iterator iter = Rvalue[ret].begin(); iter != Rvalue[ret].end(); iter++) {
-		//¶ÔretµÄ¼Ä´æÆ÷ÖĞ±£´æµÄ±äÁ¿*iter£¬ËûÃÇ¶¼½«²»ÔÙ´æ´¢ÔÚretÖĞ
+		//å¯¹retçš„å¯„å­˜å™¨ä¸­ä¿å­˜çš„å˜é‡*iterï¼Œä»–ä»¬éƒ½å°†ä¸å†å­˜å‚¨åœ¨retä¸­
 		Avalue[*iter].erase(ret);
-		//Èç¹ûVµÄµØÖ·ÃèÊöÊı×éAVALUE[V]ËµV»¹±£´æÔÚRÖ®ÍâµÄÆäËûµØ·½£¬Ôò²»ĞèÒªÉú³É´æÊıÖ¸Áî
+		//å¦‚æœVçš„åœ°å€æè¿°æ•°ç»„AVALUE[V]è¯´Vè¿˜ä¿å­˜åœ¨Rä¹‹å¤–çš„å…¶ä»–åœ°æ–¹ï¼Œåˆ™ä¸éœ€è¦ç”Ÿæˆå­˜æ•°æŒ‡ä»¤
 		if (Avalue[*iter].size() > 0) {
 			//pass
 		}
-		//Èç¹ûV²»»áÔÚ´ËÖ®ºó±»Ê¹ÓÃ£¬Ôò²»ĞèÒªÉú³É´æÊıÖ¸Áî
+		//å¦‚æœVä¸ä¼šåœ¨æ­¤ä¹‹åè¢«ä½¿ç”¨ï¼Œåˆ™ä¸éœ€è¦ç”Ÿæˆå­˜æ•°æŒ‡ä»¤
 		else {
 			bool storeFlag = true;
 			vector<QuaternaryWithInfo>::iterator cIter;
 			for (cIter = nowQuatenary; cIter != nowIBlock->codes.end(); cIter++) {
-				if (cIter->q.src1 == *iter || cIter->q.src2 == *iter) {//Èç¹ûVÔÚ±¾»ù±¾¿éÖĞ±»ÒıÓÃ
+				if (cIter->q.src1 == *iter || cIter->q.src2 == *iter) {//å¦‚æœVåœ¨æœ¬åŸºæœ¬å—ä¸­è¢«å¼•ç”¨
 					storeFlag = true;
 					break;
 				}
-				if (cIter->q.des == *iter) {//Èç¹ûVÔÚ±¾»ù±¾¿éÖĞ±»¸³Öµ
+				if (cIter->q.des == *iter) {//å¦‚æœVåœ¨æœ¬åŸºæœ¬å—ä¸­è¢«èµ‹å€¼
 					storeFlag = false;
 					break;
 				}
 			}
-			if (cIter == nowIBlock->codes.end()) {//Èç¹ûVÔÚ±¾»ù±¾¿éÖĞÎ´±»ÒıÓÃ£¬ÇÒÒ²Ã»ÓĞ±»¸³Öµ
+			if (cIter == nowIBlock->codes.end()) {//å¦‚æœVåœ¨æœ¬åŸºæœ¬å—ä¸­æœªè¢«å¼•ç”¨ï¼Œä¸”ä¹Ÿæ²¡æœ‰è¢«èµ‹å€¼
 				int index = nowIBlock - funcIBlocks[nowFunc].begin();
-				if (funcOUTL[nowFunc][index].count(*iter) == 1) {//Èç¹û´Ë±äÁ¿ÊÇ³ö¿ÚÖ®ºóµÄ»îÔ¾±äÁ¿
+				if (funcOUTL[nowFunc][index].count(*iter) == 1) {//å¦‚æœæ­¤å˜é‡æ˜¯å‡ºå£ä¹‹åçš„æ´»è·ƒå˜é‡
 					storeFlag = true;
 				}
 				else {
 					storeFlag = false;
 				}
 			}
-			if (storeFlag) {//Éú³É´æÊıÖ¸Áî
+			if (storeFlag) {//ç”Ÿæˆå­˜æ•°æŒ‡ä»¤
 				storeVar(ret, *iter);
 			}
 		}
 	}
-	Rvalue[ret].clear();//Çå¿Õret¼Ä´æÆ÷ÖĞ±£´æµÄ±äÁ¿
+	Rvalue[ret].clear();//æ¸…ç©ºretå¯„å­˜å™¨ä¸­ä¿å­˜çš„å˜é‡
 
 	return ret;
 }
 
-//ÎªÒıÓÃ±äÁ¿·ÖÅä¼Ä´æÆ÷
+//ä¸ºå¼•ç”¨å˜é‡åˆ†é…å¯„å­˜å™¨
 string ObjectCodeGenerator::allocateReg(string var) {
 	if (isNum(var)) {
 		string ret = allocateReg();
@@ -184,12 +184,12 @@ string ObjectCodeGenerator::allocateReg(string var) {
 	}
 
 	for (set<string>::iterator iter = Avalue[var].begin(); iter != Avalue[var].end(); iter++) {
-		if ((*iter)[0] == '$') {//Èç¹û±äÁ¿ÒÑ¾­±£´æÔÚÄ³¸ö¼Ä´æÆ÷ÖĞ
-			return *iter;//Ö±½Ó·µ»Ø¸Ã¼Ä´æÆ÷
+		if ((*iter)[0] == '$') {//å¦‚æœå˜é‡å·²ç»ä¿å­˜åœ¨æŸä¸ªå¯„å­˜å™¨ä¸­
+			return *iter;//ç›´æ¥è¿”å›è¯¥å¯„å­˜å™¨
 		}
 	}
 
-	//Èç¹û¸Ã±äÁ¿Ã»ÓĞÔÚÄ³¸ö¼Ä´æÆ÷ÖĞ
+	//å¦‚æœè¯¥å˜é‡æ²¡æœ‰åœ¨æŸä¸ªå¯„å­˜å™¨ä¸­
 	string ret = allocateReg();
 	objectCodes.push_back(string("lw ") + ret + " " + to_string(varOffset[var]) + "($sp)");
 	Avalue[var].insert(ret);
@@ -197,21 +197,21 @@ string ObjectCodeGenerator::allocateReg(string var) {
 	return ret;
 }
 
-//ÎªÄ¿±ê±äÁ¿·ÖÅä¼Ä´æÆ÷
+//ä¸ºç›®æ ‡å˜é‡åˆ†é…å¯„å­˜å™¨
 string ObjectCodeGenerator::getReg() {
 	//i: A:=B op C
-	//Èç¹ûBµÄÏÖĞĞÖµÔÚÄ³¸ö¼Ä´æÆ÷RiÖĞ£¬RVALUE[Ri]ÖĞÖ»°üº¬B
-	//´ËÍâ£¬»òÕßBÓëAÊÇÍ¬Ò»¸ö±êÊ¶·û»òÕßBµÄÏÖĞĞÖµÔÚÖ´ĞĞËÄÔªÊ½A:=B op CÖ®ºó²»»áÔÙÒıÓÃ
-	//ÔòÑ¡È¡RiÎªËùĞèÒªµÄ¼Ä´æÆ÷R
+	//å¦‚æœBçš„ç°è¡Œå€¼åœ¨æŸä¸ªå¯„å­˜å™¨Riä¸­ï¼ŒRVALUE[Ri]ä¸­åªåŒ…å«B
+	//æ­¤å¤–ï¼Œæˆ–è€…Bä¸Aæ˜¯åŒä¸€ä¸ªæ ‡è¯†ç¬¦æˆ–è€…Bçš„ç°è¡Œå€¼åœ¨æ‰§è¡Œå››å…ƒå¼A:=B op Cä¹‹åä¸ä¼šå†å¼•ç”¨
+	//åˆ™é€‰å–Riä¸ºæ‰€éœ€è¦çš„å¯„å­˜å™¨R
 
-	//Èç¹ûsrc1²»ÊÇÊı×Ö
+	//å¦‚æœsrc1ä¸æ˜¯æ•°å­—
 	if (!isNum(nowQuatenary->q.src1)) {
-		//±éÀúsrc1ËùÔÚµÄ¼Ä´æÆ÷
+		//éå†src1æ‰€åœ¨çš„å¯„å­˜å™¨
 		set<string>&src1pos = Avalue[nowQuatenary->q.src1];
 		for (set<string>::iterator iter = src1pos.begin(); iter != src1pos.end(); iter++) {
 			if ((*iter)[0] == '$') {
-				if (Rvalue[*iter].size() == 1) {//Èç¹û¸Ã¼Ä´æÆ÷ÖĞÖµ½ö½ö´æÓĞsrc1
-					if (nowQuatenary->q.des == nowQuatenary->q.src1 || !nowQuatenary->info1.active) {//Èç¹ûA,BÊÇÍ¬Ò»±êÊ¶·û»òBÒÔºó²»»îÔ¾
+				if (Rvalue[*iter].size() == 1) {//å¦‚æœè¯¥å¯„å­˜å™¨ä¸­å€¼ä»…ä»…å­˜æœ‰src1
+					if (nowQuatenary->q.des == nowQuatenary->q.src1 || !nowQuatenary->info1.active) {//å¦‚æœA,Bæ˜¯åŒä¸€æ ‡è¯†ç¬¦æˆ–Bä»¥åä¸æ´»è·ƒ
 						Avalue[nowQuatenary->q.des].insert(*iter);
 						Rvalue[*iter].insert(nowQuatenary->q.des);
 						return *iter;
@@ -221,7 +221,7 @@ string ObjectCodeGenerator::getReg() {
 		}
 	}
 
-	//ÎªÄ¿±ê±äÁ¿·ÖÅä¿ÉÄÜ²»ÕıÈ·
+	//ä¸ºç›®æ ‡å˜é‡åˆ†é…å¯èƒ½ä¸æ­£ç¡®
 	//return allocateReg(nowQuatenary->q.des);
 	string ret = allocateReg();
 	Avalue[nowQuatenary->q.des].insert(ret);
@@ -230,54 +230,64 @@ string ObjectCodeGenerator::getReg() {
 }
 
 void ObjectCodeGenerator::analyseBlock(map<string, vector<Block> >*funcBlocks) {
+	// å¯¹äºæ¯ä¸ªå‡½æ•°å—
 	for (map<string, vector<Block> >::iterator fbiter = funcBlocks->begin(); fbiter != funcBlocks->end(); fbiter++) {
 		vector<IBlock> iBlocks;
 		vector<Block>& blocks = fbiter->second;
 		vector<set<string> >INL, OUTL, DEF, USE;
 
-		//»îÔ¾±äÁ¿µÄÊı¾İÁ÷·½³Ì
-		//È·¶¨DEF£¬USE
+		//æ´»è·ƒå˜é‡çš„æ•°æ®æµæ–¹ç¨‹
+		//ç¡®å®šDEFï¼ŒUSE
+		// å¯¹äºå‡½æ•°å—ä¸­çš„æ¯ä¸ªåŸºæœ¬å—
 		for (vector<Block>::iterator biter = blocks.begin(); biter != blocks.end(); biter++) {
 			set<string>def, use;
+
+			// å¯¹äºåŸºæœ¬å—ä¸­çš„æ¯æ¡ä¸­é—´ä»£ç 
+			// å¦‚æœå…¶æºæ“ä½œæ•°åœ¨è¯¥åŸºæœ¬å—ä¸­æœªè¢«å®šå€¼å…ˆå¼•ç”¨äº†ï¼Œåˆ™å¿…åœ¨å—å¤–å®šå€¼ï¼Œuseä¸­æ’å…¥è¯¥æºæ“ä½œæ•°
+			// å¦‚æœå…¶ç›®çš„æ“ä½œæ•°åœ¨è¯¥åŸºæœ¬å—ä¸­è¿˜æœªè¢«å¼•ç”¨ï¼Œåˆ™defä¸­æ’å…¥è¯¥ç›®çš„æ“ä½œæ•°è¡¨ç¤ºå®šå€¼
 			for (vector<Quaternary>::iterator citer = biter->codes.begin(); citer != biter->codes.end(); citer++) {
 				if (citer->op == "j" || citer->op == "call") {
 					//pass
 				}
 				else if (citer->op[0] == 'j') {//j>= j<=,j==,j!=,j>,j<
-					if (isVar(citer->src1) && def.count(citer->src1) == 0) {//Èç¹ûÔ´²Ù×÷Êı1»¹Ã»ÓĞ±»¶¨Öµ
+					if (isVar(citer->src1) && def.count(citer->src1) == 0) {//å¦‚æœæºæ“ä½œæ•°1è¿˜æ²¡æœ‰è¢«å®šå€¼
 						use.insert(citer->src1);
 					}
-					if (isVar(citer->src2) && def.count(citer->src2) == 0) {//Èç¹ûÔ´²Ù×÷Êı2»¹Ã»ÓĞ±»¶¨Öµ
+					if (isVar(citer->src2) && def.count(citer->src2) == 0) {//å¦‚æœæºæ“ä½œæ•°2è¿˜æ²¡æœ‰è¢«å®šå€¼
 						use.insert(citer->src2);
 					}
 				}
 				else {
-					if (isVar(citer->src1) && def.count(citer->src1) == 0) {//Èç¹ûÔ´²Ù×÷Êı1»¹Ã»ÓĞ±»¶¨Öµ
+					if (isVar(citer->src1) && def.count(citer->src1) == 0) {//å¦‚æœæºæ“ä½œæ•°1è¿˜æ²¡æœ‰è¢«å®šå€¼
 						use.insert(citer->src1);
 					}
-					if (isVar(citer->src2) && def.count(citer->src2) == 0) {//Èç¹ûÔ´²Ù×÷Êı2»¹Ã»ÓĞ±»¶¨Öµ
+					if (isVar(citer->src2) && def.count(citer->src2) == 0) {//å¦‚æœæºæ“ä½œæ•°2è¿˜æ²¡æœ‰è¢«å®šå€¼
 						use.insert(citer->src2);
 					}
-					if (isVar(citer->des) && use.count(citer->des) == 0) {//Èç¹ûÄ¿µÄ²Ù×÷Êı»¹Ã»ÓĞ±»ÒıÓÃ
+					if (isVar(citer->des) && use.count(citer->des) == 0) {//å¦‚æœç›®çš„æ“ä½œæ•°è¿˜æ²¡æœ‰è¢«å¼•ç”¨
 						def.insert(citer->des);
 					}
 				}
 			}
-			INL.push_back(use);
-			DEF.push_back(def);
-			USE.push_back(use);
+			INL.push_back(use);		//å¼•ç”¨ä¿¡æ¯æ›´æ–°
+			DEF.push_back(def);		//å®šå€¼ä¿¡æ¯æ›´æ–°
+			USE.push_back(use);		//å¼•ç”¨ä¿¡æ¯æ›´æ–°
 			OUTL.push_back(set<string>());
 		}
 
-		//È·¶¨INL£¬OUTL
+		// å¯¹äºæ¯ä¸ªå‡½æ•°å—
+		// ç¡®å®šINLï¼ŒOUTL
 		bool change = true;
 		while (change) {
 			change = false;
 			int blockIndex = 0;
+			// éå†å‡½æ•°å—å†…éƒ¨çš„åŸºæœ¬å—
 			for (vector<Block>::iterator biter = blocks.begin(); biter != blocks.end(); biter++, blockIndex++) {
 				int next1 = biter->next1;
 				int next2 = biter->next2;
 				if (next1 != -1) {
+					// éå†ä¸‹ä¸€ä¸ªåŸºæœ¬å—çš„æ‰€æœ‰å¼•ç”¨ä¿¡æ¯ï¼Œæ’å…¥å½“å‰å—çš„OUTL
+					// å¦‚æœè¿™äº›å¼•ç”¨ä¿¡æ¯åœ¨å½“å‰å—å†…éƒ¨æœªå®šå€¼ï¼Œåˆ™åŒæ ·å°†å…¶æ’å…¥å½“å‰å—çš„å¼•ç”¨
 					for (set<string>::iterator inlIter = INL[next1].begin(); inlIter != INL[next1].end(); inlIter++) {
 						if (OUTL[blockIndex].insert(*inlIter).second == true) {
 							if (DEF[blockIndex].count(*inlIter) == 0) {
@@ -299,9 +309,12 @@ void ObjectCodeGenerator::analyseBlock(map<string, vector<Block> >*funcBlocks) {
 				}
 			}
 		}
+		// funcOUTLå’ŒfuncINLè®°å½•æ¯ä¸ªå‡½æ•°çš„æ€»å…¥å’Œå‡º
+		// å‡½æ•°åä¸ºé”®
 		funcOUTL[fbiter->first] = OUTL;
 		funcINL[fbiter->first] = INL;
 
+		// åˆå§‹åŒ–ï¼Œæ¯ä¸ªä¸­é—´ä»£ç å¯¹åº”çš„å¾…ç”¨å’Œæ´»è·ƒä¿¡æ¯è®¾ç½®ä¸ºdefault
 		for (vector<Block>::iterator iter = blocks.begin(); iter != blocks.end(); iter++) {
 			IBlock iBlock;
 			iBlock.next1 = iter->next1;
@@ -313,11 +326,11 @@ void ObjectCodeGenerator::analyseBlock(map<string, vector<Block> >*funcBlocks) {
 			iBlocks.push_back(iBlock);
 		}
 
-		vector<map<string, VarInfomation> > symTables;//Ã¿¸ö»ù±¾¿é¶ÔÓ¦Ò»ÕÅ·ûºÅ±í
-		//³õÊ¼»¯·ûºÅ±í
-		for (vector<Block>::iterator biter = blocks.begin(); biter != blocks.end(); biter++) {//±éÀúÃ¿Ò»¸ö»ù±¾¿é
+		vector<map<string, VarInfomation> > symTables;//æ¯ä¸ªåŸºæœ¬å—å¯¹åº”ä¸€å¼ ç¬¦å·è¡¨
+		//åˆå§‹åŒ–ç¬¦å·è¡¨
+		for (vector<Block>::iterator biter = blocks.begin(); biter != blocks.end(); biter++) {//éå†æ¯ä¸€ä¸ªåŸºæœ¬å—
 			map<string, VarInfomation>symTable;
-			for (vector<Quaternary>::iterator citer = biter->codes.begin(); citer != biter->codes.end(); citer++) {//±éÀú»ù±¾¿éÖĞµÄÃ¿¸öËÄÔªÊ½
+			for (vector<Quaternary>::iterator citer = biter->codes.begin(); citer != biter->codes.end(); citer++) {//éå†åŸºæœ¬å—ä¸­çš„æ¯ä¸ªå››å…ƒå¼
 				if (citer->op == "j" || citer->op == "call") {
 					//pass
 				}
@@ -343,19 +356,22 @@ void ObjectCodeGenerator::analyseBlock(map<string, vector<Block> >*funcBlocks) {
 			}
 			symTables.push_back(symTable);
 		}
+
+		// å­˜åœ¨äºOUTLä»£è¡¨è¯¥åŸºæœ¬å—åéœ€è¦è¯¥å˜é‡
+		// åœ¨åŸºæœ¬å—å¯¹åº”ç¬¦å·è¡¨ä¸­æ ‡è®°ä¸ºæ´»è·ƒ
 		int blockIndex = 0;
-		for (vector<set<string> >::iterator iter = OUTL.begin(); iter != OUTL.end(); iter++, blockIndex++) {//±éÀúÃ¿¸ö»ù±¾¿éµÄ»îÔ¾±äÁ¿±í
-			for (set<string>::iterator viter = iter->begin(); viter != iter->end(); viter++) {//±éÀú»îÔ¾±äÁ¿±íÖĞµÄ±äÁ¿
+		for (vector<set<string> >::iterator iter = OUTL.begin(); iter != OUTL.end(); iter++, blockIndex++) {//éå†æ¯ä¸ªåŸºæœ¬å—çš„æ´»è·ƒå˜é‡è¡¨
+			for (set<string>::iterator viter = iter->begin(); viter != iter->end(); viter++) {//éå†æ´»è·ƒå˜é‡è¡¨ä¸­çš„å˜é‡
 				symTables[blockIndex][*viter] = VarInfomation{ -1,true };
 			}
 
 		}
 
 		blockIndex = 0;
-		//¼ÆËãÃ¿¸öËÄÔªÊ½µÄ´ıÓÃĞÅÏ¢ºÍ»îÔ¾ĞÅÏ¢
-		for (vector<IBlock>::iterator ibiter = iBlocks.begin(); ibiter != iBlocks.end(); ibiter++, blockIndex++) {//±éÀúÃ¿Ò»¸ö»ù±¾¿é
+		//è®¡ç®—æ¯ä¸ªå››å…ƒå¼çš„å¾…ç”¨ä¿¡æ¯å’Œæ´»è·ƒä¿¡æ¯
+		for (vector<IBlock>::iterator ibiter = iBlocks.begin(); ibiter != iBlocks.end(); ibiter++, blockIndex++) {//éå†æ¯ä¸€ä¸ªåŸºæœ¬å—
 			int codeIndex = ibiter->codes.size() - 1;
-			for (vector<QuaternaryWithInfo>::reverse_iterator citer = ibiter->codes.rbegin(); citer != ibiter->codes.rend(); citer++, codeIndex--) {//ÄæĞò±éÀú»ù±¾¿éÖĞµÄ´úÂë
+			for (vector<QuaternaryWithInfo>::reverse_iterator citer = ibiter->codes.rbegin(); citer != ibiter->codes.rend(); citer++, codeIndex--) {//é€†åºéå†åŸºæœ¬å—ä¸­çš„ä»£ç 
 				if (citer->q.op == "j" || citer->q.op == "call") {
 					//pass
 				}
@@ -445,13 +461,13 @@ void ObjectCodeGenerator::outputObjectCode(const char* fileName) {
 	fout.close();
 }
 
-//»ù±¾¿é³ö¿Ú£¬½«³ö¿Ú»îÔ¾±äÁ¿±£´æÔÚÄÚ´æ
+//åŸºæœ¬å—å‡ºå£ï¼Œå°†å‡ºå£æ´»è·ƒå˜é‡ä¿å­˜åœ¨å†…å­˜
 void ObjectCodeGenerator::storeOutLiveVar(set<string>&outl) {
 	for (set<string>::iterator oiter = outl.begin(); oiter != outl.end(); oiter++) {
-		string reg;//»îÔ¾±äÁ¿ËùÔÚµÄ¼Ä´æÆ÷Ãû³Æ
-		bool inFlag = false;//»îÔ¾±äÁ¿ÔÚÄÚ´æÖĞµÄ±êÖ¾
+		string reg;//æ´»è·ƒå˜é‡æ‰€åœ¨çš„å¯„å­˜å™¨åç§°
+		bool inFlag = false;//æ´»è·ƒå˜é‡åœ¨å†…å­˜ä¸­çš„æ ‡å¿—
 		for (set<string>::iterator aiter = Avalue[*oiter].begin(); aiter != Avalue[*oiter].end(); aiter++) {
-			if ((*aiter)[0] != '$') {//¸Ã»îÔ¾±äÁ¿ÒÑ¾­´æ´¢ÔÚÄÚ´æÖĞ
+			if ((*aiter)[0] != '$') {//è¯¥æ´»è·ƒå˜é‡å·²ç»å­˜å‚¨åœ¨å†…å­˜ä¸­
 				inFlag = true;
 				break;
 			}
@@ -459,7 +475,7 @@ void ObjectCodeGenerator::storeOutLiveVar(set<string>&outl) {
 				reg = *aiter;
 			}
 		}
-		if (!inFlag) {//Èç¹û¸Ã»îÔ¾±äÁ¿²»ÔÚÄÚ´æÖĞ£¬Ôò½«regÖĞµÄvar±äÁ¿´æÈëÄÚ´æ
+		if (!inFlag) {//å¦‚æœè¯¥æ´»è·ƒå˜é‡ä¸åœ¨å†…å­˜ä¸­ï¼Œåˆ™å°†regä¸­çš„varå˜é‡å­˜å…¥å†…å­˜
 			storeVar(reg, *oiter);
 		}
 	}
@@ -468,10 +484,10 @@ void ObjectCodeGenerator::storeOutLiveVar(set<string>&outl) {
 void ObjectCodeGenerator::generateCodeForQuatenary(int nowBaseBlockIndex, int &arg_num, int &par_num, list<pair<string, bool> > &par_list) {
 	if (nowQuatenary->q.op[0] != 'j'&&nowQuatenary->q.op != "call") {
 		if (isVar(nowQuatenary->q.src1) && Avalue[nowQuatenary->q.src1].empty()) {
-			outputError(string("±äÁ¿") + nowQuatenary->q.src1 + "ÔÚÒıÓÃÇ°Î´¸³Öµ");
+			outputError(string("å˜é‡") + nowQuatenary->q.src1 + "åœ¨å¼•ç”¨å‰æœªèµ‹å€¼");
 		}
 		if (isVar(nowQuatenary->q.src2) && Avalue[nowQuatenary->q.src2].empty()) {
-			outputError(string("±äÁ¿") + nowQuatenary->q.src2 + "ÔÚÒıÓÃÇ°Î´¸³Öµ");
+			outputError(string("å˜é‡") + nowQuatenary->q.src2 + "åœ¨å¼•ç”¨å‰æœªèµ‹å€¼");
 		}
 	}
 
@@ -507,7 +523,7 @@ void ObjectCodeGenerator::generateCodeForQuatenary(int nowBaseBlockIndex, int &a
 		par_list.push_back(pair<string, bool>(nowQuatenary->q.src1, nowQuatenary->info1.active));
 	}
 	else if (nowQuatenary->q.op == "call") {
-		/*½«²ÎÊıÑ¹Õ»*/
+		/*å°†å‚æ•°å‹æ ˆ*/
 		for (list<pair<string, bool> >::iterator aiter = par_list.begin(); aiter != par_list.end(); aiter++) {
 			string pos = allocateReg(aiter->first);
 			objectCodes.push_back(string("sw ") + pos + " " + to_string(top + 4 * (++arg_num + 1)) + "($sp)");
@@ -515,21 +531,21 @@ void ObjectCodeGenerator::generateCodeForQuatenary(int nowBaseBlockIndex, int &a
 				releaseVar(aiter->first);
 			}
 		}
-		/*¸üĞÂ$sp*/
+		/*æ›´æ–°$sp*/
 		objectCodes.push_back(string("sw $sp ") + to_string(top) + "($sp)");
 		objectCodes.push_back(string("addi $sp $sp ") + to_string(top));
 
-		/*Ìø×ªµ½¶ÔÓ¦º¯Êı*/
+		/*è·³è½¬åˆ°å¯¹åº”å‡½æ•°*/
 		objectCodes.push_back(string("jal ") + nowQuatenary->q.src1);
 
-		/*»Ö¸´ÏÖ³¡*/
+		/*æ¢å¤ç°åœº*/
 		objectCodes.push_back(string("lw $sp 0($sp)"));
 	}
 	else if (nowQuatenary->q.op == "return") {
-		if (isNum(nowQuatenary->q.src1)) {//·µ»ØÖµÎªÊı×Ö
+		if (isNum(nowQuatenary->q.src1)) {//è¿”å›å€¼ä¸ºæ•°å­—
 			objectCodes.push_back("addi $v0 $zero " + nowQuatenary->q.src1);
 		}
-		else if (isVar(nowQuatenary->q.src1)) {//·µ»ØÖµÎª±äÁ¿
+		else if (isVar(nowQuatenary->q.src1)) {//è¿”å›å€¼ä¸ºå˜é‡
 			set<string>::iterator piter = Avalue[nowQuatenary->q.src1].begin();
 			if ((*piter)[0] == '$') {
 				objectCodes.push_back(string("add $v0 $zero ") + *piter);
@@ -591,9 +607,9 @@ void ObjectCodeGenerator::generateCodeForQuatenary(int nowBaseBlockIndex, int &a
 }
 
 void ObjectCodeGenerator::generateCodeForBaseBlocks(int nowBaseBlockIndex) {
-	int arg_num = 0;//parµÄÊµ²Î¸öÊı
-	int par_num = 0;//getµÄĞÎ²Î¸öÊı
-	list<pair<string, bool> > par_list;//º¯Êıµ÷ÓÃÓÃµ½µÄÊµ²Î¼¯list<Êµ²ÎÃû,ÊÇ·ñ»îÔ¾>
+	int arg_num = 0;//parçš„å®å‚ä¸ªæ•°
+	int par_num = 0;//getçš„å½¢å‚ä¸ªæ•°
+	list<pair<string, bool> > par_list;//å‡½æ•°è°ƒç”¨ç”¨åˆ°çš„å®å‚é›†list<å®å‚å,æ˜¯å¦æ´»è·ƒ>
 
 	if (nowFunc == "program") {
 		int a = 1;
@@ -606,7 +622,7 @@ void ObjectCodeGenerator::generateCodeForBaseBlocks(int nowBaseBlockIndex) {
 		Avalue[*iter].insert(*iter);
 	}
 
-	//³õÊ¼»¯¿ÕÏĞ¼Ä´æÆ÷
+	//åˆå§‹åŒ–ç©ºé—²å¯„å­˜å™¨
 	freeReg.clear();
 	for (int i = 0; i <= 7; i++) {
 		freeReg.push_back(string("$s") + to_string(i));
@@ -618,21 +634,21 @@ void ObjectCodeGenerator::generateCodeForBaseBlocks(int nowBaseBlockIndex) {
 			top = 8;
 		}
 		else {
-			objectCodes.push_back("sw $ra 4($sp)");//°Ñ·µ»ØµØÖ·Ñ¹Õ»
+			objectCodes.push_back("sw $ra 4($sp)");//æŠŠè¿”å›åœ°å€å‹æ ˆ
 			top = 8;
 		}
 	}
 
-	for (vector<QuaternaryWithInfo>::iterator cIter = nowIBlock->codes.begin(); cIter != nowIBlock->codes.end(); cIter++) {//¶Ô»ù±¾¿éÄÚµÄÃ¿Ò»ÌõÓï¾ä
+	for (vector<QuaternaryWithInfo>::iterator cIter = nowIBlock->codes.begin(); cIter != nowIBlock->codes.end(); cIter++) {//å¯¹åŸºæœ¬å—å†…çš„æ¯ä¸€æ¡è¯­å¥
 		nowQuatenary = cIter;
-		//Èç¹ûÊÇ»ù±¾¿éµÄ×îºóÒ»ÌõÓï¾ä
+		//å¦‚æœæ˜¯åŸºæœ¬å—çš„æœ€åä¸€æ¡è¯­å¥
 		if (cIter + 1 == nowIBlock->codes.end()) {
-			//Èç¹û×îºóÒ»ÌõÓï¾äÊÇ¿ØÖÆÓï¾ä£¬ÔòÏÈ½«³ö¿Ú»îÔ¾±äÁ¿±£´æ£¬ÔÙ½øĞĞÌø×ª(j,call,return)
+			//å¦‚æœæœ€åä¸€æ¡è¯­å¥æ˜¯æ§åˆ¶è¯­å¥ï¼Œåˆ™å…ˆå°†å‡ºå£æ´»è·ƒå˜é‡ä¿å­˜ï¼Œå†è¿›è¡Œè·³è½¬(j,call,return)
 			if (isControlOp(cIter->q.op)) {
 				storeOutLiveVar(funcOUTL[nowFunc][nowBaseBlockIndex]);
 				generateCodeForQuatenary(nowBaseBlockIndex, arg_num, par_num, par_list);
 			}
-			//Èç¹û×îºóÒ»ÌõÓï¾ä²»ÊÇ¿ØÖÆÓï¾ä£¨ÊÇ¸³ÖµÓï¾ä£©£¬ÔòÏÈ¼ÆËã£¬ÔÙ½«³ö¿Ú»îÔ¾±äÁ¿±£´æ
+			//å¦‚æœæœ€åä¸€æ¡è¯­å¥ä¸æ˜¯æ§åˆ¶è¯­å¥ï¼ˆæ˜¯èµ‹å€¼è¯­å¥ï¼‰ï¼Œåˆ™å…ˆè®¡ç®—ï¼Œå†å°†å‡ºå£æ´»è·ƒå˜é‡ä¿å­˜
 			else {
 				generateCodeForQuatenary(nowBaseBlockIndex, arg_num, par_num, par_list);
 				storeOutLiveVar(funcOUTL[nowFunc][nowBaseBlockIndex]);
@@ -649,7 +665,7 @@ void ObjectCodeGenerator::generateCodeForFuncBlocks(map<string, vector<IBlock> >
 	varOffset.clear();
 	nowFunc = fiter->first;
 	vector<IBlock>&iBlocks = fiter->second;
-	for (vector<IBlock>::iterator iter = iBlocks.begin(); iter != iBlocks.end(); iter++) {//¶ÔÃ¿Ò»¸ö»ù±¾¿é
+	for (vector<IBlock>::iterator iter = iBlocks.begin(); iter != iBlocks.end(); iter++) {//å¯¹æ¯ä¸€ä¸ªåŸºæœ¬å—
 		nowIBlock = iter;
 		generateCodeForBaseBlocks(nowIBlock - iBlocks.begin());
 	}
@@ -658,7 +674,7 @@ void ObjectCodeGenerator::generateCodeForFuncBlocks(map<string, vector<IBlock> >
 void ObjectCodeGenerator::generateCode() {
 	objectCodes.push_back("lui $sp,0x1001");
 	objectCodes.push_back("j main");
-	for (map<string, vector<IBlock> >::iterator fiter = funcIBlocks.begin(); fiter != funcIBlocks.end(); fiter++) {//¶ÔÃ¿Ò»¸öº¯Êı¿é
+	for (map<string, vector<IBlock> >::iterator fiter = funcIBlocks.begin(); fiter != funcIBlocks.end(); fiter++) {//å¯¹æ¯ä¸€ä¸ªå‡½æ•°å—
 		generateCodeForFuncBlocks(fiter);
 	}
 	objectCodes.push_back("end:");

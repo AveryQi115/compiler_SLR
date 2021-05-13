@@ -30,10 +30,12 @@ Symbol::Symbol(const bool &isVt, const string& content) {
 	this->content = content;
 }
 
+// NewTemper 临时表达式名
 NewTemper::NewTemper() {
 	now = 0;
 }
 
+// 为了便于生成中间代码，需要临时表达式名来给expression->name赋值
 string NewTemper::newTemp() {
 	return string("T") + to_string(now++);
 }
@@ -586,6 +588,8 @@ void ParserAndSemanticAnalyser::analyse(list<Token>&words, ostream& out) {
 					pushSymbol(new Symbol(reductPro.left));
 					break;
 				}
+				// A用来增加嵌套级别
+				// 复合语句都会增加嵌套级别
 				case 6://A ::=
 				{
 					nowLevel++;

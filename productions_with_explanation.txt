@@ -1,0 +1,91 @@
+// 程序开始
+P ::= N declare_list
+
+// 外部声明（函数定义和全局符号）
+declare_list ::= declare declare_list
+declare_list ::= declare
+
+// 函数定义
+declare ::= int ID M A function_declare
+declare ::= void ID M A function_declare
+
+// 全局变量
+declare ::= int ID var_declare
+
+// 嵌套层级+1
+A ::= 
+
+// 变量声明(无特殊处理)
+var_declare ::= ;
+
+// 函数定义
+function_declare ::= ( parameter ) sentence_block
+
+// 形参定义
+parameter ::= parameter_list
+parameter ::= void
+parameter_list ::= param
+parameter_list ::= param , parameter_list
+param ::= int ID
+
+// 复合语句
+sentence_block ::= { inner_declare sentence_list }
+
+// 局部变量
+inner_declare ::= 
+inner_declare ::= inner_var_declare ; inner_declare
+inner_var_declare ::= int ID
+
+// 语句
+sentence_list ::= sentence M sentence_list
+sentence_list ::= sentence
+
+// if，while，return语句
+sentence ::= if_sentence
+sentence ::= while_sentence
+sentence ::= return_sentence
+return_sentence ::= return ;
+return_sentence ::= return expression ;
+
+// 赋值语句
+sentence ::= assign_sentence
+assign_sentence ::= ID = expression ;
+
+
+while_sentence ::= while M ( expression ) A sentence_block
+if_sentence ::= if ( expression ) A sentence_block
+if_sentence ::= if ( expression ) A sentence_block N else M A sentence_block
+
+// 回填
+N ::=
+M ::=
+
+// 通过规则定义优先级
+expression ::= add_expression
+expression ::= add_expression > add_expression
+expression ::= add_expression < add_expression
+expression ::= add_expression == add_expression
+expression ::= add_expression >= add_expression
+expression ::= add_expression <= add_expression
+expression ::= add_expression != add_expression
+
+// add_expression:简单变量，简单常量，加减式结果
+add_expression ::= item
+add_expression ::= item + add_expression
+add_expression ::= item - add_expression
+
+// item:简单变量，简单常量，乘除式结果
+item ::= factor
+item ::= factor * item
+item ::= factor / item
+
+// factor:简单变量，简单常量，括号表达式，函数调用
+factor ::= NUM
+factor ::= ( expression )
+factor ::= ID ( argument_list )
+factor ::= ID 
+
+// 实参
+argument_list ::= 
+argument_list ::= expression
+argument_list ::= expression , argument_list
