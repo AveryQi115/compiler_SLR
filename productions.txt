@@ -50,3 +50,11 @@ factor ::= ID
 argument_list ::= 
 argument_list ::= expression
 argument_list ::= expression , argument_list
+declare ::= int ID array_declare_list
+array_declare_list ::= array_declare array_declare_list
+array_declare_list ::= array_declare
+array_declare ::= [ NUM ]
+assign_sentence ::= array = expression ;
+factor ::= array
+array ::= ID [ expression ]
+array ::= array [ expression ]

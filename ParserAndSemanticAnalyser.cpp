@@ -56,6 +56,10 @@ Parameter::Parameter(const Symbol& sym) : Symbol(sym) {}
 
 ParameterList::ParameterList(const Symbol& sym) : Symbol(sym) {}
 
+ArrayDeclare::ArrayDeclare(const Symbol& sym) : Symbol(sym) {}
+
+ArrayDeclareList::ArrayDeclareList(const Symbol& sym) : Symbol(sym) {}
+
 SentenceBlock::SentenceBlock(const Symbol& sym) : Symbol(sym) {}
 
 SentenceList::SentenceList(const Symbol& sym) : Symbol(sym) {}
@@ -1034,6 +1038,72 @@ void ParserAndSemanticAnalyser::analyse(list<Token>&words, ostream& out) {
 					argument_list2->alist.push_front(expression->name);
 					argument_list1->alist.assign(argument_list2->alist.begin(),argument_list2->alist.end());
 					pushSymbol(argument_list1);
+					break;
+				}
+				case 52://declare ::= int ID array_declare_list
+				{
+					ArrayDeclareList* array_declare_list = (ArrayDeclareList*)popSymbol();
+					Id* ID = (Id*)popSymbol();
+					Symbol* _int = popSymbol();
+					if (array_declare_list->size <= 0)
+						outputError(string("语法错误：第") + to_string(lineCount) + "行，数组" + ID->name + "容量不合法");
+
+					for(int i=0;i<array_declare_list->size;i++){
+						string name = ID->name+"_"+to_string(i);
+						varTable.push_back(Var{ name,D_INT,nowLevel });
+					}
+					pushSymbol(new Symbol(reductPro.left));
+					break;
+				}
+				case 53://array_declare_list ::= array_declare array_declare_list
+				{
+					ArrayDeclareList* array_declare_list = (ArrayDeclareList*)popSymbol();
+					ArrayDeclare* array_declare	= (ArrayDeclare*)popSymbol();
+					ArrayDeclareList* total_list = new ArrayDeclareList(reductPro.left);
+					total_list->size = array_declare->size * array_declare_list->size;
+					pushSymbol(total_list);
+					break;
+				}
+				case 54://array_declare_list ::= array_declare ;
+				{
+					Symbol* semi = popSymbol();
+					ArrayDeclare* array_declare = (ArrayDeclare*)popSymbol();
+					ArrayDeclareList* total_list = new ArrayDeclareList(reductPro.left);
+					total_list->size = array_declare->size;
+					pushSymbol(total_list);
+					break;
+				}
+				case 55://array_declare ::= [ NUM ]
+				{
+					Symbol* rbracket = popSymbol();
+					Num* num = (Num*)popSymbol();
+					Symbol* lbracket = popSymbol();
+					ArrayDeclare* array_declare = new ArrayDeclare(reductPro.left);
+					array_declare->size = atoi(num->number.c_str());
+					pushSymbol(array_declare);
+					break;
+				}
+				case 56://assign_sentence ::= array = expression ;
+				{
+					Symbol* comma = popSymbol();
+					Expression* expression = (Expression*)popSymbol();
+					Symbol* assign = popSymbol();
+					Id* ID = (Id*)popSymbol();
+					Symbol* assign_sentence = new Symbol(reductPro.left);
+					code.emit("=", expression->name, "_", ID->name);
+					pushSymbol(assign_sentence);
+					break;
+				}
+				case 57://factor ::= array
+				{
+					break;
+				}
+				case 58://array ::= ID [ expression ]
+				{
+					break;
+				}
+				case 59://array ::= array [ expression ]
+				{
 					break;
 				}
 				default:

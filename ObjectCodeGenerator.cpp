@@ -125,10 +125,12 @@ string ObjectCodeGenerator::allocateReg() {
 				}
 			}
 		}
+		// 不存在变量仅存储在寄存器中且未来会当作源操作数引用，直接用该寄存器
 		if (nextpos == inf) {
 			ret = iter->first;
 			break;
 		}
+		// 更新maxNextPos查找引用位置最远的寄存器
 		else if (nextpos > maxNextPos) {
 			maxNextPos = nextpos;
 			ret = iter->first;

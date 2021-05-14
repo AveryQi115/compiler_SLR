@@ -9,8 +9,14 @@ declare_list ::= declare
 declare ::= int ID M A function_declare
 declare ::= void ID M A function_declare
 
-// 全局变量
+// 变量定义
 declare ::= int ID var_declare
+declare ::= int ID array_declare_list
+
+// 数组声明
+array_declare_list ::= array_declare array_declare_list
+array_declare_list ::= array_declare ;
+array_declare ::= [ NUM ]
 
 // 嵌套层级+1
 A ::= 
@@ -50,6 +56,7 @@ return_sentence ::= return expression ;
 // 赋值语句
 sentence ::= assign_sentence
 assign_sentence ::= ID = expression ;
+assign_sentence ::= array = expression ;
 
 
 while_sentence ::= while M ( expression ) A sentence_block
@@ -84,6 +91,10 @@ factor ::= NUM
 factor ::= ( expression )
 factor ::= ID ( argument_list )
 factor ::= ID 
+factor ::= array
+
+array ::= ID [ expression ]
+array ::= array [ expression ]
 
 // 实参
 argument_list ::= 

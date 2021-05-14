@@ -67,6 +67,18 @@ public:
 	ParameterList(const Symbol& sym);
 };
 
+class ArrayDeclare :public Symbol {
+public:
+	int size;
+	ArrayDeclare(const Symbol& sym);
+};
+
+class ArrayDeclareList :public Symbol {
+public:
+	int size;
+	ArrayDeclareList(const Symbol& sym);
+};
+
 class SentenceBlock :public Symbol {
 public:
 	list<int>nextList;
