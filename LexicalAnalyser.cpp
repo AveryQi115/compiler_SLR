@@ -30,7 +30,9 @@ string token_to_string(Token t) {
 	"SEMI", 	// ;
 	"COMMA",	// ,
 	"LCOMMENT", // //
-	"PCOMMENT"	// /* */
+	"PCOMMENT",	// /* */
+	"LBRACKET",	// [
+	"RBRACKET"	// ]	
 	};
 
 	string res;
@@ -147,6 +149,12 @@ Token LexicalAnalyser::getNextToken() {
 			else {
 				return Token(ERROR, string("词法分析第")+to_string(lineCount)+string("行：未识别的符号!"));
 			}
+			break;
+		case '[':
+			return Token(LBRACKET,"[");
+			break;
+		case ']':
+			return Token(RBRACKET,"]");
 			break;
 		case '/':
 			//行注释

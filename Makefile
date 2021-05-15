@@ -1,5 +1,5 @@
 CC = g++
-CXX_FLAGS = -std=c++11 -w 
+CXX_FLAGS = -std=c++11 -w -g
 
 BIN = MyCompiler
 

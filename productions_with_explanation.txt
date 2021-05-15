@@ -93,8 +93,9 @@ factor ::= ID ( argument_list )
 factor ::= ID 
 factor ::= array
 
-array ::= ID [ expression ]
-array ::= array [ expression ]
+array ::= ID index_list
+index_list ::= [ expression ] index_list
+index_list ::= [ expression ]
 
 // 实参
 argument_list ::= 

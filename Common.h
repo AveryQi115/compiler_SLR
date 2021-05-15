@@ -32,7 +32,9 @@ typedef enum //枚举类型，保存词素类型
 	/* 行注释  段注释 */
 	LCOMMENT, PCOMMENT,
 	/*换行符*/
-	NEXTLINE
+	NEXTLINE,
+	/*	[		]	*/
+	LBRACKET,	RBRACKET
 } LexicalType;
 
 typedef pair<LexicalType, string> Token;

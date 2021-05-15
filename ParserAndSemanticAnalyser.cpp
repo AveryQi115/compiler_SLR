@@ -60,6 +60,10 @@ ArrayDeclare::ArrayDeclare(const Symbol& sym) : Symbol(sym) {}
 
 ArrayDeclareList::ArrayDeclareList(const Symbol& sym) : Symbol(sym) {}
 
+Array::Array(const Symbol& sym) : Symbol(sym) {}
+
+IndexList::IndexList(const Symbol& sym) : Symbol(sym) {}
+
 SentenceBlock::SentenceBlock(const Symbol& sym) : Symbol(sym) {}
 
 SentenceList::SentenceList(const Symbol& sym) : Symbol(sym) {}
@@ -93,7 +97,7 @@ bool isVT(string s) {
 	if (s == "+" || s == "-" || s == "*" || s == "/" || s == "=" || s == "==" || s == ">" || s == "<" || s == "!=" || s == ">=" || s == "<=") {
 		return true;
 	}
-	if (s == ";" || s == "," || s == "(" || s == ")" || s == "{" || s == "}" || s == "ID" || s == "NUM") {
+	if (s == ";" || s == "," || s == "(" || s == ")" || s == "{" || s == "}" || s == "ID" || s == "[" || s == "]" || s == "NUM") {
 		return true;
 	}
 	return false;
@@ -1045,13 +1049,11 @@ void ParserAndSemanticAnalyser::analyse(list<Token>&words, ostream& out) {
 					ArrayDeclareList* array_declare_list = (ArrayDeclareList*)popSymbol();
 					Id* ID = (Id*)popSymbol();
 					Symbol* _int = popSymbol();
-					if (array_declare_list->size <= 0)
+					if (array_declare_list->total_size <= 0)
 						outputError(string("语法错误：第") + to_string(lineCount) + "行，数组" + ID->name + "容量不合法");
 
-					for(int i=0;i<array_declare_list->size;i++){
-						string name = ID->name+"_"+to_string(i);
-						varTable.push_back(Var{ name,D_INT,nowLevel });
-					}
+					string name = ID->name;
+					varTable.push_back(Var{ name,D_INT_ARRAY,nowLevel,array_declare_list->size});
 					pushSymbol(new Symbol(reductPro.left));
 					break;
 				}
@@ -1060,7 +1062,9 @@ void ParserAndSemanticAnalyser::analyse(list<Token>&words, ostream& out) {
 					ArrayDeclareList* array_declare_list = (ArrayDeclareList*)popSymbol();
 					ArrayDeclare* array_declare	= (ArrayDeclare*)popSymbol();
 					ArrayDeclareList* total_list = new ArrayDeclareList(reductPro.left);
-					total_list->size = array_declare->size * array_declare_list->size;
+					total_list->size = vector<int>(array_declare_list->size);
+					total_list->size.insert(total_list->size.begin(),array_declare->size);
+					total_list->total_size = array_declare->size * array_declare_list->total_size;
 					pushSymbol(total_list);
 					break;
 				}
@@ -1069,7 +1073,9 @@ void ParserAndSemanticAnalyser::analyse(list<Token>&words, ostream& out) {
 					Symbol* semi = popSymbol();
 					ArrayDeclare* array_declare = (ArrayDeclare*)popSymbol();
 					ArrayDeclareList* total_list = new ArrayDeclareList(reductPro.left);
-					total_list->size = array_declare->size;
+					total_list->size = vector<int>();
+					total_list->size.push_back(array_declare->size);
+					total_list->total_size = array_declare->size;
 					pushSymbol(total_list);
 					break;
 				}
@@ -1085,25 +1091,87 @@ void ParserAndSemanticAnalyser::analyse(list<Token>&words, ostream& out) {
 				}
 				case 56://assign_sentence ::= array = expression ;
 				{
-					Symbol* comma = popSymbol();
+					Symbol* semi = popSymbol();
 					Expression* expression = (Expression*)popSymbol();
 					Symbol* assign = popSymbol();
-					Id* ID = (Id*)popSymbol();
+					Array* array = (Array*)popSymbol();
 					Symbol* assign_sentence = new Symbol(reductPro.left);
-					code.emit("=", expression->name, "_", ID->name);
+					code.emit("[]=", expression->name, "_", array->name);
 					pushSymbol(assign_sentence);
 					break;
 				}
 				case 57://factor ::= array
 				{
+					Array* array = (Array*)popSymbol();
+					Factor* factor = new Factor(reductPro.left);
+					factor->name = array->name;
+					pushSymbol(factor);
 					break;
 				}
-				case 58://array ::= ID [ expression ]
+				case 58://array ::= ID index_list
 				{
+					IndexList* index_list = (IndexList*)popSymbol();
+					Id* ID = (Id*)popSymbol();
+					Var* v = lookUpVar(ID->name);
+					if (v == NULL || v->type!=D_INT_ARRAY)
+						outputError(string("语法错误：第") + to_string(lineCount) + "行，数组"+ID->name+"不存在");
+					if (index_list->index.size()>v->size.size())
+						outputError(string("语法错误：第") + to_string(lineCount) + "行，数组"+ID->name+"索引不合法");
+
+					// 解析index_list
+					Nomial* total_index = new Nomial(Symbol());
+					if(v->size.size()==1)
+						total_index->name = index_list->index.at(0);
+					else{
+						total_index->name = "0";
+						int former_size = 1;
+
+						for(int i=v->size.size()-1;i>=0;i--){
+							string cur_index = "0";
+							string new_base = "0";
+							if (i < index_list->index.size()){
+								cur_index = index_list->index.at(i);
+								// new_base = cur_index * former_size
+								if (cur_index != "0"){
+									new_base = nt.newTemp();
+									code.emit("*",cur_index,to_string(former_size),new_base);
+								}
+
+								// total_index = new_base + total_index
+								if(total_index->name!="0" && new_base!="0")
+									code.emit("+",total_index->name,new_base,total_index->name);
+								else if(total_index->name=="0")
+									total_index->name = new_base;
+							}
+							former_size *= v->size.at(i);
+						}
+					}
+					Array* array = new Array(reductPro.left);
+					array->name = ID->name+"["+total_index->name+"]";
+					pushSymbol(array);
 					break;
 				}
-				case 59://array ::= array [ expression ]
+				case 59://index_list ::= [ expression ] index_list
 				{
+					IndexList* old_index_list = (IndexList*)popSymbol();
+					Symbol* rbracket = popSymbol();
+					Expression* ex = (Expression*)popSymbol();
+					Symbol* lbracket = popSymbol();
+					IndexList* new_index_list = new IndexList(reductPro.left);
+					new_index_list->index = vector<string>(old_index_list->index);
+					new_index_list->index.insert(new_index_list->index.begin(),ex->name);
+					pushSymbol(new_index_list);
+					break;
+				}
+				case 60://index_list ::= [ expression ]
+				{
+					Symbol* rbracket = popSymbol();
+					Expression* ex = (Expression*)popSymbol();
+					Symbol* lbracket = popSymbol();
+					IndexList* new_index_list = new IndexList(reductPro.left);
+					new_index_list->index = vector<string>();
+					new_index_list->index.push_back(ex->name);
+					pushSymbol(new_index_list);
 					break;
 				}
 				default:

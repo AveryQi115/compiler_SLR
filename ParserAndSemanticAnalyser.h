@@ -21,13 +21,14 @@ enum DecType {
 };
 
 //数据类型（int/void）
-enum DType { D_VOID, D_INT };
+enum DType { D_VOID, D_INT, D_INT_ARRAY };
 
 
 struct Var {
 	string name;
 	DType type;
 	int level;
+	vector<int>size;
 };
 
 struct Func {
@@ -75,8 +76,21 @@ public:
 
 class ArrayDeclareList :public Symbol {
 public:
-	int size;
+	vector<int> size;
+	int total_size;
 	ArrayDeclareList(const Symbol& sym);
+};
+
+class Array :public Symbol {
+public:
+	string name;
+	Array(const Symbol& sym);
+};
+
+class IndexList :public Symbol {
+public:
+	vector<string> index;
+	IndexList(const Symbol& sym);
 };
 
 class SentenceBlock :public Symbol {
