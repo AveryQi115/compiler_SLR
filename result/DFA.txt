@@ -66,177 +66,179 @@ I32= [【param -> int ID . 】]
 
 I33= [【function_declare -> ( parameter ) sentence_block . 】]
 
-I34= [【sentence_block -> { . inner_declare sentence_list } 】【inner_declare -> . 】【inner_declare -> . inner_var_declare ; inner_declare 】【inner_var_declare -> . int ID 】]
+I34= [【sentence_block -> { . inner_declare sentence_list } 】【inner_declare -> . 】【inner_declare -> . int ID var_declare inner_declare 】【inner_declare -> . int ID array_declare_list inner_declare 】]
 
 I35= [【parameter_list -> param , parameter_list . 】]
 
 I36= [【sentence_block -> { inner_declare . sentence_list } 】【sentence_list -> . sentence M sentence_list 】【sentence_list -> . sentence 】【sentence -> . if_sentence 】【sentence -> . while_sentence 】【sentence -> . return_sentence 】【sentence -> . assign_sentence 】【assign_sentence -> . ID = expression ; 】【return_sentence -> . return ; 】【return_sentence -> . return expression ; 】【while_sentence -> . while M ( expression ) A sentence_block 】【if_sentence -> . if ( expression ) A sentence_block 】【if_sentence -> . if ( expression ) A sentence_block N else M A sentence_block 】【assign_sentence -> . array = expression ; 】【array -> . ID index_list 】]
 
-I37= [【inner_declare -> inner_var_declare . ; inner_declare 】]
+I37= [【inner_declare -> int . ID var_declare inner_declare 】【inner_declare -> int . ID array_declare_list inner_declare 】]
 
-I38= [【inner_var_declare -> int . ID 】]
+I38= [【sentence_block -> { inner_declare sentence_list . } 】]
 
-I39= [【sentence_block -> { inner_declare sentence_list . } 】]
+I39= [【sentence_list -> sentence . M sentence_list 】【sentence_list -> sentence . 】【M -> . 】]
 
-I40= [【sentence_list -> sentence . M sentence_list 】【sentence_list -> sentence . 】【M -> . 】]
+I40= [【sentence -> if_sentence . 】]
 
-I41= [【sentence -> if_sentence . 】]
+I41= [【sentence -> while_sentence . 】]
 
-I42= [【sentence -> while_sentence . 】]
+I42= [【sentence -> return_sentence . 】]
 
-I43= [【sentence -> return_sentence . 】]
+I43= [【sentence -> assign_sentence . 】]
 
-I44= [【sentence -> assign_sentence . 】]
+I44= [【assign_sentence -> ID . = expression ; 】【array -> ID . index_list 】【index_list -> . [ expression ] index_list 】【index_list -> . [ expression ] 】]
 
-I45= [【assign_sentence -> ID . = expression ; 】【array -> ID . index_list 】【index_list -> . [ expression ] index_list 】【index_list -> . [ expression ] 】]
+I45= [【return_sentence -> return . ; 】【return_sentence -> return . expression ; 】【expression -> . add_expression 】【expression -> . add_expression > add_expression 】【expression -> . add_expression < add_expression 】【expression -> . add_expression == add_expression 】【expression -> . add_expression >= add_expression 】【expression -> . add_expression <= add_expression 】【expression -> . add_expression != add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
 
-I46= [【return_sentence -> return . ; 】【return_sentence -> return . expression ; 】【expression -> . add_expression 】【expression -> . add_expression > add_expression 】【expression -> . add_expression < add_expression 】【expression -> . add_expression == add_expression 】【expression -> . add_expression >= add_expression 】【expression -> . add_expression <= add_expression 】【expression -> . add_expression != add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
+I46= [【while_sentence -> while . M ( expression ) A sentence_block 】【M -> . 】]
 
-I47= [【while_sentence -> while . M ( expression ) A sentence_block 】【M -> . 】]
+I47= [【if_sentence -> if . ( expression ) A sentence_block 】【if_sentence -> if . ( expression ) A sentence_block N else M A sentence_block 】]
 
-I48= [【if_sentence -> if . ( expression ) A sentence_block 】【if_sentence -> if . ( expression ) A sentence_block N else M A sentence_block 】]
+I48= [【assign_sentence -> array . = expression ; 】]
 
-I49= [【assign_sentence -> array . = expression ; 】]
+I49= [【var_declare -> . ; 】【inner_declare -> int ID . var_declare inner_declare 】【inner_declare -> int ID . array_declare_list inner_declare 】【array_declare_list -> . array_declare array_declare_list 】【array_declare_list -> . array_declare ; 】【array_declare -> . [ NUM ] 】]
 
-I50= [【inner_declare -> . 】【inner_declare -> . inner_var_declare ; inner_declare 】【inner_declare -> inner_var_declare ; . inner_declare 】【inner_var_declare -> . int ID 】]
+I50= [【sentence_block -> { inner_declare sentence_list } . 】]
 
-I51= [【inner_var_declare -> int ID . 】]
+I51= [【sentence_list -> . sentence M sentence_list 】【sentence_list -> sentence M . sentence_list 】【sentence_list -> . sentence 】【sentence -> . if_sentence 】【sentence -> . while_sentence 】【sentence -> . return_sentence 】【sentence -> . assign_sentence 】【assign_sentence -> . ID = expression ; 】【return_sentence -> . return ; 】【return_sentence -> . return expression ; 】【while_sentence -> . while M ( expression ) A sentence_block 】【if_sentence -> . if ( expression ) A sentence_block 】【if_sentence -> . if ( expression ) A sentence_block N else M A sentence_block 】【assign_sentence -> . array = expression ; 】【array -> . ID index_list 】]
 
-I52= [【sentence_block -> { inner_declare sentence_list } . 】]
+I52= [【assign_sentence -> ID = . expression ; 】【expression -> . add_expression 】【expression -> . add_expression > add_expression 】【expression -> . add_expression < add_expression 】【expression -> . add_expression == add_expression 】【expression -> . add_expression >= add_expression 】【expression -> . add_expression <= add_expression 】【expression -> . add_expression != add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
 
-I53= [【sentence_list -> . sentence M sentence_list 】【sentence_list -> sentence M . sentence_list 】【sentence_list -> . sentence 】【sentence -> . if_sentence 】【sentence -> . while_sentence 】【sentence -> . return_sentence 】【sentence -> . assign_sentence 】【assign_sentence -> . ID = expression ; 】【return_sentence -> . return ; 】【return_sentence -> . return expression ; 】【while_sentence -> . while M ( expression ) A sentence_block 】【if_sentence -> . if ( expression ) A sentence_block 】【if_sentence -> . if ( expression ) A sentence_block N else M A sentence_block 】【assign_sentence -> . array = expression ; 】【array -> . ID index_list 】]
+I53= [【array -> ID index_list . 】]
 
-I54= [【assign_sentence -> ID = . expression ; 】【expression -> . add_expression 】【expression -> . add_expression > add_expression 】【expression -> . add_expression < add_expression 】【expression -> . add_expression == add_expression 】【expression -> . add_expression >= add_expression 】【expression -> . add_expression <= add_expression 】【expression -> . add_expression != add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
+I54= [【expression -> . add_expression 】【expression -> . add_expression > add_expression 】【expression -> . add_expression < add_expression 】【expression -> . add_expression == add_expression 】【expression -> . add_expression >= add_expression 】【expression -> . add_expression <= add_expression 】【expression -> . add_expression != add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】【index_list -> [ . expression ] index_list 】【index_list -> [ . expression ] 】]
 
-I55= [【array -> ID index_list . 】]
+I55= [【return_sentence -> return ; . 】]
 
-I56= [【expression -> . add_expression 】【expression -> . add_expression > add_expression 】【expression -> . add_expression < add_expression 】【expression -> . add_expression == add_expression 】【expression -> . add_expression >= add_expression 】【expression -> . add_expression <= add_expression 】【expression -> . add_expression != add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】【index_list -> [ . expression ] index_list 】【index_list -> [ . expression ] 】]
+I56= [【return_sentence -> return expression . ; 】]
 
-I57= [【return_sentence -> return ; . 】]
+I57= [【expression -> add_expression . 】【expression -> add_expression . > add_expression 】【expression -> add_expression . < add_expression 】【expression -> add_expression . == add_expression 】【expression -> add_expression . >= add_expression 】【expression -> add_expression . <= add_expression 】【expression -> add_expression . != add_expression 】]
 
-I58= [【return_sentence -> return expression . ; 】]
+I58= [【add_expression -> item . 】【add_expression -> item . + add_expression 】【add_expression -> item . - add_expression 】]
 
-I59= [【expression -> add_expression . 】【expression -> add_expression . > add_expression 】【expression -> add_expression . < add_expression 】【expression -> add_expression . == add_expression 】【expression -> add_expression . >= add_expression 】【expression -> add_expression . <= add_expression 】【expression -> add_expression . != add_expression 】]
+I59= [【item -> factor . 】【item -> factor . * item 】【item -> factor . / item 】]
 
-I60= [【add_expression -> item . 】【add_expression -> item . + add_expression 】【add_expression -> item . - add_expression 】]
+I60= [【factor -> NUM . 】]
 
-I61= [【item -> factor . 】【item -> factor . * item 】【item -> factor . / item 】]
+I61= [【expression -> . add_expression 】【expression -> . add_expression > add_expression 】【expression -> . add_expression < add_expression 】【expression -> . add_expression == add_expression 】【expression -> . add_expression >= add_expression 】【expression -> . add_expression <= add_expression 】【expression -> . add_expression != add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> ( . expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
 
-I62= [【factor -> NUM . 】]
+I62= [【factor -> ID . ( argument_list ) 】【factor -> ID . 】【array -> ID . index_list 】【index_list -> . [ expression ] index_list 】【index_list -> . [ expression ] 】]
 
-I63= [【expression -> . add_expression 】【expression -> . add_expression > add_expression 】【expression -> . add_expression < add_expression 】【expression -> . add_expression == add_expression 】【expression -> . add_expression >= add_expression 】【expression -> . add_expression <= add_expression 】【expression -> . add_expression != add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> ( . expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
+I63= [【factor -> array . 】]
 
-I64= [【factor -> ID . ( argument_list ) 】【factor -> ID . 】【array -> ID . index_list 】【index_list -> . [ expression ] index_list 】【index_list -> . [ expression ] 】]
+I64= [【while_sentence -> while M . ( expression ) A sentence_block 】]
 
-I65= [【factor -> array . 】]
+I65= [【if_sentence -> if ( . expression ) A sentence_block 】【if_sentence -> if ( . expression ) A sentence_block N else M A sentence_block 】【expression -> . add_expression 】【expression -> . add_expression > add_expression 】【expression -> . add_expression < add_expression 】【expression -> . add_expression == add_expression 】【expression -> . add_expression >= add_expression 】【expression -> . add_expression <= add_expression 】【expression -> . add_expression != add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
 
-I66= [【while_sentence -> while M . ( expression ) A sentence_block 】]
+I66= [【expression -> . add_expression 】【expression -> . add_expression > add_expression 】【expression -> . add_expression < add_expression 】【expression -> . add_expression == add_expression 】【expression -> . add_expression >= add_expression 】【expression -> . add_expression <= add_expression 】【expression -> . add_expression != add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【assign_sentence -> array = . expression ; 】【factor -> . array 】【array -> . ID index_list 】]
 
-I67= [【if_sentence -> if ( . expression ) A sentence_block 】【if_sentence -> if ( . expression ) A sentence_block N else M A sentence_block 】【expression -> . add_expression 】【expression -> . add_expression > add_expression 】【expression -> . add_expression < add_expression 】【expression -> . add_expression == add_expression 】【expression -> . add_expression >= add_expression 】【expression -> . add_expression <= add_expression 】【expression -> . add_expression != add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
+I67= [【inner_declare -> . 】【inner_declare -> . int ID var_declare inner_declare 】【inner_declare -> int ID var_declare . inner_declare 】【inner_declare -> . int ID array_declare_list inner_declare 】]
 
-I68= [【expression -> . add_expression 】【expression -> . add_expression > add_expression 】【expression -> . add_expression < add_expression 】【expression -> . add_expression == add_expression 】【expression -> . add_expression >= add_expression 】【expression -> . add_expression <= add_expression 】【expression -> . add_expression != add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【assign_sentence -> array = . expression ; 】【factor -> . array 】【array -> . ID index_list 】]
+I68= [【inner_declare -> . 】【inner_declare -> . int ID var_declare inner_declare 】【inner_declare -> . int ID array_declare_list inner_declare 】【inner_declare -> int ID array_declare_list . inner_declare 】]
 
-I69= [【inner_declare -> inner_var_declare ; inner_declare . 】]
+I69= [【sentence_list -> sentence M sentence_list . 】]
 
-I70= [【sentence_list -> sentence M sentence_list . 】]
+I70= [【assign_sentence -> ID = expression . ; 】]
 
-I71= [【assign_sentence -> ID = expression . ; 】]
+I71= [【index_list -> [ expression . ] index_list 】【index_list -> [ expression . ] 】]
 
-I72= [【index_list -> [ expression . ] index_list 】【index_list -> [ expression . ] 】]
+I72= [【return_sentence -> return expression ; . 】]
 
-I73= [【return_sentence -> return expression ; . 】]
+I73= [【expression -> add_expression > . add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
 
-I74= [【expression -> add_expression > . add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
+I74= [【expression -> add_expression < . add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
 
-I75= [【expression -> add_expression < . add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
+I75= [【expression -> add_expression == . add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
 
-I76= [【expression -> add_expression == . add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
+I76= [【expression -> add_expression >= . add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
 
-I77= [【expression -> add_expression >= . add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
+I77= [【expression -> add_expression <= . add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
 
-I78= [【expression -> add_expression <= . add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
+I78= [【expression -> add_expression != . add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
 
-I79= [【expression -> add_expression != . add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
+I79= [【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> item + . add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
 
-I80= [【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> item + . add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
+I80= [【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【add_expression -> item - . add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
 
-I81= [【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【add_expression -> item - . add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
+I81= [【item -> . factor 】【item -> . factor * item 】【item -> factor * . item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
 
-I82= [【item -> . factor 】【item -> . factor * item 】【item -> factor * . item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
+I82= [【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【item -> factor / . item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
 
-I83= [【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【item -> factor / . item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
+I83= [【factor -> ( expression . ) 】]
 
-I84= [【factor -> ( expression . ) 】]
+I84= [【expression -> . add_expression 】【expression -> . add_expression > add_expression 】【expression -> . add_expression < add_expression 】【expression -> . add_expression == add_expression 】【expression -> . add_expression >= add_expression 】【expression -> . add_expression <= add_expression 】【expression -> . add_expression != add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> ID ( . argument_list ) 】【factor -> . ID 】【argument_list -> . 】【argument_list -> . expression 】【argument_list -> . expression , argument_list 】【factor -> . array 】【array -> . ID index_list 】]
 
-I85= [【expression -> . add_expression 】【expression -> . add_expression > add_expression 】【expression -> . add_expression < add_expression 】【expression -> . add_expression == add_expression 】【expression -> . add_expression >= add_expression 】【expression -> . add_expression <= add_expression 】【expression -> . add_expression != add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> ID ( . argument_list ) 】【factor -> . ID 】【argument_list -> . 】【argument_list -> . expression 】【argument_list -> . expression , argument_list 】【factor -> . array 】【array -> . ID index_list 】]
+I85= [【while_sentence -> while M ( . expression ) A sentence_block 】【expression -> . add_expression 】【expression -> . add_expression > add_expression 】【expression -> . add_expression < add_expression 】【expression -> . add_expression == add_expression 】【expression -> . add_expression >= add_expression 】【expression -> . add_expression <= add_expression 】【expression -> . add_expression != add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
 
-I86= [【while_sentence -> while M ( . expression ) A sentence_block 】【expression -> . add_expression 】【expression -> . add_expression > add_expression 】【expression -> . add_expression < add_expression 】【expression -> . add_expression == add_expression 】【expression -> . add_expression >= add_expression 】【expression -> . add_expression <= add_expression 】【expression -> . add_expression != add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【factor -> . array 】【array -> . ID index_list 】]
+I86= [【if_sentence -> if ( expression . ) A sentence_block 】【if_sentence -> if ( expression . ) A sentence_block N else M A sentence_block 】]
 
-I87= [【if_sentence -> if ( expression . ) A sentence_block 】【if_sentence -> if ( expression . ) A sentence_block N else M A sentence_block 】]
+I87= [【assign_sentence -> array = expression . ; 】]
 
-I88= [【assign_sentence -> array = expression . ; 】]
+I88= [【inner_declare -> int ID var_declare inner_declare . 】]
 
-I89= [【assign_sentence -> ID = expression ; . 】]
+I89= [【inner_declare -> int ID array_declare_list inner_declare . 】]
 
-I90= [【index_list -> . [ expression ] index_list 】【index_list -> [ expression ] . index_list 】【index_list -> . [ expression ] 】【index_list -> [ expression ] . 】]
+I90= [【assign_sentence -> ID = expression ; . 】]
 
-I91= [【expression -> add_expression > add_expression . 】]
+I91= [【index_list -> . [ expression ] index_list 】【index_list -> [ expression ] . index_list 】【index_list -> . [ expression ] 】【index_list -> [ expression ] . 】]
 
-I92= [【expression -> add_expression < add_expression . 】]
+I92= [【expression -> add_expression > add_expression . 】]
 
-I93= [【expression -> add_expression == add_expression . 】]
+I93= [【expression -> add_expression < add_expression . 】]
 
-I94= [【expression -> add_expression >= add_expression . 】]
+I94= [【expression -> add_expression == add_expression . 】]
 
-I95= [【expression -> add_expression <= add_expression . 】]
+I95= [【expression -> add_expression >= add_expression . 】]
 
-I96= [【expression -> add_expression != add_expression . 】]
+I96= [【expression -> add_expression <= add_expression . 】]
 
-I97= [【add_expression -> item + add_expression . 】]
+I97= [【expression -> add_expression != add_expression . 】]
 
-I98= [【add_expression -> item - add_expression . 】]
+I98= [【add_expression -> item + add_expression . 】]
 
-I99= [【item -> factor * item . 】]
+I99= [【add_expression -> item - add_expression . 】]
 
-I100= [【item -> factor / item . 】]
+I100= [【item -> factor * item . 】]
 
-I101= [【factor -> ( expression ) . 】]
+I101= [【item -> factor / item . 】]
 
-I102= [【factor -> ID ( argument_list . ) 】]
+I102= [【factor -> ( expression ) . 】]
 
-I103= [【argument_list -> expression . 】【argument_list -> expression . , argument_list 】]
+I103= [【factor -> ID ( argument_list . ) 】]
 
-I104= [【while_sentence -> while M ( expression . ) A sentence_block 】]
+I104= [【argument_list -> expression . 】【argument_list -> expression . , argument_list 】]
 
-I105= [【A -> . 】【if_sentence -> if ( expression ) . A sentence_block 】【if_sentence -> if ( expression ) . A sentence_block N else M A sentence_block 】]
+I105= [【while_sentence -> while M ( expression . ) A sentence_block 】]
 
-I106= [【assign_sentence -> array = expression ; . 】]
+I106= [【A -> . 】【if_sentence -> if ( expression ) . A sentence_block 】【if_sentence -> if ( expression ) . A sentence_block N else M A sentence_block 】]
 
-I107= [【index_list -> [ expression ] index_list . 】]
+I107= [【assign_sentence -> array = expression ; . 】]
 
-I108= [【factor -> ID ( argument_list ) . 】]
+I108= [【index_list -> [ expression ] index_list . 】]
 
-I109= [【expression -> . add_expression 】【expression -> . add_expression > add_expression 】【expression -> . add_expression < add_expression 】【expression -> . add_expression == add_expression 】【expression -> . add_expression >= add_expression 】【expression -> . add_expression <= add_expression 】【expression -> . add_expression != add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【argument_list -> . 】【argument_list -> . expression 】【argument_list -> . expression , argument_list 】【argument_list -> expression , . argument_list 】【factor -> . array 】【array -> . ID index_list 】]
+I109= [【factor -> ID ( argument_list ) . 】]
 
-I110= [【A -> . 】【while_sentence -> while M ( expression ) . A sentence_block 】]
+I110= [【expression -> . add_expression 】【expression -> . add_expression > add_expression 】【expression -> . add_expression < add_expression 】【expression -> . add_expression == add_expression 】【expression -> . add_expression >= add_expression 】【expression -> . add_expression <= add_expression 】【expression -> . add_expression != add_expression 】【add_expression -> . item 】【add_expression -> . item + add_expression 】【add_expression -> . item - add_expression 】【item -> . factor 】【item -> . factor * item 】【item -> . factor / item 】【factor -> . NUM 】【factor -> . ( expression ) 】【factor -> . ID ( argument_list ) 】【factor -> . ID 】【argument_list -> . 】【argument_list -> . expression 】【argument_list -> . expression , argument_list 】【argument_list -> expression , . argument_list 】【factor -> . array 】【array -> . ID index_list 】]
 
-I111= [【sentence_block -> . { inner_declare sentence_list } 】【if_sentence -> if ( expression ) A . sentence_block 】【if_sentence -> if ( expression ) A . sentence_block N else M A sentence_block 】]
+I111= [【A -> . 】【while_sentence -> while M ( expression ) . A sentence_block 】]
 
-I112= [【argument_list -> expression , argument_list . 】]
+I112= [【sentence_block -> . { inner_declare sentence_list } 】【if_sentence -> if ( expression ) A . sentence_block 】【if_sentence -> if ( expression ) A . sentence_block N else M A sentence_block 】]
 
-I113= [【sentence_block -> . { inner_declare sentence_list } 】【while_sentence -> while M ( expression ) A . sentence_block 】]
+I113= [【argument_list -> expression , argument_list . 】]
 
-I114= [【if_sentence -> if ( expression ) A sentence_block . 】【if_sentence -> if ( expression ) A sentence_block . N else M A sentence_block 】【N -> . 】]
+I114= [【sentence_block -> . { inner_declare sentence_list } 】【while_sentence -> while M ( expression ) A . sentence_block 】]
 
-I115= [【while_sentence -> while M ( expression ) A sentence_block . 】]
+I115= [【if_sentence -> if ( expression ) A sentence_block . 】【if_sentence -> if ( expression ) A sentence_block . N else M A sentence_block 】【N -> . 】]
 
-I116= [【if_sentence -> if ( expression ) A sentence_block N . else M A sentence_block 】]
+I116= [【while_sentence -> while M ( expression ) A sentence_block . 】]
 
-I117= [【if_sentence -> if ( expression ) A sentence_block N else . M A sentence_block 】【M -> . 】]
+I117= [【if_sentence -> if ( expression ) A sentence_block N . else M A sentence_block 】]
 
-I118= [【A -> . 】【if_sentence -> if ( expression ) A sentence_block N else M . A sentence_block 】]
+I118= [【if_sentence -> if ( expression ) A sentence_block N else . M A sentence_block 】【M -> . 】]
 
-I119= [【sentence_block -> . { inner_declare sentence_list } 】【if_sentence -> if ( expression ) A sentence_block N else M A . sentence_block 】]
+I119= [【A -> . 】【if_sentence -> if ( expression ) A sentence_block N else M . A sentence_block 】]
 
-I120= [【if_sentence -> if ( expression ) A sentence_block N else M A sentence_block . 】]
+I120= [【sentence_block -> . { inner_declare sentence_list } 】【if_sentence -> if ( expression ) A sentence_block N else M A . sentence_block 】]
+
+I121= [【if_sentence -> if ( expression ) A sentence_block N else M A sentence_block . 】]
 

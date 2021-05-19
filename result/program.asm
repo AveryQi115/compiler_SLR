@@ -1,3 +1,5 @@
+.heap
+arr:	.byte	
 lui $sp,0x1001
 j main
 demo:
@@ -11,16 +13,9 @@ add $v0 $zero $s4
 lw $ra 4($sp)
 jr $ra
 main:
-addi $s7 $zero 3
-addi $s6 $zero 4
-addi $s5 $zero 2
-sw $s7 8($sp)
-sw $s6 12($sp)
-sw $s5 24($sp)
-sw $sp 16($sp)
-addi $sp $sp 16
-jal demo
-lw $sp 0($sp)
+lw   $s1 arr+4
+addi $s1 $zero 4
+sw   $s1 arr+4 
 Label6:
 lw $s7 8($sp)
 sw $s7 24($sp)

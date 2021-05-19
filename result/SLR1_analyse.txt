@@ -6,1030 +6,1016 @@
 0 1 4 
 # N int ID 
 0 1 4 7 
-# N int ID ; 
-0 1 4 7 11 
-# N int ID var_declare 
-0 1 4 7 10 
+# N int ID M 
+0 1 4 7 9 
+# N int ID M A 
+0 1 4 7 9 16 
+# N int ID M A ( 
+0 1 4 7 9 16 22 
+# N int ID M A ( int 
+0 1 4 7 9 16 22 29 
+# N int ID M A ( int ID 
+0 1 4 7 9 16 22 29 32 
+# N int ID M A ( param 
+0 1 4 7 9 16 22 28 
+# N int ID M A ( param , 
+0 1 4 7 9 16 22 28 31 
+# N int ID M A ( param , int 
+0 1 4 7 9 16 22 28 31 29 
+# N int ID M A ( param , int ID 
+0 1 4 7 9 16 22 28 31 29 32 
+# N int ID M A ( param , param 
+0 1 4 7 9 16 22 28 31 28 
+# N int ID M A ( param , param , 
+0 1 4 7 9 16 22 28 31 28 31 
+# N int ID M A ( param , param , int 
+0 1 4 7 9 16 22 28 31 28 31 29 
+# N int ID M A ( param , param , int ID 
+0 1 4 7 9 16 22 28 31 28 31 29 32 
+# N int ID M A ( param , param , param 
+0 1 4 7 9 16 22 28 31 28 31 28 
+# N int ID M A ( param , param , parameter_list 
+0 1 4 7 9 16 22 28 31 28 31 35 
+# N int ID M A ( param , parameter_list 
+0 1 4 7 9 16 22 28 31 35 
+# N int ID M A ( parameter_list 
+0 1 4 7 9 16 22 26 
+# N int ID M A ( parameter 
+0 1 4 7 9 16 22 25 
+# N int ID M A ( parameter ) 
+0 1 4 7 9 16 22 25 30 
+# N int ID M A ( parameter ) { 
+0 1 4 7 9 16 22 25 30 34 
+# N int ID M A ( parameter ) { int 
+0 1 4 7 9 16 22 25 30 34 37 
+# N int ID M A ( parameter ) { int ID 
+0 1 4 7 9 16 22 25 30 34 37 49 
+# N int ID M A ( parameter ) { int ID ; 
+0 1 4 7 9 16 22 25 30 34 37 49 11 
+# N int ID M A ( parameter ) { int ID var_declare 
+0 1 4 7 9 16 22 25 30 34 37 49 67 
+# N int ID M A ( parameter ) { int ID var_declare int 
+0 1 4 7 9 16 22 25 30 34 37 49 67 37 
+# N int ID M A ( parameter ) { int ID var_declare int ID 
+0 1 4 7 9 16 22 25 30 34 37 49 67 37 49 
+# N int ID M A ( parameter ) { int ID var_declare int ID ; 
+0 1 4 7 9 16 22 25 30 34 37 49 67 37 49 11 
+# N int ID M A ( parameter ) { int ID var_declare int ID var_declare 
+0 1 4 7 9 16 22 25 30 34 37 49 67 37 49 67 
+# N int ID M A ( parameter ) { int ID var_declare int ID var_declare inner_declare 
+0 1 4 7 9 16 22 25 30 34 37 49 67 37 49 67 88 
+# N int ID M A ( parameter ) { int ID var_declare inner_declare 
+0 1 4 7 9 16 22 25 30 34 37 49 67 88 
+# N int ID M A ( parameter ) { inner_declare 
+0 1 4 7 9 16 22 25 30 34 36 
+# N int ID M A ( parameter ) { inner_declare ID 
+0 1 4 7 9 16 22 25 30 34 36 44 
+# N int ID M A ( parameter ) { inner_declare ID = 
+0 1 4 7 9 16 22 25 30 34 36 44 52 
+# N int ID M A ( parameter ) { inner_declare ID = NUM 
+0 1 4 7 9 16 22 25 30 34 36 44 52 60 
+# N int ID M A ( parameter ) { inner_declare ID = factor 
+0 1 4 7 9 16 22 25 30 34 36 44 52 59 
+# N int ID M A ( parameter ) { inner_declare ID = item 
+0 1 4 7 9 16 22 25 30 34 36 44 52 58 
+# N int ID M A ( parameter ) { inner_declare ID = add_expression 
+0 1 4 7 9 16 22 25 30 34 36 44 52 57 
+# N int ID M A ( parameter ) { inner_declare ID = expression 
+0 1 4 7 9 16 22 25 30 34 36 44 52 70 
+# N int ID M A ( parameter ) { inner_declare ID = expression ; 
+0 1 4 7 9 16 22 25 30 34 36 44 52 70 90 
+# N int ID M A ( parameter ) { inner_declare assign_sentence 
+0 1 4 7 9 16 22 25 30 34 36 43 
+# N int ID M A ( parameter ) { inner_declare sentence 
+0 1 4 7 9 16 22 25 30 34 36 39 
+# N int ID M A ( parameter ) { inner_declare sentence M 
+0 1 4 7 9 16 22 25 30 34 36 39 51 
+# N int ID M A ( parameter ) { inner_declare sentence M if 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( ID 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 62 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( factor 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 59 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( item 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 58 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( add_expression 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 57 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 57 73 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 57 73 61 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( ID 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 57 73 61 62 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( factor 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 57 73 61 59 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( item 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 57 73 61 58 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( item + 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 57 73 61 58 79 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( item + ID 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 57 73 61 58 79 62 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( item + factor 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 57 73 61 58 79 59 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( item + item 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 57 73 61 58 79 58 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( item + add_expression 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 57 73 61 58 79 98 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( add_expression 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 57 73 61 57 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( expression 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 57 73 61 83 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( expression ) 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 57 73 61 83 102 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > factor 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 57 73 59 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > item 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 57 73 58 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > add_expression 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 57 73 92 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = ID 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 62 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = factor 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 59 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 58 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 58 79 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 58 79 61 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( ID 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 58 79 61 62 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( factor 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 58 79 61 59 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( factor * 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 58 79 61 59 81 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( factor * ID 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 58 79 61 59 81 62 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( factor * factor 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 58 79 61 59 81 59 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( factor * item 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 58 79 61 59 81 100 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( item 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 58 79 61 58 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( item + 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 58 79 61 58 79 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( item + NUM 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 58 79 61 58 79 60 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( item + factor 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 58 79 61 58 79 59 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( item + item 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 58 79 61 58 79 58 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( item + add_expression 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 58 79 61 58 79 98 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( add_expression 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 58 79 61 57 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( expression 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 58 79 61 83 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( expression ) 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 58 79 61 83 102 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + factor 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 58 79 59 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + item 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 58 79 58 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + add_expression 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 58 79 98 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = add_expression 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 57 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = expression 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 70 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = expression ; 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 44 52 70 90 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare assign_sentence 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 43 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare sentence 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 39 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare sentence_list 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 38 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare sentence_list } 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 34 36 38 50 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 115 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 115 117 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 115 117 118 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 115 117 118 119 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 115 117 118 119 120 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 115 117 118 119 120 34 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 115 117 118 119 120 34 36 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare ID 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 115 117 118 119 120 34 36 44 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare ID = 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 115 117 118 119 120 34 36 44 52 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare ID = ID 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 115 117 118 119 120 34 36 44 52 62 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare ID = factor 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 115 117 118 119 120 34 36 44 52 59 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare ID = item 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 115 117 118 119 120 34 36 44 52 58 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare ID = add_expression 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 115 117 118 119 120 34 36 44 52 57 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare ID = expression 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 115 117 118 119 120 34 36 44 52 70 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare ID = expression ; 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 115 117 118 119 120 34 36 44 52 70 90 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare assign_sentence 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 115 117 118 119 120 34 36 43 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare sentence 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 115 117 118 119 120 34 36 39 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare sentence_list 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 115 117 118 119 120 34 36 38 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare sentence_list } 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 115 117 118 119 120 34 36 38 50 
+# N int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A sentence_block 
+0 1 4 7 9 16 22 25 30 34 36 39 51 47 65 86 106 112 115 117 118 119 120 121 
+# N int ID M A ( parameter ) { inner_declare sentence M if_sentence 
+0 1 4 7 9 16 22 25 30 34 36 39 51 40 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( ID 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 62 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( factor 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 59 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( item 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 58 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( add_expression 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 57 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( add_expression <= 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 57 77 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( add_expression <= NUM 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 57 77 60 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( add_expression <= factor 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 57 77 59 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( add_expression <= item 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 57 77 58 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( add_expression <= add_expression 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 57 77 96 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 44 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID = 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 44 52 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID = ID 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 44 52 62 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID = factor 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 44 52 59 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID = factor * 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 44 52 59 81 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID = factor * NUM 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 44 52 59 81 60 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID = factor * factor 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 44 52 59 81 59 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID = factor * item 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 44 52 59 81 100 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID = item 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 44 52 58 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID = add_expression 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 44 52 57 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID = expression 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 44 52 70 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID = expression ; 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 44 52 70 90 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare assign_sentence 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 43 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 39 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 39 51 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M ID 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 39 51 44 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M ID = 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 39 51 44 52 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M ID = ID 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 39 51 44 52 62 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M ID = factor 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 39 51 44 52 59 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M ID = item 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 39 51 44 52 58 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M ID = add_expression 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 39 51 44 52 57 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M ID = expression 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 39 51 44 52 70 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M ID = expression ; 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 39 51 44 52 70 90 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M assign_sentence 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 39 51 43 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M sentence 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 39 51 39 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M sentence_list 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 39 51 69 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence_list 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 38 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence_list } 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 34 36 38 50 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A sentence_block 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 46 64 85 105 111 114 116 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M while_sentence 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 41 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M sentence 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 39 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M sentence M 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 39 51 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M sentence M return 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 39 51 45 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M sentence M return ID 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 39 51 45 62 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M sentence M return factor 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 39 51 45 59 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M sentence M return item 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 39 51 45 58 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M sentence M return add_expression 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 39 51 45 57 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M sentence M return expression 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 39 51 45 56 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M sentence M return expression ; 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 39 51 45 56 72 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M sentence M return_sentence 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 39 51 42 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M sentence M sentence 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 39 51 39 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M sentence M sentence_list 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 39 51 69 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence M sentence_list 
+0 1 4 7 9 16 22 25 30 34 36 39 51 39 51 69 
+# N int ID M A ( parameter ) { inner_declare sentence M sentence_list 
+0 1 4 7 9 16 22 25 30 34 36 39 51 69 
+# N int ID M A ( parameter ) { inner_declare sentence_list 
+0 1 4 7 9 16 22 25 30 34 36 38 
+# N int ID M A ( parameter ) { inner_declare sentence_list } 
+0 1 4 7 9 16 22 25 30 34 36 38 50 
+# N int ID M A ( parameter ) sentence_block 
+0 1 4 7 9 16 22 25 30 33 
+# N int ID M A function_declare 
+0 1 4 7 9 16 21 
 # N declare 
 0 1 3 
 # N declare int 
 0 1 3 4 
 # N declare int ID 
 0 1 3 4 7 
-# N declare int ID [ 
-0 1 3 4 7 14 
-# N declare int ID [ NUM 
-0 1 3 4 7 14 19 
-# N declare int ID [ NUM ] 
-0 1 3 4 7 14 19 23 
-# N declare int ID array_declare 
-0 1 3 4 7 13 
-# N declare int ID array_declare [ 
-0 1 3 4 7 13 14 
-# N declare int ID array_declare [ NUM 
-0 1 3 4 7 13 14 19 
-# N declare int ID array_declare [ NUM ] 
-0 1 3 4 7 13 14 19 23 
-# N declare int ID array_declare array_declare 
-0 1 3 4 7 13 13 
-# N declare int ID array_declare array_declare ; 
-0 1 3 4 7 13 13 18 
-# N declare int ID array_declare array_declare_list 
-0 1 3 4 7 13 17 
-# N declare int ID array_declare_list 
-0 1 3 4 7 12 
+# N declare int ID M 
+0 1 3 4 7 9 
+# N declare int ID M A 
+0 1 3 4 7 9 16 
+# N declare int ID M A ( 
+0 1 3 4 7 9 16 22 
+# N declare int ID M A ( int 
+0 1 3 4 7 9 16 22 29 
+# N declare int ID M A ( int ID 
+0 1 3 4 7 9 16 22 29 32 
+# N declare int ID M A ( param 
+0 1 3 4 7 9 16 22 28 
+# N declare int ID M A ( parameter_list 
+0 1 3 4 7 9 16 22 26 
+# N declare int ID M A ( parameter 
+0 1 3 4 7 9 16 22 25 
+# N declare int ID M A ( parameter ) 
+0 1 3 4 7 9 16 22 25 30 
+# N declare int ID M A ( parameter ) { 
+0 1 3 4 7 9 16 22 25 30 34 
+# N declare int ID M A ( parameter ) { inner_declare 
+0 1 3 4 7 9 16 22 25 30 34 36 
+# N declare int ID M A ( parameter ) { inner_declare ID 
+0 1 3 4 7 9 16 22 25 30 34 36 44 
+# N declare int ID M A ( parameter ) { inner_declare ID = 
+0 1 3 4 7 9 16 22 25 30 34 36 44 52 
+# N declare int ID M A ( parameter ) { inner_declare ID = ID 
+0 1 3 4 7 9 16 22 25 30 34 36 44 52 62 
+# N declare int ID M A ( parameter ) { inner_declare ID = factor 
+0 1 3 4 7 9 16 22 25 30 34 36 44 52 59 
+# N declare int ID M A ( parameter ) { inner_declare ID = item 
+0 1 3 4 7 9 16 22 25 30 34 36 44 52 58 
+# N declare int ID M A ( parameter ) { inner_declare ID = item + 
+0 1 3 4 7 9 16 22 25 30 34 36 44 52 58 79 
+# N declare int ID M A ( parameter ) { inner_declare ID = item + NUM 
+0 1 3 4 7 9 16 22 25 30 34 36 44 52 58 79 60 
+# N declare int ID M A ( parameter ) { inner_declare ID = item + factor 
+0 1 3 4 7 9 16 22 25 30 34 36 44 52 58 79 59 
+# N declare int ID M A ( parameter ) { inner_declare ID = item + item 
+0 1 3 4 7 9 16 22 25 30 34 36 44 52 58 79 58 
+# N declare int ID M A ( parameter ) { inner_declare ID = item + add_expression 
+0 1 3 4 7 9 16 22 25 30 34 36 44 52 58 79 98 
+# N declare int ID M A ( parameter ) { inner_declare ID = add_expression 
+0 1 3 4 7 9 16 22 25 30 34 36 44 52 57 
+# N declare int ID M A ( parameter ) { inner_declare ID = expression 
+0 1 3 4 7 9 16 22 25 30 34 36 44 52 70 
+# N declare int ID M A ( parameter ) { inner_declare ID = expression ; 
+0 1 3 4 7 9 16 22 25 30 34 36 44 52 70 90 
+# N declare int ID M A ( parameter ) { inner_declare assign_sentence 
+0 1 3 4 7 9 16 22 25 30 34 36 43 
+# N declare int ID M A ( parameter ) { inner_declare sentence 
+0 1 3 4 7 9 16 22 25 30 34 36 39 
+# N declare int ID M A ( parameter ) { inner_declare sentence M 
+0 1 3 4 7 9 16 22 25 30 34 36 39 51 
+# N declare int ID M A ( parameter ) { inner_declare sentence M return 
+0 1 3 4 7 9 16 22 25 30 34 36 39 51 45 
+# N declare int ID M A ( parameter ) { inner_declare sentence M return ID 
+0 1 3 4 7 9 16 22 25 30 34 36 39 51 45 62 
+# N declare int ID M A ( parameter ) { inner_declare sentence M return factor 
+0 1 3 4 7 9 16 22 25 30 34 36 39 51 45 59 
+# N declare int ID M A ( parameter ) { inner_declare sentence M return factor * 
+0 1 3 4 7 9 16 22 25 30 34 36 39 51 45 59 81 
+# N declare int ID M A ( parameter ) { inner_declare sentence M return factor * NUM 
+0 1 3 4 7 9 16 22 25 30 34 36 39 51 45 59 81 60 
+# N declare int ID M A ( parameter ) { inner_declare sentence M return factor * factor 
+0 1 3 4 7 9 16 22 25 30 34 36 39 51 45 59 81 59 
+# N declare int ID M A ( parameter ) { inner_declare sentence M return factor * item 
+0 1 3 4 7 9 16 22 25 30 34 36 39 51 45 59 81 100 
+# N declare int ID M A ( parameter ) { inner_declare sentence M return item 
+0 1 3 4 7 9 16 22 25 30 34 36 39 51 45 58 
+# N declare int ID M A ( parameter ) { inner_declare sentence M return add_expression 
+0 1 3 4 7 9 16 22 25 30 34 36 39 51 45 57 
+# N declare int ID M A ( parameter ) { inner_declare sentence M return expression 
+0 1 3 4 7 9 16 22 25 30 34 36 39 51 45 56 
+# N declare int ID M A ( parameter ) { inner_declare sentence M return expression ; 
+0 1 3 4 7 9 16 22 25 30 34 36 39 51 45 56 72 
+# N declare int ID M A ( parameter ) { inner_declare sentence M return_sentence 
+0 1 3 4 7 9 16 22 25 30 34 36 39 51 42 
+# N declare int ID M A ( parameter ) { inner_declare sentence M sentence 
+0 1 3 4 7 9 16 22 25 30 34 36 39 51 39 
+# N declare int ID M A ( parameter ) { inner_declare sentence M sentence_list 
+0 1 3 4 7 9 16 22 25 30 34 36 39 51 69 
+# N declare int ID M A ( parameter ) { inner_declare sentence_list 
+0 1 3 4 7 9 16 22 25 30 34 36 38 
+# N declare int ID M A ( parameter ) { inner_declare sentence_list } 
+0 1 3 4 7 9 16 22 25 30 34 36 38 50 
+# N declare int ID M A ( parameter ) sentence_block 
+0 1 3 4 7 9 16 22 25 30 33 
+# N declare int ID M A function_declare 
+0 1 3 4 7 9 16 21 
 # N declare declare 
 0 1 3 3 
-# N declare declare int 
-0 1 3 3 4 
-# N declare declare int ID 
-0 1 3 3 4 7 
-# N declare declare int ID M 
-0 1 3 3 4 7 9 
-# N declare declare int ID M A 
-0 1 3 3 4 7 9 16 
-# N declare declare int ID M A ( 
-0 1 3 3 4 7 9 16 22 
-# N declare declare int ID M A ( int 
-0 1 3 3 4 7 9 16 22 29 
-# N declare declare int ID M A ( int ID 
-0 1 3 3 4 7 9 16 22 29 32 
-# N declare declare int ID M A ( param 
-0 1 3 3 4 7 9 16 22 28 
-# N declare declare int ID M A ( param , 
-0 1 3 3 4 7 9 16 22 28 31 
-# N declare declare int ID M A ( param , int 
-0 1 3 3 4 7 9 16 22 28 31 29 
-# N declare declare int ID M A ( param , int ID 
-0 1 3 3 4 7 9 16 22 28 31 29 32 
-# N declare declare int ID M A ( param , param 
-0 1 3 3 4 7 9 16 22 28 31 28 
-# N declare declare int ID M A ( param , param , 
-0 1 3 3 4 7 9 16 22 28 31 28 31 
-# N declare declare int ID M A ( param , param , int 
-0 1 3 3 4 7 9 16 22 28 31 28 31 29 
-# N declare declare int ID M A ( param , param , int ID 
-0 1 3 3 4 7 9 16 22 28 31 28 31 29 32 
-# N declare declare int ID M A ( param , param , param 
-0 1 3 3 4 7 9 16 22 28 31 28 31 28 
-# N declare declare int ID M A ( param , param , parameter_list 
-0 1 3 3 4 7 9 16 22 28 31 28 31 35 
-# N declare declare int ID M A ( param , parameter_list 
-0 1 3 3 4 7 9 16 22 28 31 35 
-# N declare declare int ID M A ( parameter_list 
-0 1 3 3 4 7 9 16 22 26 
-# N declare declare int ID M A ( parameter 
-0 1 3 3 4 7 9 16 22 25 
-# N declare declare int ID M A ( parameter ) 
-0 1 3 3 4 7 9 16 22 25 30 
-# N declare declare int ID M A ( parameter ) { 
-0 1 3 3 4 7 9 16 22 25 30 34 
-# N declare declare int ID M A ( parameter ) { int 
-0 1 3 3 4 7 9 16 22 25 30 34 38 
-# N declare declare int ID M A ( parameter ) { int ID 
-0 1 3 3 4 7 9 16 22 25 30 34 38 51 
-# N declare declare int ID M A ( parameter ) { inner_var_declare 
-0 1 3 3 4 7 9 16 22 25 30 34 37 
-# N declare declare int ID M A ( parameter ) { inner_var_declare ; 
-0 1 3 3 4 7 9 16 22 25 30 34 37 50 
-# N declare declare int ID M A ( parameter ) { inner_var_declare ; int 
-0 1 3 3 4 7 9 16 22 25 30 34 37 50 38 
-# N declare declare int ID M A ( parameter ) { inner_var_declare ; int ID 
-0 1 3 3 4 7 9 16 22 25 30 34 37 50 38 51 
-# N declare declare int ID M A ( parameter ) { inner_var_declare ; inner_var_declare 
-0 1 3 3 4 7 9 16 22 25 30 34 37 50 37 
-# N declare declare int ID M A ( parameter ) { inner_var_declare ; inner_var_declare ; 
-0 1 3 3 4 7 9 16 22 25 30 34 37 50 37 50 
-# N declare declare int ID M A ( parameter ) { inner_var_declare ; inner_var_declare ; inner_declare 
-0 1 3 3 4 7 9 16 22 25 30 34 37 50 37 50 69 
-# N declare declare int ID M A ( parameter ) { inner_var_declare ; inner_declare 
-0 1 3 3 4 7 9 16 22 25 30 34 37 50 69 
-# N declare declare int ID M A ( parameter ) { inner_declare 
-0 1 3 3 4 7 9 16 22 25 30 34 36 
-# N declare declare int ID M A ( parameter ) { inner_declare ID 
-0 1 3 3 4 7 9 16 22 25 30 34 36 45 
-# N declare declare int ID M A ( parameter ) { inner_declare ID = 
-0 1 3 3 4 7 9 16 22 25 30 34 36 45 54 
-# N declare declare int ID M A ( parameter ) { inner_declare ID = NUM 
-0 1 3 3 4 7 9 16 22 25 30 34 36 45 54 62 
-# N declare declare int ID M A ( parameter ) { inner_declare ID = factor 
-0 1 3 3 4 7 9 16 22 25 30 34 36 45 54 61 
-# N declare declare int ID M A ( parameter ) { inner_declare ID = item 
-0 1 3 3 4 7 9 16 22 25 30 34 36 45 54 60 
-# N declare declare int ID M A ( parameter ) { inner_declare ID = add_expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 45 54 59 
-# N declare declare int ID M A ( parameter ) { inner_declare ID = expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 45 54 71 
-# N declare declare int ID M A ( parameter ) { inner_declare ID = expression ; 
-0 1 3 3 4 7 9 16 22 25 30 34 36 45 54 71 89 
-# N declare declare int ID M A ( parameter ) { inner_declare assign_sentence 
-0 1 3 3 4 7 9 16 22 25 30 34 36 44 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( ID 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 64 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( factor 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 61 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( item 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 60 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( add_expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 59 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 59 74 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 59 74 63 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( ID 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 59 74 63 64 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( factor 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 59 74 63 61 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( item 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 59 74 63 60 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( item + 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 59 74 63 60 80 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( item + ID 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 59 74 63 60 80 64 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( item + factor 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 59 74 63 60 80 61 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( item + item 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 59 74 63 60 80 60 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( item + add_expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 59 74 63 60 80 97 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( add_expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 59 74 63 59 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 59 74 63 84 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > ( expression ) 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 59 74 63 84 101 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > factor 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 59 74 61 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > item 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 59 74 60 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( add_expression > add_expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 59 74 91 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = ID 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 64 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = factor 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 61 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 60 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 60 80 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 60 80 63 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( ID 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 60 80 63 64 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( factor 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 60 80 63 61 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( factor * 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 60 80 63 61 82 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( factor * ID 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 60 80 63 61 82 64 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( factor * factor 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 60 80 63 61 82 61 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( factor * item 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 60 80 63 61 82 99 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( item 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 60 80 63 60 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( item + 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 60 80 63 60 80 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( item + NUM 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 60 80 63 60 80 62 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( item + factor 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 60 80 63 60 80 61 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( item + item 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 60 80 63 60 80 60 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( item + add_expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 60 80 63 60 80 97 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( add_expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 60 80 63 59 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 60 80 63 84 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + ( expression ) 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 60 80 63 84 101 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + factor 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 60 80 61 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + item 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 60 80 60 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = item + add_expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 60 80 97 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = add_expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 59 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 71 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare ID = expression ; 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 45 54 71 89 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare assign_sentence 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 44 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare sentence 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 40 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare sentence_list 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 39 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A { inner_declare sentence_list } 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 34 36 39 52 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 114 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 114 116 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 114 116 117 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 114 116 117 118 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 114 116 117 118 119 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 114 116 117 118 119 34 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 114 116 117 118 119 34 36 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare ID 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 114 116 117 118 119 34 36 45 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare ID = 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 114 116 117 118 119 34 36 45 54 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare ID = ID 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 114 116 117 118 119 34 36 45 54 64 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare ID = factor 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 114 116 117 118 119 34 36 45 54 61 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare ID = item 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 114 116 117 118 119 34 36 45 54 60 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare ID = add_expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 114 116 117 118 119 34 36 45 54 59 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare ID = expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 114 116 117 118 119 34 36 45 54 71 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare ID = expression ; 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 114 116 117 118 119 34 36 45 54 71 89 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare assign_sentence 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 114 116 117 118 119 34 36 44 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare sentence 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 114 116 117 118 119 34 36 40 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare sentence_list 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 114 116 117 118 119 34 36 39 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A { inner_declare sentence_list } 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 114 116 117 118 119 34 36 39 52 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if ( expression ) A sentence_block N else M A sentence_block 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 48 67 87 105 111 114 116 117 118 119 120 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M if_sentence 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 41 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( ID 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 64 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( factor 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 61 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( item 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 60 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( add_expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 59 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( add_expression <= 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 59 78 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( add_expression <= NUM 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 59 78 62 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( add_expression <= factor 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 59 78 61 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( add_expression <= item 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 59 78 60 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( add_expression <= add_expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 59 78 95 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 45 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID = 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 45 54 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID = ID 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 45 54 64 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID = factor 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 45 54 61 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID = factor * 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 45 54 61 82 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID = factor * NUM 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 45 54 61 82 62 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID = factor * factor 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 45 54 61 82 61 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID = factor * item 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 45 54 61 82 99 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID = item 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 45 54 60 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID = add_expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 45 54 59 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID = expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 45 54 71 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare ID = expression ; 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 45 54 71 89 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare assign_sentence 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 44 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 40 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 40 53 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M ID 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 40 53 45 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M ID = 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 40 53 45 54 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M ID = ID 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 40 53 45 54 64 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M ID = factor 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 40 53 45 54 61 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M ID = item 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 40 53 45 54 60 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M ID = add_expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 40 53 45 54 59 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M ID = expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 40 53 45 54 71 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M ID = expression ; 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 40 53 45 54 71 89 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M assign_sentence 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 40 53 44 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M sentence 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 40 53 40 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence M sentence_list 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 40 53 70 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence_list 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 39 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A { inner_declare sentence_list } 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 34 36 39 52 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while M ( expression ) A sentence_block 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 47 66 86 104 110 113 115 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M while_sentence 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 42 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M sentence 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 40 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M sentence M 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 40 53 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M sentence M return 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 40 53 46 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M sentence M return ID 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 40 53 46 64 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M sentence M return factor 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 40 53 46 61 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M sentence M return item 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 40 53 46 60 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M sentence M return add_expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 40 53 46 59 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M sentence M return expression 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 40 53 46 58 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M sentence M return expression ; 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 40 53 46 58 73 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M sentence M return_sentence 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 40 53 43 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M sentence M sentence 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 40 53 40 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M sentence M sentence_list 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 40 53 70 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence M sentence_list 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 40 53 70 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence M sentence_list 
-0 1 3 3 4 7 9 16 22 25 30 34 36 40 53 70 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence_list 
-0 1 3 3 4 7 9 16 22 25 30 34 36 39 
-# N declare declare int ID M A ( parameter ) { inner_declare sentence_list } 
-0 1 3 3 4 7 9 16 22 25 30 34 36 39 52 
-# N declare declare int ID M A ( parameter ) sentence_block 
-0 1 3 3 4 7 9 16 22 25 30 33 
-# N declare declare int ID M A function_declare 
-0 1 3 3 4 7 9 16 21 
+# N declare declare void 
+0 1 3 3 5 
+# N declare declare void ID 
+0 1 3 3 5 8 
+# N declare declare void ID M 
+0 1 3 3 5 8 15 
+# N declare declare void ID M A 
+0 1 3 3 5 8 15 20 
+# N declare declare void ID M A ( 
+0 1 3 3 5 8 15 20 22 
+# N declare declare void ID M A ( void 
+0 1 3 3 5 8 15 20 22 27 
+# N declare declare void ID M A ( parameter 
+0 1 3 3 5 8 15 20 22 25 
+# N declare declare void ID M A ( parameter ) 
+0 1 3 3 5 8 15 20 22 25 30 
+# N declare declare void ID M A ( parameter ) { 
+0 1 3 3 5 8 15 20 22 25 30 34 
+# N declare declare void ID M A ( parameter ) { int 
+0 1 3 3 5 8 15 20 22 25 30 34 37 
+# N declare declare void ID M A ( parameter ) { int ID 
+0 1 3 3 5 8 15 20 22 25 30 34 37 49 
+# N declare declare void ID M A ( parameter ) { int ID [ 
+0 1 3 3 5 8 15 20 22 25 30 34 37 49 14 
+# N declare declare void ID M A ( parameter ) { int ID [ NUM 
+0 1 3 3 5 8 15 20 22 25 30 34 37 49 14 19 
+# N declare declare void ID M A ( parameter ) { int ID [ NUM ] 
+0 1 3 3 5 8 15 20 22 25 30 34 37 49 14 19 23 
+# N declare declare void ID M A ( parameter ) { int ID array_declare 
+0 1 3 3 5 8 15 20 22 25 30 34 37 49 13 
+# N declare declare void ID M A ( parameter ) { int ID array_declare [ 
+0 1 3 3 5 8 15 20 22 25 30 34 37 49 13 14 
+# N declare declare void ID M A ( parameter ) { int ID array_declare [ NUM 
+0 1 3 3 5 8 15 20 22 25 30 34 37 49 13 14 19 
+# N declare declare void ID M A ( parameter ) { int ID array_declare [ NUM ] 
+0 1 3 3 5 8 15 20 22 25 30 34 37 49 13 14 19 23 
+# N declare declare void ID M A ( parameter ) { int ID array_declare array_declare 
+0 1 3 3 5 8 15 20 22 25 30 34 37 49 13 13 
+# N declare declare void ID M A ( parameter ) { int ID array_declare array_declare ; 
+0 1 3 3 5 8 15 20 22 25 30 34 37 49 13 13 18 
+# N declare declare void ID M A ( parameter ) { int ID array_declare array_declare_list 
+0 1 3 3 5 8 15 20 22 25 30 34 37 49 13 17 
+# N declare declare void ID M A ( parameter ) { int ID array_declare_list 
+0 1 3 3 5 8 15 20 22 25 30 34 37 49 68 
+# N declare declare void ID M A ( parameter ) { int ID array_declare_list inner_declare 
+0 1 3 3 5 8 15 20 22 25 30 34 37 49 68 89 
+# N declare declare void ID M A ( parameter ) { inner_declare 
+0 1 3 3 5 8 15 20 22 25 30 34 36 
+# N declare declare void ID M A ( parameter ) { inner_declare ID 
+0 1 3 3 5 8 15 20 22 25 30 34 36 44 
+# N declare declare void ID M A ( parameter ) { inner_declare ID [ 
+0 1 3 3 5 8 15 20 22 25 30 34 36 44 54 
+# N declare declare void ID M A ( parameter ) { inner_declare ID [ NUM 
+0 1 3 3 5 8 15 20 22 25 30 34 36 44 54 60 
+# N declare declare void ID M A ( parameter ) { inner_declare ID [ factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 44 54 59 
+# N declare declare void ID M A ( parameter ) { inner_declare ID [ item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 44 54 58 
+# N declare declare void ID M A ( parameter ) { inner_declare ID [ add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 44 54 57 
+# N declare declare void ID M A ( parameter ) { inner_declare ID [ expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 44 54 71 
+# N declare declare void ID M A ( parameter ) { inner_declare ID [ expression ] 
+0 1 3 3 5 8 15 20 22 25 30 34 36 44 54 71 91 
+# N declare declare void ID M A ( parameter ) { inner_declare ID [ expression ] [ 
+0 1 3 3 5 8 15 20 22 25 30 34 36 44 54 71 91 54 
+# N declare declare void ID M A ( parameter ) { inner_declare ID [ expression ] [ NUM 
+0 1 3 3 5 8 15 20 22 25 30 34 36 44 54 71 91 54 60 
+# N declare declare void ID M A ( parameter ) { inner_declare ID [ expression ] [ factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 44 54 71 91 54 59 
+# N declare declare void ID M A ( parameter ) { inner_declare ID [ expression ] [ item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 44 54 71 91 54 58 
+# N declare declare void ID M A ( parameter ) { inner_declare ID [ expression ] [ add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 44 54 71 91 54 57 
+# N declare declare void ID M A ( parameter ) { inner_declare ID [ expression ] [ expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 44 54 71 91 54 71 
+# N declare declare void ID M A ( parameter ) { inner_declare ID [ expression ] [ expression ] 
+0 1 3 3 5 8 15 20 22 25 30 34 36 44 54 71 91 54 71 91 
+# N declare declare void ID M A ( parameter ) { inner_declare ID [ expression ] index_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 44 54 71 91 108 
+# N declare declare void ID M A ( parameter ) { inner_declare ID index_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 44 53 
+# N declare declare void ID M A ( parameter ) { inner_declare array 
+0 1 3 3 5 8 15 20 22 25 30 34 36 48 
+# N declare declare void ID M A ( parameter ) { inner_declare array = 
+0 1 3 3 5 8 15 20 22 25 30 34 36 48 66 
+# N declare declare void ID M A ( parameter ) { inner_declare array = NUM 
+0 1 3 3 5 8 15 20 22 25 30 34 36 48 66 60 
+# N declare declare void ID M A ( parameter ) { inner_declare array = factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 48 66 59 
+# N declare declare void ID M A ( parameter ) { inner_declare array = item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 48 66 58 
+# N declare declare void ID M A ( parameter ) { inner_declare array = add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 48 66 57 
+# N declare declare void ID M A ( parameter ) { inner_declare array = expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 48 66 87 
+# N declare declare void ID M A ( parameter ) { inner_declare array = expression ; 
+0 1 3 3 5 8 15 20 22 25 30 34 36 48 66 87 107 
+# N declare declare void ID M A ( parameter ) { inner_declare assign_sentence 
+0 1 3 3 5 8 15 20 22 25 30 34 36 43 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M ID 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 44 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 44 54 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ NUM 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 44 54 60 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 44 54 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 44 54 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 44 54 57 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 44 54 71 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ expression ] 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 44 54 71 91 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ expression ] [ 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 44 54 71 91 54 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ expression ] [ NUM 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 44 54 71 91 54 60 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ expression ] [ factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 44 54 71 91 54 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ expression ] [ item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 44 54 71 91 54 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ expression ] [ add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 44 54 71 91 54 57 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ expression ] [ expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 44 54 71 91 54 71 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ expression ] [ expression ] 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 44 54 71 91 54 71 91 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ expression ] index_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 44 54 71 91 108 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M ID index_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 44 53 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 62 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 62 54 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ NUM 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 62 54 60 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 62 54 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 62 54 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 62 54 57 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 62 54 71 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ expression ] 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 62 54 71 91 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ expression ] [ 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 62 54 71 91 54 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ expression ] [ NUM 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 62 54 71 91 54 60 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ expression ] [ factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 62 54 71 91 54 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ expression ] [ item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 62 54 71 91 54 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ expression ] [ add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 62 54 71 91 54 57 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ expression ] [ expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 62 54 71 91 54 71 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ expression ] [ expression ] 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 62 54 71 91 54 71 91 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ expression ] index_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 62 54 71 91 108 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID index_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 62 53 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = array 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 63 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = item + 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 58 79 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = item + NUM 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 58 79 60 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = item + factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 58 79 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = item + item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 58 79 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = item + add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 58 79 98 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 57 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 87 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M array = expression ; 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 48 66 87 107 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M assign_sentence 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 43 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M ID 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 44 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M ID [ 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 44 54 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M ID [ NUM 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 44 54 60 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M ID [ factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 44 54 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M ID [ item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 44 54 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M ID [ add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 44 54 57 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M ID [ expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 44 54 71 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M ID [ expression ] 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 44 54 71 91 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M ID index_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 44 53 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = ID 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 62 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = ID [ 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 62 54 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = ID [ NUM 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 62 54 60 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = ID [ factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 62 54 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = ID [ item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 62 54 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = ID [ add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 62 54 57 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = ID [ expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 62 54 71 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = ID [ expression ] 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 62 54 71 91 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = ID index_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 62 53 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = array 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 63 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 58 79 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + ID 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 58 79 62 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + ID [ 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 58 79 62 54 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + ID [ NUM 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 58 79 62 54 60 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + ID [ factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 58 79 62 54 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + ID [ item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 58 79 62 54 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + ID [ add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 58 79 62 54 57 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + ID [ expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 58 79 62 54 71 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + ID [ expression ] 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 58 79 62 54 71 91 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + ID index_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 58 79 62 53 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + array 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 58 79 63 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 58 79 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 58 79 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 58 79 98 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 57 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 87 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = expression ; 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 48 66 87 107 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M assign_sentence 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 43 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 44 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 44 54 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ NUM 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 44 54 60 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 44 54 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 44 54 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 44 54 57 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 44 54 71 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ expression ] 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 44 54 71 91 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ expression ] [ 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 44 54 71 91 54 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ expression ] [ NUM 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 44 54 71 91 54 60 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ expression ] [ factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 44 54 71 91 54 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ expression ] [ item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 44 54 71 91 54 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ expression ] [ add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 44 54 71 91 54 57 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ expression ] [ expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 44 54 71 91 54 71 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ expression ] [ expression ] 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 44 54 71 91 54 71 91 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ expression ] index_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 44 54 71 91 108 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID index_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 44 53 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 62 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 62 54 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ NUM 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 62 54 60 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 62 54 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 62 54 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 62 54 57 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 62 54 71 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ expression ] 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 62 54 71 91 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ expression ] [ 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 62 54 71 91 54 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ expression ] [ NUM 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 62 54 71 91 54 60 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ expression ] [ factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 62 54 71 91 54 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ expression ] [ item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 62 54 71 91 54 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ expression ] [ add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 62 54 71 91 54 57 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ expression ] [ expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 62 54 71 91 54 71 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ expression ] [ expression ] 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 62 54 71 91 54 71 91 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ expression ] index_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 62 54 71 91 108 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID index_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 62 53 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( array 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 63 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 57 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 62 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 62 54 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ NUM 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 62 54 60 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 62 54 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 62 54 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 62 54 57 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 62 54 71 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ expression ] 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 62 54 71 91 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ expression ] [ 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 62 54 71 91 54 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ expression ] [ NUM 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 62 54 71 91 54 60 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ expression ] [ factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 62 54 71 91 54 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ expression ] [ item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 62 54 71 91 54 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ expression ] [ add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 62 54 71 91 54 57 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ expression ] [ expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 62 54 71 91 54 71 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ expression ] [ expression ] 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 62 54 71 91 54 71 91 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ expression ] index_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 62 54 71 91 108 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID index_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 62 53 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , array 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 63 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 57 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 62 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 62 54 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ NUM 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 62 54 60 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 62 54 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 62 54 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 62 54 57 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 62 54 71 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ expression ] 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 62 54 71 91 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ expression ] [ 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 62 54 71 91 54 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ expression ] [ NUM 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 62 54 71 91 54 60 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ expression ] [ factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 62 54 71 91 54 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ expression ] [ item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 62 54 71 91 54 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ expression ] [ add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 62 54 71 91 54 57 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ expression ] [ expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 62 54 71 91 54 71 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ expression ] [ expression ] 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 62 54 71 91 54 71 91 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ expression ] index_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 62 54 71 91 108 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID index_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 62 53 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( array 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 63 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 57 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 104 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( argument_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 103 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( argument_list ) 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 62 84 103 109 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 57 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 104 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , argument_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 104 110 113 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , argument_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 104 110 113 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( argument_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 103 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( argument_list ) 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 62 84 103 109 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = factor 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 59 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = item 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 58 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = add_expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 57 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = expression 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 87 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = expression ; 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 48 66 87 107 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M assign_sentence 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 43 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M sentence 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 39 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M sentence M 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 39 51 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M sentence M return 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 39 51 45 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M sentence M return ; 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 39 51 45 55 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M sentence M return_sentence 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 39 51 42 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M sentence M sentence 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 39 51 39 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M sentence M sentence_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 39 51 69 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M sentence_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 39 51 69 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 39 51 69 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence M sentence_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 39 51 69 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence_list 
+0 1 3 3 5 8 15 20 22 25 30 34 36 38 
+# N declare declare void ID M A ( parameter ) { inner_declare sentence_list } 
+0 1 3 3 5 8 15 20 22 25 30 34 36 38 50 
+# N declare declare void ID M A ( parameter ) sentence_block 
+0 1 3 3 5 8 15 20 22 25 30 33 
+# N declare declare void ID M A function_declare 
+0 1 3 3 5 8 15 20 24 
 # N declare declare declare 
 0 1 3 3 3 
-# N declare declare declare int 
-0 1 3 3 3 4 
-# N declare declare declare int ID 
-0 1 3 3 3 4 7 
-# N declare declare declare int ID M 
-0 1 3 3 3 4 7 9 
-# N declare declare declare int ID M A 
-0 1 3 3 3 4 7 9 16 
-# N declare declare declare int ID M A ( 
-0 1 3 3 3 4 7 9 16 22 
-# N declare declare declare int ID M A ( int 
-0 1 3 3 3 4 7 9 16 22 29 
-# N declare declare declare int ID M A ( int ID 
-0 1 3 3 3 4 7 9 16 22 29 32 
-# N declare declare declare int ID M A ( param 
-0 1 3 3 3 4 7 9 16 22 28 
-# N declare declare declare int ID M A ( parameter_list 
-0 1 3 3 3 4 7 9 16 22 26 
-# N declare declare declare int ID M A ( parameter 
-0 1 3 3 3 4 7 9 16 22 25 
-# N declare declare declare int ID M A ( parameter ) 
-0 1 3 3 3 4 7 9 16 22 25 30 
-# N declare declare declare int ID M A ( parameter ) { 
-0 1 3 3 3 4 7 9 16 22 25 30 34 
-# N declare declare declare int ID M A ( parameter ) { inner_declare 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 
-# N declare declare declare int ID M A ( parameter ) { inner_declare ID 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 45 
-# N declare declare declare int ID M A ( parameter ) { inner_declare ID = 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 45 54 
-# N declare declare declare int ID M A ( parameter ) { inner_declare ID = ID 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 45 54 64 
-# N declare declare declare int ID M A ( parameter ) { inner_declare ID = factor 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 45 54 61 
-# N declare declare declare int ID M A ( parameter ) { inner_declare ID = item 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 45 54 60 
-# N declare declare declare int ID M A ( parameter ) { inner_declare ID = item + 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 45 54 60 80 
-# N declare declare declare int ID M A ( parameter ) { inner_declare ID = item + NUM 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 45 54 60 80 62 
-# N declare declare declare int ID M A ( parameter ) { inner_declare ID = item + factor 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 45 54 60 80 61 
-# N declare declare declare int ID M A ( parameter ) { inner_declare ID = item + item 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 45 54 60 80 60 
-# N declare declare declare int ID M A ( parameter ) { inner_declare ID = item + add_expression 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 45 54 60 80 97 
-# N declare declare declare int ID M A ( parameter ) { inner_declare ID = add_expression 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 45 54 59 
-# N declare declare declare int ID M A ( parameter ) { inner_declare ID = expression 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 45 54 71 
-# N declare declare declare int ID M A ( parameter ) { inner_declare ID = expression ; 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 45 54 71 89 
-# N declare declare declare int ID M A ( parameter ) { inner_declare assign_sentence 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 44 
-# N declare declare declare int ID M A ( parameter ) { inner_declare sentence 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 40 
-# N declare declare declare int ID M A ( parameter ) { inner_declare sentence M 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 40 53 
-# N declare declare declare int ID M A ( parameter ) { inner_declare sentence M return 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 40 53 46 
-# N declare declare declare int ID M A ( parameter ) { inner_declare sentence M return ID 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 40 53 46 64 
-# N declare declare declare int ID M A ( parameter ) { inner_declare sentence M return factor 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 40 53 46 61 
-# N declare declare declare int ID M A ( parameter ) { inner_declare sentence M return factor * 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 40 53 46 61 82 
-# N declare declare declare int ID M A ( parameter ) { inner_declare sentence M return factor * NUM 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 40 53 46 61 82 62 
-# N declare declare declare int ID M A ( parameter ) { inner_declare sentence M return factor * factor 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 40 53 46 61 82 61 
-# N declare declare declare int ID M A ( parameter ) { inner_declare sentence M return factor * item 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 40 53 46 61 82 99 
-# N declare declare declare int ID M A ( parameter ) { inner_declare sentence M return item 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 40 53 46 60 
-# N declare declare declare int ID M A ( parameter ) { inner_declare sentence M return add_expression 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 40 53 46 59 
-# N declare declare declare int ID M A ( parameter ) { inner_declare sentence M return expression 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 40 53 46 58 
-# N declare declare declare int ID M A ( parameter ) { inner_declare sentence M return expression ; 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 40 53 46 58 73 
-# N declare declare declare int ID M A ( parameter ) { inner_declare sentence M return_sentence 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 40 53 43 
-# N declare declare declare int ID M A ( parameter ) { inner_declare sentence M sentence 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 40 53 40 
-# N declare declare declare int ID M A ( parameter ) { inner_declare sentence M sentence_list 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 40 53 70 
-# N declare declare declare int ID M A ( parameter ) { inner_declare sentence_list 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 39 
-# N declare declare declare int ID M A ( parameter ) { inner_declare sentence_list } 
-0 1 3 3 3 4 7 9 16 22 25 30 34 36 39 52 
-# N declare declare declare int ID M A ( parameter ) sentence_block 
-0 1 3 3 3 4 7 9 16 22 25 30 33 
-# N declare declare declare int ID M A function_declare 
-0 1 3 3 3 4 7 9 16 21 
-# N declare declare declare declare 
-0 1 3 3 3 3 
-# N declare declare declare declare void 
-0 1 3 3 3 3 5 
-# N declare declare declare declare void ID 
-0 1 3 3 3 3 5 8 
-# N declare declare declare declare void ID M 
-0 1 3 3 3 3 5 8 15 
-# N declare declare declare declare void ID M A 
-0 1 3 3 3 3 5 8 15 20 
-# N declare declare declare declare void ID M A ( 
-0 1 3 3 3 3 5 8 15 20 22 
-# N declare declare declare declare void ID M A ( void 
-0 1 3 3 3 3 5 8 15 20 22 27 
-# N declare declare declare declare void ID M A ( parameter 
-0 1 3 3 3 3 5 8 15 20 22 25 
-# N declare declare declare declare void ID M A ( parameter ) 
-0 1 3 3 3 3 5 8 15 20 22 25 30 
-# N declare declare declare declare void ID M A ( parameter ) { 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare ID 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 45 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare ID [ 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 45 56 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare ID [ NUM 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 45 56 62 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare ID [ factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 45 56 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare ID [ item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 45 56 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare ID [ add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 45 56 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare ID [ expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 45 56 72 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare ID [ expression ] 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 45 56 72 90 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare ID [ expression ] [ 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 45 56 72 90 56 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare ID [ expression ] [ NUM 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 45 56 72 90 56 62 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare ID [ expression ] [ factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 45 56 72 90 56 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare ID [ expression ] [ item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 45 56 72 90 56 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare ID [ expression ] [ add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 45 56 72 90 56 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare ID [ expression ] [ expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 45 56 72 90 56 72 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare ID [ expression ] [ expression ] 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 45 56 72 90 56 72 90 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare ID [ expression ] index_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 45 56 72 90 107 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare ID index_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 45 55 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare array 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 49 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare array = 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 49 68 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare array = NUM 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 49 68 62 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare array = factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 49 68 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare array = item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 49 68 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare array = add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 49 68 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare array = expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 49 68 88 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare array = expression ; 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 49 68 88 106 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare assign_sentence 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 44 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M ID 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 45 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 45 56 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ NUM 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 45 56 62 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 45 56 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 45 56 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 45 56 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 45 56 72 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ expression ] 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 45 56 72 90 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ expression ] [ 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 45 56 72 90 56 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ expression ] [ NUM 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 45 56 72 90 56 62 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ expression ] [ factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 45 56 72 90 56 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ expression ] [ item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 45 56 72 90 56 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ expression ] [ add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 45 56 72 90 56 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ expression ] [ expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 45 56 72 90 56 72 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ expression ] [ expression ] 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 45 56 72 90 56 72 90 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M ID [ expression ] index_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 45 56 72 90 107 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M ID index_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 45 55 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 64 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 64 56 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ NUM 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 64 56 62 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 64 56 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 64 56 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 64 56 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 64 56 72 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ expression ] 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 64 56 72 90 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ expression ] [ 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 64 56 72 90 56 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ expression ] [ NUM 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 64 56 72 90 56 62 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ expression ] [ factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 64 56 72 90 56 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ expression ] [ item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 64 56 72 90 56 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ expression ] [ add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 64 56 72 90 56 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ expression ] [ expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 64 56 72 90 56 72 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ expression ] [ expression ] 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 64 56 72 90 56 72 90 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID [ expression ] index_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 64 56 72 90 107 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = ID index_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 64 55 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = array 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 65 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = item + 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 60 80 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = item + NUM 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 60 80 62 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = item + factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 60 80 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = item + item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 60 80 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = item + add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 60 80 97 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 88 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M array = expression ; 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 49 68 88 106 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M assign_sentence 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 44 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M ID 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 45 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M ID [ 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 45 56 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M ID [ NUM 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 45 56 62 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M ID [ factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 45 56 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M ID [ item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 45 56 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M ID [ add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 45 56 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M ID [ expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 45 56 72 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M ID [ expression ] 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 45 56 72 90 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M ID index_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 45 55 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = ID 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 64 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = ID [ 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 64 56 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = ID [ NUM 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 64 56 62 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = ID [ factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 64 56 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = ID [ item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 64 56 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = ID [ add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 64 56 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = ID [ expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 64 56 72 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = ID [ expression ] 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 64 56 72 90 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = ID index_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 64 55 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = array 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 65 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 60 80 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + ID 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 60 80 64 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + ID [ 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 60 80 64 56 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + ID [ NUM 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 60 80 64 56 62 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + ID [ factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 60 80 64 56 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + ID [ item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 60 80 64 56 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + ID [ add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 60 80 64 56 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + ID [ expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 60 80 64 56 72 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + ID [ expression ] 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 60 80 64 56 72 90 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + ID index_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 60 80 64 55 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + array 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 60 80 65 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 60 80 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 60 80 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = item + add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 60 80 97 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 88 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M array = expression ; 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 49 68 88 106 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M assign_sentence 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 44 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 45 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 45 56 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ NUM 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 45 56 62 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 45 56 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 45 56 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 45 56 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 45 56 72 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ expression ] 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 45 56 72 90 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ expression ] [ 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 45 56 72 90 56 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ expression ] [ NUM 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 45 56 72 90 56 62 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ expression ] [ factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 45 56 72 90 56 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ expression ] [ item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 45 56 72 90 56 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ expression ] [ add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 45 56 72 90 56 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ expression ] [ expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 45 56 72 90 56 72 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ expression ] [ expression ] 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 45 56 72 90 56 72 90 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID [ expression ] index_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 45 56 72 90 107 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M ID index_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 45 55 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 64 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 64 56 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ NUM 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 64 56 62 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 64 56 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 64 56 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 64 56 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 64 56 72 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ expression ] 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 64 56 72 90 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ expression ] [ 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 64 56 72 90 56 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ expression ] [ NUM 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 64 56 72 90 56 62 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ expression ] [ factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 64 56 72 90 56 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ expression ] [ item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 64 56 72 90 56 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ expression ] [ add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 64 56 72 90 56 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ expression ] [ expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 64 56 72 90 56 72 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ expression ] [ expression ] 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 64 56 72 90 56 72 90 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID [ expression ] index_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 64 56 72 90 107 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( ID index_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 64 55 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( array 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 65 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 64 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 64 56 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ NUM 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 64 56 62 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 64 56 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 64 56 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 64 56 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 64 56 72 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ expression ] 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 64 56 72 90 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ expression ] [ 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 64 56 72 90 56 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ expression ] [ NUM 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 64 56 72 90 56 62 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ expression ] [ factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 64 56 72 90 56 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ expression ] [ item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 64 56 72 90 56 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ expression ] [ add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 64 56 72 90 56 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ expression ] [ expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 64 56 72 90 56 72 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ expression ] [ expression ] 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 64 56 72 90 56 72 90 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID [ expression ] index_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 64 56 72 90 107 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , ID index_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 64 55 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , array 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 65 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 64 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 64 56 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ NUM 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 64 56 62 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 64 56 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 64 56 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 64 56 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 64 56 72 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ expression ] 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 64 56 72 90 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ expression ] [ 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 64 56 72 90 56 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ expression ] [ NUM 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 64 56 72 90 56 62 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ expression ] [ factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 64 56 72 90 56 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ expression ] [ item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 64 56 72 90 56 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ expression ] [ add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 64 56 72 90 56 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ expression ] [ expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 64 56 72 90 56 72 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ expression ] [ expression ] 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 64 56 72 90 56 72 90 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID [ expression ] index_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 64 56 72 90 107 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( ID index_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 64 55 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( array 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 65 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 103 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( argument_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 102 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , ID ( argument_list ) 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 64 85 102 108 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 103 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , expression , argument_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 103 109 112 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( expression , argument_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 103 109 112 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( argument_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 102 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = ID ( argument_list ) 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 64 85 102 108 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = factor 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 61 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = item 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 60 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = add_expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 59 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = expression 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 88 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M array = expression ; 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 49 68 88 106 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M assign_sentence 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 44 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M sentence 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 40 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M sentence M 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 40 53 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M sentence M return 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 40 53 46 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M sentence M return ; 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 40 53 46 57 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M sentence M return_sentence 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 40 53 43 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M sentence M sentence 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 40 53 40 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M sentence M sentence_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 40 53 70 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence M sentence_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 40 53 70 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence M sentence_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 40 53 70 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence M sentence_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 40 53 70 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence_list 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 39 
-# N declare declare declare declare void ID M A ( parameter ) { inner_declare sentence_list } 
-0 1 3 3 3 3 5 8 15 20 22 25 30 34 36 39 52 
-# N declare declare declare declare void ID M A ( parameter ) sentence_block 
-0 1 3 3 3 3 5 8 15 20 22 25 30 33 
-# N declare declare declare declare void ID M A function_declare 
-0 1 3 3 3 3 5 8 15 20 24 
-# N declare declare declare declare declare 
-0 1 3 3 3 3 3 
-# N declare declare declare declare declare_list 
-0 1 3 3 3 3 6 
-# N declare declare declare declare_list 
-0 1 3 3 3 6 
 # N declare declare declare_list 
 0 1 3 3 6 
 # N declare declare_list 

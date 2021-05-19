@@ -31,6 +31,13 @@ struct IBlock {
 	int next2;
 };
 
+// 数组相关信息
+struct ArrInfo {
+	string 	name;	// 数组名，寻址基址
+	int		length;	// 数组长度（本项目中只存在int和void型所以数组元素大小为4）
+	bool	active;	// 在当前context中是否活跃
+};
+
 //保存临时常数 t0 t1寄存器
 //保存函数的返回值 v0寄存器
 class ObjectCodeGenerator {
@@ -47,6 +54,7 @@ private:
 	vector<IBlock>::iterator nowIBlock;//当前分析的基本块
 	vector<QuaternaryWithInfo>::iterator nowQuatenary;//当前分析的四元式
 	vector<string>objectCodes;
+	vector<ArrInfo>arrays;
 
 	void outputIBlocks(ostream& out);
 	void outputObjectCode(ostream& out);
@@ -60,6 +68,7 @@ private:
 	void generateCodeForFuncBlocks(map<string, vector<IBlock> >::iterator &fiter);
 	void generateCodeForBaseBlocks(int nowBaseBlockIndex);
 	void generateCodeForQuatenary(int nowBaseBlockIndex, int &arg_num, int &par_num, list<pair<string, bool> > &par_list);
+	void generateDataSegment();
 public:
 	ObjectCodeGenerator();
 	void generateCode();

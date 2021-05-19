@@ -9,24 +9,35 @@ demo:
     next2 = -1
 [main]
 main:
-    (=,3,_,a)
-    (=,4,_,b)
-    (=,2,_,c)
-    (par,c,_,_)
+    (array_declare,4,_,a)
+    ([]=,3,_,a[0])
+    (*,1,1,T7)
+    (+,a[0],1,T8)
+    ([]=,T8,_,a[T7])
+    (*,1,2,T9)
+    (*,1,2,T10)
+    (+,a[0],a[T10],T11)
+    ([]=,T11,_,a[T9])
+    (*,1,1,T12)
+    (*,1,2,T13)
+    (+,T12,T13,T12)
+    (*,1,1,T14)
+    (*,1,2,T15)
+    (par,a[T15],_,_)
     (call,demo,_,_)
     next1 = 1
     next2 = -1
 Label6:
-    (=,@RETURN_PLACE,_,T7)
-    (par,a,_,_)
-    (par,b,_,_)
-    (par,T7,_,_)
+    (=,@RETURN_PLACE,_,T16)
+    (par,a[0],_,_)
+    (par,a[T14],_,_)
+    (par,T16,_,_)
     (call,program,_,_)
     next1 = 2
     next2 = -1
 Label7:
-    (=,@RETURN_PLACE,_,T8)
-    (=,T8,_,a)
+    (=,@RETURN_PLACE,_,T17)
+    ([]=,T17,_,a[T12])
     (return,_,_,_)
     next1 = -1
     next2 = -1

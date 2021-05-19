@@ -15,6 +15,15 @@ bool isControlOp(string op) {
 	return false;
 }
 
+bool isArrItem(string name) {
+	return name.find("[")!=string::npos;
+}
+
+string getArrName(string name) {
+	cout << name.substr(0,name.find('[')) << endl;
+	return name.substr(0,name.find('['));
+}
+
 VarInfomation::VarInfomation(int next, bool active) {
 	this->next = next;
 	this->active = active;
@@ -193,7 +202,12 @@ string ObjectCodeGenerator::allocateReg(string var) {
 
 	//如果该变量没有在某个寄存器中
 	string ret = allocateReg();
-	objectCodes.push_back(string("lw ") + ret + " " + to_string(varOffset[var]) + "($sp)");
+	if (isArrItem(var)){
+		
+	}
+	else{
+		objectCodes.push_back(string("lw ") + ret + " " + to_string(varOffset[var]) + "($sp)");
+	}
 	Avalue[var].insert(ret);
 	Rvalue[ret].insert(var);
 	return ret;
@@ -257,6 +271,23 @@ void ObjectCodeGenerator::analyseBlock(map<string, vector<Block> >*funcBlocks) {
 					}
 					if (isVar(citer->src2) && def.count(citer->src2) == 0) {//如果源操作数2还没有被定值
 						use.insert(citer->src2);
+					}
+				}
+				// TODO:arr[index]目前的设计是整个数组会被加入到def和use中
+				// TODO:arr_declare目前的设计是arr名会被加入到def中
+				else if (citer->op == "array_declare"){//arr_declare,space,_,arr
+					if (!isNum(citer->src1) || !isVar(citer->des)){
+						outputError("数组定义不合法");
+					}
+					if (isVar(citer->des) && use.count(citer->des) == 0) {//如果目的操作数还没有被引用
+						int length = atoi(citer->src1.c_str());
+						if (length<=0){
+							outputError(citer->des+"数组容量不合法");
+						}
+						for(int i=0;i<length;i++){
+							def.insert(citer->des+"["+to_string(i)+"]");
+						}
+						arrays.push_back(ArrInfo{citer->des,atoi(citer->src1.c_str()),false});
 					}
 				}
 				else {
@@ -582,6 +613,12 @@ void ObjectCodeGenerator::generateCodeForQuatenary(int nowBaseBlockIndex, int &a
 		Rvalue[src1Pos].insert(nowQuatenary->q.des);
 		Avalue[nowQuatenary->q.des].insert(src1Pos);
 	}
+	else if (nowQuatenary->q.op == "array_declare"){
+
+	}
+	else if (nowQuatenary->q.op == "[]="){//[]= src _ arr[index]
+
+	}
 	else {// + - * /
 		string src1Pos = allocateReg(nowQuatenary->q.src1);
 		string src2Pos = allocateReg(nowQuatenary->q.src2);
@@ -673,8 +710,22 @@ void ObjectCodeGenerator::generateCodeForFuncBlocks(map<string, vector<IBlock> >
 	}
 }
 
+void ObjectCodeGenerator::generateDataSegment() {
+	if(arrays.size()==0)
+		return;
+
+	objectCodes.push_back(".data");
+	for(auto iter = arrays.begin();iter!=arrays.end();iter++){
+		objectCodes.push_back(iter->name + ": .space "+to_string(iter->length * 4));
+	}
+}
+
 void ObjectCodeGenerator::generateCode() {
-	objectCodes.push_back("lui $sp,0x1001");
+	// generate data segment
+	generateDataSegment();
+
+	// TODO: check stack address
+	// objectCodes.push_back("lui $sp,0x1001");
 	objectCodes.push_back("j main");
 	for (map<string, vector<IBlock> >::iterator fiter = funcIBlocks.begin(); fiter != funcIBlocks.end(); fiter++) {//对每一个函数块
 		generateCodeForFuncBlocks(fiter);

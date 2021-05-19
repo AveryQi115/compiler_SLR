@@ -680,12 +680,29 @@ void ParserAndSemanticAnalyser::analyse(list<Token>&words, ostream& out) {
 					pushSymbol(sentence_block);
 					break;
 				}
-				case 17://inner_var_declare ::= int ID
+				case 16://inner_declare ::= int ID var_declare inner_declare
 				{
+					Symbol* inner_declare = popSymbol();
+					Symbol* var_declare = popSymbol();
 					Id* ID = (Id*)popSymbol();
 					Symbol* _int = popSymbol();
-					pushSymbol(new Symbol(reductPro.left));
 					varTable.push_back(Var{ ID->name,D_INT,nowLevel });
+					pushSymbol(new Symbol(reductPro.left));
+					break;
+				}
+				case 17://inner_declare ::= int ID array_declare_list inner_declare
+				{
+					Symbol* inner_declare = popSymbol();
+					ArrayDeclareList* array_declare_list = (ArrayDeclareList*)popSymbol();
+					Id* ID = (Id*)popSymbol();
+					Symbol* _int = popSymbol();
+					if (array_declare_list->total_size <= 0)
+						outputError(string("语法错误：第") + to_string(lineCount) + "行，数组" + ID->name + "容量不合法");
+
+					string name = ID->name;
+					varTable.push_back(Var{ name,D_INT_ARRAY,nowLevel,array_declare_list->size});
+					code.emit("array_declare",to_string(array_declare_list->total_size),"_",name);
+					pushSymbol(new Symbol(reductPro.left));
 					break;
 				}
 				case 18://sentence_list ::= sentence M sentence_list
