@@ -33,7 +33,6 @@ struct IBlock {
 
 // 数组相关信息
 struct ArrInfo {
-	string 	name;	// 数组名，寻址基址
 	int		length;	// 数组长度（本项目中只存在int和void型所以数组元素大小为4）
 	bool	active;	// 在当前context中是否活跃
 };
@@ -54,7 +53,10 @@ private:
 	vector<IBlock>::iterator nowIBlock;//当前分析的基本块
 	vector<QuaternaryWithInfo>::iterator nowQuatenary;//当前分析的四元式
 	vector<string>objectCodes;
-	vector<ArrInfo>arrays;
+	map<string, ArrInfo>arrays;
+
+	string getArrName(string name);
+	int getArrIndex(string name, string& index);
 
 	void outputIBlocks(ostream& out);
 	void outputObjectCode(ostream& out);

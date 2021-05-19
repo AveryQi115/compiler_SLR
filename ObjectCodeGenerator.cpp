@@ -19,9 +19,35 @@ bool isArrItem(string name) {
 	return name.find("[")!=string::npos;
 }
 
-string getArrName(string name) {
-	cout << name.substr(0,name.find('[')) << endl;
-	return name.substr(0,name.find('['));
+string ObjectCodeGenerator::getArrName(string name) {
+	string arrName = name.substr(0,name.find('['));
+	if (arrays.find(arrName)==arrays.end()){
+		outputError("数组"+arrName+": 不存在！");
+		return "";
+	}
+	return arrName;
+}
+
+int ObjectCodeGenerator::getArrIndex(string name, string& index) {
+	string arrName = name.substr(0,name.find('['));
+	if (arrays.find(arrName)==arrays.end()){
+		outputError("数组"+arrName+": 不存在！");
+		return -1;
+	}
+
+	if(isNum(name.substr(name.find('[')+1,name.find(']')))){
+		int offset = atoi(name.substr(name.find('[')+1,name.find(']')).c_str());
+		int size = arrays.find(arrName)->second.length;
+		if(offset<0 || offset >= size){
+			outputError("数组"+arrName+": index "+to_string(offset)+" out of range.("+to_string(size)+");");
+			return -1;
+		}
+		return offset;
+	}
+	else{
+		index = name.substr(name.find('[')+1,name.find(']'));
+		return -1;
+	}
 }
 
 VarInfomation::VarInfomation(int next, bool active) {
@@ -72,15 +98,30 @@ ObjectCodeGenerator::ObjectCodeGenerator() {
 }
 
 void ObjectCodeGenerator::storeVar(string reg, string var) {
-	if (varOffset.find(var) != varOffset.end()) {//如果已经为*iter分配好了存储空间
-		objectCodes.push_back(string("sw ") + reg + " " + to_string(varOffset[var]) + "($sp)");
+	if(!isArrItem(var)){
+		if (varOffset.find(var) != varOffset.end()) {//如果已经为*iter分配好了存储空间
+			objectCodes.push_back(string("sw ") + reg + " " + to_string(varOffset[var]) + "($sp)");
+		}
+		else {
+			varOffset[var] = top;
+			top += 4;
+			objectCodes.push_back(string("sw ") + reg + " " + to_string(varOffset[var]) + "($sp)");
+		}
+		Avalue[var].insert(var);
 	}
-	else {
-		varOffset[var] = top;
-		top += 4;
-		objectCodes.push_back(string("sw ") + reg + " " + to_string(varOffset[var]) + "($sp)");
+	else{
+		string arrName = getArrName(var);
+		string index;
+		int offset = getArrIndex(var,index);
+		if(offset!=-1)
+			objectCodes.push_back(string("sw ") + reg + " " + arrName + "+" + to_string(4*offset));
+		else{
+			string indexPos = allocateReg(index);
+			objectCodes.push_back(string("sw ") + reg + " " + arrName + "(" + indexPos + ")");
+		}
+
+		Avalue[var].insert(var);
 	}
-	Avalue[var].insert(var);
 }
 
 void ObjectCodeGenerator::releaseVar(string var) {
@@ -189,8 +230,16 @@ string ObjectCodeGenerator::allocateReg() {
 //为引用变量分配寄存器
 string ObjectCodeGenerator::allocateReg(string var) {
 	if (isNum(var)) {
+		for (set<string>::iterator iter = Avalue[var].begin(); iter != Avalue[var].end(); iter++) {
+			if ((*iter)[0] == '$') {//如果变量已经保存在某个寄存器中
+				return *iter;//直接返回该寄存器
+			}
+		}
+
 		string ret = allocateReg();
 		objectCodes.push_back(string("addi ") + ret + " $zero " + var);
+		Avalue[var].insert(ret);
+		Rvalue[ret].insert(var);
 		return ret;
 	}
 
@@ -202,8 +251,18 @@ string ObjectCodeGenerator::allocateReg(string var) {
 
 	//如果该变量没有在某个寄存器中
 	string ret = allocateReg();
+
+	// 数组元素
 	if (isArrItem(var)){
-		
+		string arrName = getArrName(var);
+		string index;
+		int offset = getArrIndex(var,index);
+		if(offset!=-1)
+			objectCodes.push_back(string("lw ") + ret + " " + arrName + "+" + to_string(4*offset));
+		else{
+			string indexPos = allocateReg(index);
+			objectCodes.push_back(string("lw ") + ret + " " + arrName + "(" + indexPos + ")");
+		}
 	}
 	else{
 		objectCodes.push_back(string("lw ") + ret + " " + to_string(varOffset[var]) + "($sp)");
@@ -237,8 +296,6 @@ string ObjectCodeGenerator::getReg() {
 		}
 	}
 
-	//为目标变量分配可能不正确
-	//return allocateReg(nowQuatenary->q.des);
 	string ret = allocateReg();
 	Avalue[nowQuatenary->q.des].insert(ret);
 	Rvalue[ret].insert(nowQuatenary->q.des);
@@ -266,11 +323,28 @@ void ObjectCodeGenerator::analyseBlock(map<string, vector<Block> >*funcBlocks) {
 					//pass
 				}
 				else if (citer->op[0] == 'j') {//j>= j<=,j==,j!=,j>,j<
-					if (isVar(citer->src1) && def.count(citer->src1) == 0) {//如果源操作数1还没有被定值
+					if (isVar(citer->src1) && !isArrItem(citer->src1) && def.count(citer->src1) == 0) {//如果源操作数1还没有被定值
 						use.insert(citer->src1);
 					}
-					if (isVar(citer->src2) && def.count(citer->src2) == 0) {//如果源操作数2还没有被定值
+					if (isArrItem(citer->src1)) {
+						if (def.count(getArrName(citer->src1)) == 0)
+							use.insert(getArrName(citer->src1));
+						string index;
+						int offset = getArrIndex(citer->src1,index);
+						if(offset==-1 && def.count(index)==0)
+							use.insert(index);
+					}
+
+					if (isVar(citer->src2) && !isArrItem(citer->src2) && def.count(citer->src2) == 0) {//如果源操作数2还没有被定值
 						use.insert(citer->src2);
+					}
+					if (isArrItem(citer->src2)) {
+						if (def.count(getArrName(citer->src2)) == 0)
+							use.insert(getArrName(citer->src2));
+						string index;
+						int offset = getArrIndex(citer->src2,index);
+						if(offset==-1 && def.count(index)==0)
+							use.insert(index);
 					}
 				}
 				// TODO:arr[index]目前的设计是整个数组会被加入到def和use中
@@ -284,18 +358,33 @@ void ObjectCodeGenerator::analyseBlock(map<string, vector<Block> >*funcBlocks) {
 						if (length<=0){
 							outputError(citer->des+"数组容量不合法");
 						}
-						for(int i=0;i<length;i++){
-							def.insert(citer->des+"["+to_string(i)+"]");
-						}
-						arrays.push_back(ArrInfo{citer->des,atoi(citer->src1.c_str()),false});
+						def.insert(citer->des);
+						arrays.insert(pair<string,ArrInfo>(citer->des,ArrInfo{atoi(citer->src1.c_str()),false}));
 					}
 				}
 				else {
-					if (isVar(citer->src1) && def.count(citer->src1) == 0) {//如果源操作数1还没有被定值
+					if (isVar(citer->src1) && !isArrItem(citer->src1) && def.count(citer->src1) == 0) {//如果源操作数1还没有被定值
 						use.insert(citer->src1);
 					}
-					if (isVar(citer->src2) && def.count(citer->src2) == 0) {//如果源操作数2还没有被定值
+					if (isArrItem(citer->src1)) {
+						if (def.count(getArrName(citer->src1)) == 0)
+							use.insert(getArrName(citer->src1));
+						string index;
+						int offset = getArrIndex(citer->src1,index);
+						if(offset==-1 && def.count(index)==0)
+							use.insert(index);
+					}
+
+					if (isVar(citer->src2) && !isArrItem(citer->src2) && def.count(citer->src2) == 0) {//如果源操作数2还没有被定值
 						use.insert(citer->src2);
+					}
+					if (isArrItem(citer->src2)) {
+						if (def.count(getArrName(citer->src2)) == 0)
+							use.insert(getArrName(citer->src2));
+						string index;
+						int offset = getArrIndex(citer->src2,index);
+						if(offset==-1 && def.count(index)==0)
+							use.insert(index);
 					}
 					if (isVar(citer->des) && use.count(citer->des) == 0) {//如果目的操作数还没有被引用
 						def.insert(citer->des);
@@ -412,24 +501,59 @@ void ObjectCodeGenerator::analyseBlock(map<string, vector<Block> >*funcBlocks) {
 					if (isVar(citer->q.src1)) {
 						citer->info1 = symTables[blockIndex][citer->q.src1];
 						symTables[blockIndex][citer->q.src1] = VarInfomation{ codeIndex,true };
+						if (isArrItem(citer->q.src1)){
+							string index;
+							int offset = getArrIndex(citer->q.src1,index);
+							if(offset==-1){
+								symTables[blockIndex][index] = VarInfomation{ codeIndex,true };
+							}
+						}
 					}
 					if (isVar(citer->q.src2)) {
 						citer->info2 = symTables[blockIndex][citer->q.src2];
 						symTables[blockIndex][citer->q.src2] = VarInfomation{ codeIndex,true };
+						if (isArrItem(citer->q.src2)){
+							string index;
+							int offset = getArrIndex(citer->q.src2,index);
+							if(offset==-1){
+								symTables[blockIndex][index] = VarInfomation{ codeIndex,true };
+							}
+						}
 					}
 				}
 				else {
 					if (isVar(citer->q.src1)) {
 						citer->info1 = symTables[blockIndex][citer->q.src1];
 						symTables[blockIndex][citer->q.src1] = VarInfomation{ codeIndex,true };
+						if (isArrItem(citer->q.src1)){
+							string index;
+							int offset = getArrIndex(citer->q.src1,index);
+							if(offset==-1){
+								symTables[blockIndex][index] = VarInfomation{ codeIndex,true };
+							}
+						}
 					}
 					if (isVar(citer->q.src2)) {
 						citer->info2 = symTables[blockIndex][citer->q.src2];
 						symTables[blockIndex][citer->q.src2] = VarInfomation{ codeIndex,true };
+						if (isArrItem(citer->q.src2)){
+							string index;
+							int offset = getArrIndex(citer->q.src2,index);
+							if(offset==-1){
+								symTables[blockIndex][index] = VarInfomation{ codeIndex,true };
+							}
+						}
 					}
 					if (isVar(citer->q.des)) {
 						citer->info3 = symTables[blockIndex][citer->q.des];
 						symTables[blockIndex][citer->q.des] = VarInfomation{ -1,false };
+						if (isArrItem(citer->q.des)){
+							string index;
+							int offset = getArrIndex(citer->q.des,index);
+							if(offset==-1){
+								symTables[blockIndex][index] = VarInfomation{ codeIndex,true };
+							}
+						}
 					}
 				}
 			}
@@ -515,12 +639,19 @@ void ObjectCodeGenerator::storeOutLiveVar(set<string>&outl) {
 }
 
 void ObjectCodeGenerator::generateCodeForQuatenary(int nowBaseBlockIndex, int &arg_num, int &par_num, list<pair<string, bool> > &par_list) {
-	if (nowQuatenary->q.op[0] != 'j'&&nowQuatenary->q.op != "call") {
-		if (isVar(nowQuatenary->q.src1) && Avalue[nowQuatenary->q.src1].empty()) {
+	if (nowQuatenary->q.op[0] != 'j' && nowQuatenary->q.op != "call" && nowQuatenary->q.op != "array_declare") {
+		if (isVar(nowQuatenary->q.src1) && !isArrItem(nowQuatenary->q.src1) && Avalue[nowQuatenary->q.src1].empty()) {
 			outputError(string("变量") + nowQuatenary->q.src1 + "在引用前未赋值");
 		}
-		if (isVar(nowQuatenary->q.src2) && Avalue[nowQuatenary->q.src2].empty()) {
+		if (isArrItem(nowQuatenary->q.src1)){
+			Avalue[nowQuatenary->q.src1].insert(nowQuatenary->q.src1);
+		}
+
+		if (isVar(nowQuatenary->q.src2)  && !isArrItem(nowQuatenary->q.src2) && Avalue[nowQuatenary->q.src2].empty()) {
 			outputError(string("变量") + nowQuatenary->q.src2 + "在引用前未赋值");
+		}
+		if (isArrItem(nowQuatenary->q.src2)){
+			Avalue[nowQuatenary->q.src2].insert(nowQuatenary->q.src2);
 		}
 	}
 
@@ -578,7 +709,7 @@ void ObjectCodeGenerator::generateCodeForQuatenary(int nowBaseBlockIndex, int &a
 		if (isNum(nowQuatenary->q.src1)) {//返回值为数字
 			objectCodes.push_back("addi $v0 $zero " + nowQuatenary->q.src1);
 		}
-		else if (isVar(nowQuatenary->q.src1)) {//返回值为变量
+		else if (isVar(nowQuatenary->q.src1) && !isArrItem(nowQuatenary->q.src1)) {//返回值为变量
 			set<string>::iterator piter = Avalue[nowQuatenary->q.src1].begin();
 			if ((*piter)[0] == '$') {
 				objectCodes.push_back(string("add $v0 $zero ") + *piter);
@@ -587,6 +718,19 @@ void ObjectCodeGenerator::generateCodeForQuatenary(int nowBaseBlockIndex, int &a
 				objectCodes.push_back(string("lw $v0 ") + to_string(varOffset[*piter]) + "($sp)");
 			}
 		}
+		else if(isArrItem(nowQuatenary->q.src1)) {// 返回值为数组元素
+			string var = nowQuatenary->q.src1;
+			string arrName = getArrName(var);
+			string index;
+			int offset = getArrIndex(var,index);
+			if(offset!=-1)
+				objectCodes.push_back(string("lw $v0 ") + arrName + "+" + to_string(4*offset));
+			else{
+				string indexPos = allocateReg(index);
+				objectCodes.push_back(string("lw $v0 ") + arrName + "(" + indexPos + ")");
+			}
+		}
+
 		if (nowFunc == "main") {
 			objectCodes.push_back("j end");
 		}
@@ -613,11 +757,28 @@ void ObjectCodeGenerator::generateCodeForQuatenary(int nowBaseBlockIndex, int &a
 		Rvalue[src1Pos].insert(nowQuatenary->q.des);
 		Avalue[nowQuatenary->q.des].insert(src1Pos);
 	}
-	else if (nowQuatenary->q.op == "array_declare"){
-
+	else if (nowQuatenary->q.op == "array_declare"){// array_declare, size, _, arrName
+		for(int i=0;i<atoi(nowQuatenary->q.src1.c_str());i++){
+			Avalue[nowQuatenary->q.src1+"["+to_string(i)+"]"].insert(nowQuatenary->q.src1+"["+to_string(i)+"]");
+		}
 	}
 	else if (nowQuatenary->q.op == "[]="){//[]= src _ arr[index]
+		string src1Pos = allocateReg(nowQuatenary->q.src1);
+		string var = nowQuatenary->q.des;
+		string arrName = getArrName(var);
+		string index;
+		int offset = getArrIndex(var,index);
+		if(offset!=-1)
+			objectCodes.push_back(string("sw ") + src1Pos + " " + arrName + "+" + to_string(4*offset));
+		else{
+			string indexPos = allocateReg(index);
+			objectCodes.push_back(string("sw ") + src1Pos + " " + arrName + "(" + indexPos + ")");
+		}
+		Avalue[var].insert(src1Pos);
 
+		if (!nowQuatenary->info3.active) {
+			releaseVar(var);
+		}
 	}
 	else {// + - * /
 		string src1Pos = allocateReg(nowQuatenary->q.src1);
@@ -716,7 +877,7 @@ void ObjectCodeGenerator::generateDataSegment() {
 
 	objectCodes.push_back(".data");
 	for(auto iter = arrays.begin();iter!=arrays.end();iter++){
-		objectCodes.push_back(iter->name + ": .space "+to_string(iter->length * 4));
+		objectCodes.push_back(iter->first + ": .space "+to_string(iter->second.length * 4));
 	}
 }
 

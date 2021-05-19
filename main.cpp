@@ -27,10 +27,9 @@ int main() {
 
 	ObjectCodeGenerator objectCodeGenerator;
 	objectCodeGenerator.analyseBlock(code->getFuncBlock());
-	objectCodeGenerator.outputIBlocks();
+	objectCodeGenerator.outputIBlocks("result/IBlocks.txt");
 	objectCodeGenerator.generateCode();
-	// objectCodeGenerator.outputObjectCode();
-	// objectCodeGenerator.outputObjectCode("result/program.asm");
+	objectCodeGenerator.outputObjectCode("result/program.asm");
 
 	return 0;
 }
