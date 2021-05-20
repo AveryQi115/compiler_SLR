@@ -1,4 +1,4 @@
-#include "LexicalAnalyser.h"
+#include "Lexical.h"
 
 string token_to_string(Token t) {
 	const char* LexicalTypeStr[] = {
@@ -41,18 +41,18 @@ string token_to_string(Token t) {
 	return res;
 }
 
-LexicalAnalyser::LexicalAnalyser(const char* path) {
+Lexical::Lexical(const char* path) {
 	lineCount = 0;
 	openFile(path);
 }
 
-LexicalAnalyser::~LexicalAnalyser() {
+Lexical::~Lexical() {
 	if (src.is_open()) {
 		src.close();
 	}
 }
 
-void LexicalAnalyser::openFile(const char* path) {
+void Lexical::openFile(const char* path) {
 	src.open(path, ios::in);
 	if (!src.is_open()) {
 		cerr << "file " << path << " open error" << endl;
@@ -61,7 +61,7 @@ void LexicalAnalyser::openFile(const char* path) {
 }
 
 //获取下一个字符，忽略空白符
-char LexicalAnalyser::getNextChar() {
+char Lexical::getNextChar() {
 	char c;
 	while (src >> c) {
 		if (c == ' '||c=='\t') {
@@ -79,7 +79,7 @@ char LexicalAnalyser::getNextChar() {
 		return c;
 }
 
-Token LexicalAnalyser::getNextToken() {
+Token Lexical::getNextToken() {
 	char c = getNextChar();
 	switch (c) {
 		case '\n':
@@ -244,8 +244,8 @@ Token LexicalAnalyser::getNextToken() {
 	return Token(ERROR, "UNKOWN ERROR");
 }
 
-// LexicalAnalyser::result存放解析后的Token列表
-void LexicalAnalyser::analyse() {
+// Lexical::result存放解析后的Token列表
+void Lexical::analyse() {
 	while (1) {
 		Token t = getNextToken();
 		result.push_back(t);
@@ -258,7 +258,7 @@ void LexicalAnalyser::analyse() {
 	}
 }
 
-void LexicalAnalyser::outputToStream(ostream&out) {
+void Lexical::outputToStream(ostream&out) {
 	if (result.back().first == ERROR) {
 		out << token_to_string(result.back())<<endl;
 	}
@@ -270,11 +270,11 @@ void LexicalAnalyser::outputToStream(ostream&out) {
 	}
 }
 
-void LexicalAnalyser::outputToScreen() {
+void Lexical::outputToScreen() {
 	outputToStream(cout);
 }
 
-void LexicalAnalyser::outputToFile(const char *fileName) {
+void Lexical::outputToFile(const char *fileName) {
 	ofstream fout;
 	fout.open(fileName, ios::out);
 	if (!fout.is_open()) {
@@ -285,6 +285,6 @@ void LexicalAnalyser::outputToFile(const char *fileName) {
 	fout.close();
 }
 
-list<Token>&LexicalAnalyser::getResult() {
+list<Token>&Lexical::getResult() {
 	return result;
 }

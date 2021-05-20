@@ -29,14 +29,15 @@ string ObjectCodeGenerator::getArrName(string name) {
 }
 
 int ObjectCodeGenerator::getArrIndex(string name, string& index) {
-	string arrName = name.substr(0,name.find('['));
+	string arrName = name.substr(0,name.find('[')-0);
 	if (arrays.find(arrName)==arrays.end()){
 		outputError("数组"+arrName+": 不存在！");
 		return -1;
 	}
 
-	if(isNum(name.substr(name.find('[')+1,name.find(']')))){
-		int offset = atoi(name.substr(name.find('[')+1,name.find(']')).c_str());
+	string offset_string = name.substr(name.find('[')+1,name.find(']')-name.find('[')-1);
+	if(isNum(offset_string)){
+		int offset = atoi(offset_string.c_str());
 		int size = arrays.find(arrName)->second.length;
 		if(offset<0 || offset >= size){
 			outputError("数组"+arrName+": index "+to_string(offset)+" out of range.("+to_string(size)+");");
@@ -45,7 +46,7 @@ int ObjectCodeGenerator::getArrIndex(string name, string& index) {
 		return offset;
 	}
 	else{
-		index = name.substr(name.find('[')+1,name.find(']'));
+		index = offset_string;
 		return -1;
 	}
 }
@@ -114,7 +115,7 @@ void ObjectCodeGenerator::storeVar(string reg, string var) {
 		string index;
 		int offset = getArrIndex(var,index);
 		if(offset!=-1)
-			objectCodes.push_back(string("sw ") + reg + " " + arrName + "+" + to_string(4*offset));
+			objectCodes.push_back(string("sw ") + reg + " " + arrName + "+" + to_string(offset));
 		else{
 			string indexPos = allocateReg(index);
 			objectCodes.push_back(string("sw ") + reg + " " + arrName + "(" + indexPos + ")");
@@ -258,7 +259,7 @@ string ObjectCodeGenerator::allocateReg(string var) {
 		string index;
 		int offset = getArrIndex(var,index);
 		if(offset!=-1)
-			objectCodes.push_back(string("lw ") + ret + " " + arrName + "+" + to_string(4*offset));
+			objectCodes.push_back(string("lw ") + ret + " " + arrName + "+" + to_string(offset));
 		else{
 			string indexPos = allocateReg(index);
 			objectCodes.push_back(string("lw ") + ret + " " + arrName + "(" + indexPos + ")");
@@ -386,8 +387,16 @@ void ObjectCodeGenerator::analyseBlock(map<string, vector<Block> >*funcBlocks) {
 						if(offset==-1 && def.count(index)==0)
 							use.insert(index);
 					}
-					if (isVar(citer->des) && use.count(citer->des) == 0) {//如果目的操作数还没有被引用
+					if (isVar(citer->des) && !isArrItem(citer->des) && use.count(citer->des) == 0) {//如果目的操作数还没有被引用
 						def.insert(citer->des);
+					}
+					if (isArrItem(citer->des)){
+						if (def.count(getArrName(citer->des)) == 0)
+							use.insert(getArrName(citer->des));
+						string index;
+						int offset = getArrIndex(citer->des,index);
+						if(offset==-1 && def.count(index)==0)
+							use.insert(index);
 					}
 				}
 			}
@@ -522,6 +531,18 @@ void ObjectCodeGenerator::analyseBlock(map<string, vector<Block> >*funcBlocks) {
 					}
 				}
 				else {
+					if (isVar(citer->q.des)) {
+						citer->info3 = symTables[blockIndex][citer->q.des];
+						symTables[blockIndex][citer->q.des] = VarInfomation{ -1,false };
+						if (isArrItem(citer->q.des)){
+							string index;
+							int offset = getArrIndex(citer->q.des,index);
+							if(offset==-1){
+								symTables[blockIndex][index] = VarInfomation{ codeIndex,true };
+							}
+						}
+					}
+
 					if (isVar(citer->q.src1)) {
 						citer->info1 = symTables[blockIndex][citer->q.src1];
 						symTables[blockIndex][citer->q.src1] = VarInfomation{ codeIndex,true };
@@ -539,17 +560,6 @@ void ObjectCodeGenerator::analyseBlock(map<string, vector<Block> >*funcBlocks) {
 						if (isArrItem(citer->q.src2)){
 							string index;
 							int offset = getArrIndex(citer->q.src2,index);
-							if(offset==-1){
-								symTables[blockIndex][index] = VarInfomation{ codeIndex,true };
-							}
-						}
-					}
-					if (isVar(citer->q.des)) {
-						citer->info3 = symTables[blockIndex][citer->q.des];
-						symTables[blockIndex][citer->q.des] = VarInfomation{ -1,false };
-						if (isArrItem(citer->q.des)){
-							string index;
-							int offset = getArrIndex(citer->q.des,index);
 							if(offset==-1){
 								symTables[blockIndex][index] = VarInfomation{ codeIndex,true };
 							}
@@ -621,6 +631,10 @@ void ObjectCodeGenerator::outputObjectCode(const char* fileName) {
 //基本块出口，将出口活跃变量保存在内存
 void ObjectCodeGenerator::storeOutLiveVar(set<string>&outl) {
 	for (set<string>::iterator oiter = outl.begin(); oiter != outl.end(); oiter++) {
+		// 如果是数组名就不用存了
+		if(arrays.find(*oiter)!=arrays.end())
+			continue;
+
 		string reg;//活跃变量所在的寄存器名称
 		bool inFlag = false;//活跃变量在内存中的标志
 		for (set<string>::iterator aiter = Avalue[*oiter].begin(); aiter != Avalue[*oiter].end(); aiter++) {
@@ -724,7 +738,7 @@ void ObjectCodeGenerator::generateCodeForQuatenary(int nowBaseBlockIndex, int &a
 			string index;
 			int offset = getArrIndex(var,index);
 			if(offset!=-1)
-				objectCodes.push_back(string("lw $v0 ") + arrName + "+" + to_string(4*offset));
+				objectCodes.push_back(string("lw $v0 ") + arrName + "+" + to_string(offset));
 			else{
 				string indexPos = allocateReg(index);
 				objectCodes.push_back(string("lw $v0 ") + arrName + "(" + indexPos + ")");
@@ -769,16 +783,19 @@ void ObjectCodeGenerator::generateCodeForQuatenary(int nowBaseBlockIndex, int &a
 		string index;
 		int offset = getArrIndex(var,index);
 		if(offset!=-1)
-			objectCodes.push_back(string("sw ") + src1Pos + " " + arrName + "+" + to_string(4*offset));
+			objectCodes.push_back(string("sw ") + src1Pos + " " + arrName + "+" + to_string(offset));
 		else{
 			string indexPos = allocateReg(index);
 			objectCodes.push_back(string("sw ") + src1Pos + " " + arrName + "(" + indexPos + ")");
 		}
 		Avalue[var].insert(src1Pos);
+		Rvalue[src1Pos].insert(var);
 
 		if (!nowQuatenary->info3.active) {
 			releaseVar(var);
 		}
+		// TODO: 无条件释放index
+		releaseVar(index);
 	}
 	else {// + - * /
 		string src1Pos = allocateReg(nowQuatenary->q.src1);
@@ -797,10 +814,10 @@ void ObjectCodeGenerator::generateCodeForQuatenary(int nowBaseBlockIndex, int &a
 			objectCodes.push_back(string("div ") + src1Pos + " " + src2Pos);
 			objectCodes.push_back(string("mflo ") + desPos);
 		}
-		if (!nowQuatenary->info1.active) {
+		if (!nowQuatenary->info1.active && nowQuatenary->q.src1 != nowQuatenary->q.des) {
 			releaseVar(nowQuatenary->q.src1);
 		}
-		if (!nowQuatenary->info2.active) {
+		if (!nowQuatenary->info2.active && nowQuatenary->q.src2 != nowQuatenary->q.des) {
 			releaseVar(nowQuatenary->q.src2);
 		}
 	}

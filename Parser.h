@@ -1,6 +1,6 @@
 #pragma once
 #include "Common.h"
-#include "IntermediateCode.h"
+#include "InterCode.h"
 #ifndef PARSER_H
 #define PARSER_H
 //符号
@@ -216,7 +216,7 @@ public:
 	string newTemp();
 };
 
-class ParserAndSemanticAnalyser {
+class Parser {
 private:
 	int lineCount;
 	int nowLevel;//当前分析行所在的语句块级次
@@ -229,7 +229,7 @@ private:
 	stack<int> staStack;//状态栈
 	vector<Var> varTable;//变量表
 	vector<Func> funcTable;//函数表
-	IntermediateCode code;//生成的四元式
+	InterCode code;//生成的四元式
 	NewTemper nt;
 
 	void readProductions(const char*fileName);
@@ -247,15 +247,15 @@ private:
 	Symbol* popSymbol();
 	void pushSymbol(Symbol* sym);
 public:
-	ParserAndSemanticAnalyser(const char*fileName);
+	Parser(const char*fileName);
 	void outputDFA();
 	void outputDFA(const char* fileName);
-	void outputIntermediateCode();
-	void outputIntermediateCode(const char* fileName);
+	void outputInterCode();
+	void outputInterCode(const char* fileName);
 	void analyse(list<Token>&words,const char*fileName);
 	void analyse(list<Token>&words);
 	vector<pair<int, string> > getFuncEnter();
-	IntermediateCode* getIntermediateCode();
+	InterCode* getInterCode();
 };
 
 #endif // !PARSER_H

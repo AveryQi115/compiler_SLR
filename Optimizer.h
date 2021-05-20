@@ -1,12 +1,12 @@
 #pragma once
 
 #include "Common.h"
-#include "IntermediateCode.h"
+#include "InterCode.h"
 
 class Optimizer {
 private:
-	IntermediateCode code;
+	InterCode code;
 public:
-	Optimizer(IntermediateCode& code);
+	Optimizer(InterCode& code);
 
 };

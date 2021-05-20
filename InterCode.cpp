@@ -1,4 +1,4 @@
-#include "IntermediateCode.h"
+#include "InterCode.h"
 
 NewLabeler::NewLabeler() {
 	index = 1;
@@ -9,7 +9,7 @@ string NewLabeler::newLabel () {
 	return string("Label") + to_string(index++);
 }
 
-void IntermediateCode::divideBlocks(vector<pair<int, string> > funcEnter) {
+void InterCode::divideBlocks(vector<pair<int, string> > funcEnter) {
 	//对每一个函数块
 	for (vector<pair<int, string> >::iterator iter = funcEnter.begin(); iter != funcEnter.end(); iter++) {
 		vector<Block>blocks;
@@ -126,7 +126,7 @@ void IntermediateCode::divideBlocks(vector<pair<int, string> > funcEnter) {
 	}
 }
 
-void IntermediateCode::output(ostream& out) {
+void InterCode::output(ostream& out) {
 	int i = 0;
 	for (vector<Quaternary>::iterator iter = code.begin(); iter != code.end(); iter++, i++) {
 		out << setw(4) << i;
@@ -138,7 +138,7 @@ void IntermediateCode::output(ostream& out) {
 	}
 }
 
-void IntermediateCode::outputBlocks(ostream& out) {
+void InterCode::outputBlocks(ostream& out) {
 	for (map<string, vector<Block> >::iterator iter = funcBlocks.begin(); iter != funcBlocks.end(); iter++) {
 		out << "[" << iter->first << "]" << endl;
 		for (vector<Block>::iterator bIter = iter->second.begin(); bIter != iter->second.end(); bIter++) {
@@ -153,25 +153,25 @@ void IntermediateCode::outputBlocks(ostream& out) {
 	}
 }
 
-void IntermediateCode::emit(Quaternary q) {
+void InterCode::emit(Quaternary q) {
 	code.push_back(q);
 }
 
-void IntermediateCode::emit(string op, string src1, string src2, string des) {
+void InterCode::emit(string op, string src1, string src2, string des) {
 	emit(Quaternary{ op,src1,src2,des });
 }
 
-void IntermediateCode::back_patch(list<int>nextList, int quad) {
+void InterCode::back_patch(list<int>nextList, int quad) {
 	for (list<int>::iterator iter = nextList.begin(); iter != nextList.end(); iter++) {
 		code[*iter].des = to_string(quad);
 	}
 }
 
-void IntermediateCode::output() {
+void InterCode::output() {
 	output(cout);
 }
 
-void IntermediateCode::output(const char* fileName) {
+void InterCode::output(const char* fileName) {
 	ofstream fout;
 	fout.open(fileName);
 	if (!fout.is_open()) {
@@ -183,11 +183,11 @@ void IntermediateCode::output(const char* fileName) {
 	fout.close();
 }
 
-void IntermediateCode::outputBlocks() {
+void InterCode::outputBlocks() {
 	outputBlocks(cout);
 }
 
-void IntermediateCode::outputBlocks(const char* fileName) {
+void InterCode::outputBlocks(const char* fileName) {
 	ofstream fout;
 	fout.open(fileName);
 	if (!fout.is_open()) {
@@ -199,10 +199,10 @@ void IntermediateCode::outputBlocks(const char* fileName) {
 	fout.close();
 }
 
-int IntermediateCode::nextQuad() {
+int InterCode::nextQuad() {
 	return code.size();
 }
 
-map<string, vector<Block> >* IntermediateCode::getFuncBlock() {
+map<string, vector<Block> >* InterCode::getFuncBlock() {
 	return &funcBlocks;
 }

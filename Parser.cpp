@@ -1,4 +1,4 @@
-#include "ParserAndSemanticAnalyser.h"
+#include "Parser.h"
 
 list<int>merge(list<int>&l1, list<int>&l2) {
 	list<int>ret;
@@ -104,13 +104,13 @@ bool isVT(string s) {
 }
 
 
-/******************************* Class ParserAndSemanticAnalyser 语法加语义分析类 ********************************************************************************/
+/******************************* Class Parser 语法加语义分析类 ********************************************************************************/
 
 /*********************** SLR语法根据语法规则生成相应移进规约表 *******************************************************/
 
 // fileName: 存放语法规则的文件
 // 构造函数根据输入的语法规则生成移进规约表
-ParserAndSemanticAnalyser::ParserAndSemanticAnalyser(const char*fileName) {
+Parser::Parser(const char*fileName) {
 	readProductions(fileName);
 	getFirst();
 	getFollow();
@@ -118,7 +118,7 @@ ParserAndSemanticAnalyser::ParserAndSemanticAnalyser(const char*fileName) {
 	lineCount = 1;
 }
 
-void ParserAndSemanticAnalyser::getFirst() {
+void Parser::getFirst() {
 	bool changeFlag = true;
 	while (changeFlag) {
 		changeFlag = false;//first集改变标志
@@ -176,7 +176,7 @@ void ParserAndSemanticAnalyser::getFirst() {
 	}
 }
 
-void ParserAndSemanticAnalyser::getFollow() {
+void Parser::getFollow() {
 	//将#放入起始符号的FOLLOW集中
 	follow[productions[0].left] = set<Symbol>();
 	follow[productions[0].left].insert(Symbol{ true,"#" });
@@ -244,7 +244,7 @@ void ParserAndSemanticAnalyser::getFollow() {
 	}
 }
 
-void ParserAndSemanticAnalyser::outputDFA(ostream& out) {
+void Parser::outputDFA(ostream& out) {
 	int nowI = 0;
 	for (list<I>::iterator iter = dfa.stas.begin(); iter != dfa.stas.end(); iter++, nowI++) {
 		out << "I" << nowI << "= [";
@@ -267,11 +267,11 @@ void ParserAndSemanticAnalyser::outputDFA(ostream& out) {
 	}
 }
 
-void ParserAndSemanticAnalyser::outputDFA() {
+void Parser::outputDFA() {
 	outputDFA(cout);
 }
 
-void ParserAndSemanticAnalyser::outputDFA(const char* fileName) {
+void Parser::outputDFA(const char* fileName) {
 	ofstream fout;
 	fout.open(fileName);
 	if (!fout.is_open()) {
@@ -282,7 +282,7 @@ void ParserAndSemanticAnalyser::outputDFA(const char* fileName) {
 	fout.close();
 }
 
-void ParserAndSemanticAnalyser::readProductions(const char*fileName) {
+void Parser::readProductions(const char*fileName) {
 	ifstream fin;
 
 	//文件打开处理
@@ -319,7 +319,7 @@ void ParserAndSemanticAnalyser::readProductions(const char*fileName) {
 	}
 }
 
-I ParserAndSemanticAnalyser::derive(Item item) {
+I Parser::derive(Item item) {
 	I i;
 	// .在项目产生式的最右边，即是一个规约项目
 	if (productions[item.pro].right.size() == item.pointPos) {
@@ -350,7 +350,7 @@ I ParserAndSemanticAnalyser::derive(Item item) {
 	return i;
 }
 
-void ParserAndSemanticAnalyser::createDFA() {
+void Parser::createDFA() {
 	bool newFlag = true;//有新的状态产生标志
 	int nowI = 0;//当前状态的编号
 	dfa.stas.push_back(derive(Item{ 0,0 }));
@@ -435,7 +435,7 @@ void ParserAndSemanticAnalyser::createDFA() {
 
 
 
-Func* ParserAndSemanticAnalyser::lookUpFunc(string ID) {
+Func* Parser::lookUpFunc(string ID) {
 	for (vector<Func>::iterator iter = funcTable.begin(); iter != funcTable.end(); iter++) {
 		if (iter->name == ID) {
 			return &(*iter);
@@ -444,7 +444,7 @@ Func* ParserAndSemanticAnalyser::lookUpFunc(string ID) {
 	return NULL;
 }
 
-Var* ParserAndSemanticAnalyser::lookUpVar(string ID) {
+Var* Parser::lookUpVar(string ID) {
 	for (vector<Var>::reverse_iterator iter = varTable.rbegin(); iter != varTable.rend(); iter++) {
 		if (iter->name == ID) {
 			return &(*iter);
@@ -453,7 +453,7 @@ Var* ParserAndSemanticAnalyser::lookUpVar(string ID) {
 	return NULL;
 }
 
-bool ParserAndSemanticAnalyser::march(list<string>&argument_list, list<DType>&parameter_list) {
+bool Parser::march(list<string>&argument_list, list<DType>&parameter_list) {
 	if (argument_list.size() != parameter_list.size()) {
 		return false;
 	}
@@ -462,7 +462,7 @@ bool ParserAndSemanticAnalyser::march(list<string>&argument_list, list<DType>&pa
 	}
 }
 
-void ParserAndSemanticAnalyser::outputSymbolStack(ostream& out) {
+void Parser::outputSymbolStack(ostream& out) {
 	stack<Symbol*>temp = symStack;
 	stack<Symbol*>other;
 	while (!temp.empty()) {
@@ -476,7 +476,7 @@ void ParserAndSemanticAnalyser::outputSymbolStack(ostream& out) {
 	out << endl;
 }
 
-void ParserAndSemanticAnalyser::outputStateStack(ostream& out) {
+void Parser::outputStateStack(ostream& out) {
 	stack<int>temp = staStack;
 	stack<int>other;
 	while (!temp.empty()) {
@@ -491,22 +491,22 @@ void ParserAndSemanticAnalyser::outputStateStack(ostream& out) {
 
 }
 
-void ParserAndSemanticAnalyser::outputIntermediateCode() {
+void Parser::outputInterCode() {
 	code.output();
 }
 
-void ParserAndSemanticAnalyser::outputIntermediateCode(const char* fileName) {
+void Parser::outputInterCode(const char* fileName) {
 	code.output(fileName);
 }
 
-Symbol* ParserAndSemanticAnalyser::popSymbol() {
+Symbol* Parser::popSymbol() {
 	Symbol* ret = symStack.top();
 	symStack.pop();
 	staStack.pop();
 	return ret;
 }
 
-void ParserAndSemanticAnalyser::pushSymbol(Symbol* sym) {
+void Parser::pushSymbol(Symbol* sym) {
 	symStack.push(sym);
 	if (SLR1_Table.count(GOTO(staStack.top(), *sym)) == 0) {
 		outputError(string("语法错误：第") + to_string(lineCount) + "行，不期待的符号" + sym->content);
@@ -515,7 +515,7 @@ void ParserAndSemanticAnalyser::pushSymbol(Symbol* sym) {
 	staStack.push(bh.nextStat);
 }
 
-void ParserAndSemanticAnalyser::analyse(list<Token>&words, ostream& out) {
+void Parser::analyse(list<Token>&words, ostream& out) {
 	bool acc = false;
 	symStack.push(new Symbol(true, "#"));
 	staStack.push(0);
@@ -1138,10 +1138,10 @@ void ParserAndSemanticAnalyser::analyse(list<Token>&words, ostream& out) {
 					// 解析index_list
 					Nomial* total_index = new Nomial(Symbol());
 					if(v->size.size()==1)
-						total_index->name = index_list->index.at(0);
+						total_index->name = to_string(atoi(index_list->index.at(0).c_str())*4);
 					else{
 						total_index->name = "0";
-						int former_size = 1;
+						int former_size = 4;
 
 						for(int i=v->size.size()-1;i>=0;i--){
 							string cur_index = "0";
@@ -1213,7 +1213,7 @@ void ParserAndSemanticAnalyser::analyse(list<Token>&words, ostream& out) {
 	}
 }
 
-void ParserAndSemanticAnalyser::analyse(list<Token>&words, const char* fileName) {
+void Parser::analyse(list<Token>&words, const char* fileName) {
 	ofstream fout;
 	fout.open(fileName);
 	if (!fout.is_open()) {
@@ -1224,11 +1224,11 @@ void ParserAndSemanticAnalyser::analyse(list<Token>&words, const char* fileName)
 	fout.close();
 }
 
-void ParserAndSemanticAnalyser::analyse(list<Token>&words) {
+void Parser::analyse(list<Token>&words) {
 	analyse(words, cout);
 }
 
-vector<pair<int, string> >ParserAndSemanticAnalyser::getFuncEnter() {
+vector<pair<int, string> >Parser::getFuncEnter() {
 	vector<pair<int, string> >ret;
 	for (vector<Func>::iterator iter = funcTable.begin(); iter != funcTable.end(); iter++) {
 		ret.push_back(pair<int, string>(iter->enterPoint, iter->name));
@@ -1237,6 +1237,6 @@ vector<pair<int, string> >ParserAndSemanticAnalyser::getFuncEnter() {
 	return ret;
 }
 
-IntermediateCode* ParserAndSemanticAnalyser::getIntermediateCode() {
+InterCode* Parser::getInterCode() {
 	return &code;
 }

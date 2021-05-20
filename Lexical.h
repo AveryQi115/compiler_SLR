@@ -1,6 +1,6 @@
 #pragma once
 #include"Common.h"
-class LexicalAnalyser {
+class Lexical {
 private:
 	ifstream src;
 	list<Token> result;
@@ -11,8 +11,8 @@ private:
 	Token getNextToken();
 	void outputToStream(ostream&out);
 public:
-	LexicalAnalyser(const char* path);
-	~LexicalAnalyser();
+	Lexical(const char* path);
+	~Lexical();
 	void analyse();
 	void outputToScreen();
 	void outputToFile(const char *fileName);
